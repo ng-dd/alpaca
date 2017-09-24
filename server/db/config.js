@@ -11,6 +11,10 @@ const orderInfo = new Schema({
     currentLocation: String
 });
 
+const user = new Schema({
+    userName: String,
+})
+
 const Order = mongoose.model('Order', orderInfo);
 
 module.exports = {
