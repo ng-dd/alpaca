@@ -1,4 +1,4 @@
-const db = require('../db/config.js');
+// const db = require('../db/config.js');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
@@ -17,3 +17,4 @@ const OrderSchema = new mongoose.Schema({
 });
 
 mongoose.model('Order', OrderSchema);
+

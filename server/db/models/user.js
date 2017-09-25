@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-db = require('../db/config.js');
+// db = require('../db/config.js');
 
 const UserSchema = new mongoose.Schema({
     username: {
@@ -14,3 +14,5 @@ const UserSchema = new mongoose.Schema({
     },
     profilename: String,
 })
+
+mongoose.model('user', UserSchema);
