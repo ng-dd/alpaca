@@ -10,21 +10,6 @@ const db = mongoose.createConnection(mongoDB, { config: {autoIndex: false} }, (e
     }
 });
 
-
-const Schema = mongoose.Schema;
-
-const orderInfo = new Schema({
-    trackingNumber: String,
-    order: String,
-    currentLocation: String
-});
-
-const user = new Schema({
-    userName: String,
-})
-
-const Order = mongoose.model('Order', orderInfo);
-
 module.exports = {
     db
 }
