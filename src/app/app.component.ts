@@ -13,6 +13,7 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title= 'Alpaca';
   // Create properties for orders
   user: Observable<firebase.User>;
   orders: FirebaseListObservable<any[]>;

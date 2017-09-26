@@ -9,4 +9,5 @@ export class Order {
     status: String; // => departed
     deliveryDate: String; // => date, evening/afternoon/moring;
     timeStamp: Date = new Date();
+    active: boolean = true;
 }

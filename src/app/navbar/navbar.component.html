@@ -1,10 +1,17 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">{{title}}</a>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">
+      <i class="fa fa-home" aria-hidden="true"></i>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Track a package</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Sign up</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+        <li class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li>
+      </ul>
     </div>
-    <ul class="nav navbar-nav">
-        <li><a (click)="logout()">Logout</a></li>
-    </ul>
-  </div>
-</nav>
+  </nav>  

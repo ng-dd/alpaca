@@ -1,3 +1,6 @@
-<p>
-  order-dashboard works!
-</p>
+<div *ngFor="let order of orders | async" >
+  <order-details [order]='order'></order-details>
+</div>
+<button (click) ='deleteEverything'>Clear List of Orders</button>
+<hr>
+<add-order-dashboard></add-order-dashboard>
