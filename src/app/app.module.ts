@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-// Firebase 
+// Firebase - Require Firebase config, db, auth
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -45,9 +45,9 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     NgbModule.forRoot(),
     FormsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
+    AngularFireModule.initializeApp(firebaseConfig), // imports firebase/app needed for everything
+    AngularFireDatabaseModule, // imports firebase/database, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     HttpModule
   ],
   providers: [AuthService],

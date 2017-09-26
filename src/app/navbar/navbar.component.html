@@ -1,20 +1,10 @@
-<div class="nav">
-    <div class="nav-header">
-      <div class="nav-title">
-        {{title}}
-      </div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">{{title}}</a>
     </div>
-    <div class="nav-btn">
-      <label for="nav-check">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-    </div>
-    <input type="checkbox" id="nav-check">
-    <div class="nav-links">
-      <a href="/#" target="_blank">Github</a>
-      <a href="/#" target="_blank">Stackoverflow</a>
-      <a href="/#" target="_blank">LinkedIn</a>
-    </div>
+    <ul class="nav navbar-nav">
+        <li><a (click)="logout()">Logout</a></li>
+    </ul>
   </div>
+</nav>
