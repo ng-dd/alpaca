@@ -8,5 +8,6 @@ export class Order {
     currentLocation: String; // => somewhere
     status: String; // => departed
     deliveryDate: String; // => date, evening/afternoon/moring;
-    timeStamp: Date = new Date();
+    timeStamp: number; // => Date = new Date
+    active: boolean = true;
 }
