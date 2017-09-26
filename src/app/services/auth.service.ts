@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-// import { AngularFire } from 'angularfire2'
+// import { AngularFire } from 'angularfire2'; deprecated
 import * as firebase from 'firebase/app';
 
 import { EmailPasswordCredentials } from '../shared/email-password-credentials';
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
-
+  provider = new firebase.auth.FacebookAuthProvider();
   // authState: FirebaseAuthState = null;
 
   constructor(private firebaseAuth: AngularFireAuth) {
@@ -22,13 +22,17 @@ export class AuthService {
     this.firebaseAuth
       .auth
       .createUserWithEmailAndPassword(email, password)
-      .then(value => {
+      .then(value => {  
         console.log('Success!', value);
       })
       .catch(err => {
         console.log('Something went wrong:',err.message);
       });    
   }
+
+  // facebookLogin() {
+    
+  // }
 
   login(email: string, password: string) {
     this.firebaseAuth

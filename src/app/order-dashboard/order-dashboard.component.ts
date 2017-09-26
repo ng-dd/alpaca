@@ -11,15 +11,16 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class OrderDashboardComponent implements OnInit {  
   orders: FirebaseListObservable<Order[]>;
-
+  
   constructor(private orderService: OrderService ) { }
 
   ngOnInit() {
-    this.orders = this.orderService.getOrdersList({limitToLast: 5});
+    // may need to define some static thing to order
+    // this.orders = this.orderService.getOrdersList({limitToLast: 5});
   }
 
-  deleteEverything() {
-    this.orderService.deleteEverything();
-  }
+  // deleteEverything() {
+  //   this.orderService.deleteEverything();
+  // }
 
 }

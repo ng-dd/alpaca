@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms'; //may be overkill but handles all login requirements
+import { ReactiveFormsModule, FormGroup, Validators } from '@angular/forms'; //may be overkill but handles all login requirements
 
 @Component({
   selector: 'app-register',
@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   newUser: boolean = true;
   passReset: boolean = false;
 
-  constructor(private fb: FormBuilder, private auth: AuthService) { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
     // this.buildForm();
