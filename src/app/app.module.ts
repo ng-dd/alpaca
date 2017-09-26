@@ -16,6 +16,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { OrderComponent } from './order/order.component';
 import { UserComponent } from './user/user.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UserComponent } from './user/user.component';
     NotFoundComponent,
     RegisterComponent,
     OrderComponent,
-    UserComponent
+    UserComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
