@@ -1,3 +1,4 @@
-<p>
-  register works!
-</p>
+<div>
+  <input placeholder="username" [(ngModel)]="username"/>
+  <input placeholder="password" [(ngModel)]="password" (keyup.enter)="signup(username, password)"/>
+</div>

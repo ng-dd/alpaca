@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from 'angularfire2/auth';
+// import { AngularFire } from 'angularfire2'
 import * as firebase from 'firebase/app';
+
+import { EmailPasswordCredentials } from '../shared/email-password-credentials';
 
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
+
+  // authState: FirebaseAuthState = null;
 
   constructor(private firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
