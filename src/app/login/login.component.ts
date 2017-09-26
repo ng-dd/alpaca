@@ -22,6 +22,18 @@ export class LoginComponent {
     this.email = this.password = '';    
   }
 
+  facebookAuth() {
+    this.authService.facebookLogin();
+  }
+
+  googleAuth() {
+    this.authService.googleLogin();
+  }
+
+  twitterAuth() {
+    this.authService.twitterLogin();
+  }
+
   logout() {
     this.authService.logout();
   }

@@ -30,9 +30,24 @@ export class AuthService {
       });    
   }
 
-  // facebookLogin() {
-    
-  // }
+  facebookLogin() {
+    this.firebaseAuth.auth
+    .signInWithPopup(new firebase.auth.FacebookAuthProvider)
+    .then(res => console.log(res));
+
+  }
+
+  googleLogin() {
+    this.firebaseAuth.auth
+    .signInWithPopup(new firebase.auth.GoogleAuthProvider)
+    .then(res => console.log(res));
+  }
+  
+  twitterLogin() {
+    this.firebaseAuth.auth
+    .signInWithPopup(new firebase.auth.TwitterAuthProvider)
+    .then(res => console.log(res));
+  }
 
   login(email: string, password: string) {
     this.firebaseAuth
