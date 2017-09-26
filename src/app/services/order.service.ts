@@ -4,26 +4,32 @@ import { Order } from '../shared/order';
 
 @Injectable()
 export class OrderService {
-  private basePath: string = '/orders'; // => declare a path for nosql db
+  private basePath: '/orders'; // => declare a path for nosql db
 
   orders: FirebaseListObservable<Order[]> = null; // List of orders
   order: FirebaseObjectObservable<Order> = null; // Single orders
 
-  constructor(private db: AngularFireDatabase) {}
+  constructor(private db: AngularFireDatabase) {
+  }
 
-  getOrdersList(query={}): FirebaseListObservable<Order[]> {  // => Get a list of orders using API
-    this.orders = this.db.list(this.basePath, {
+  // => Get a list of orders using API
+   // Return an observable list with optional query
+  // You will usually call this from OnInit in a component
+  getOrdersList(query= {}): FirebaseListObservable<Order[]> { 
+    this.orders = this.db.list('/orders', {
       query: query
     });
     return this.orders;
   }
-
-  getOrder(key: string): FirebaseObjectObservable<Order> { // => Get a single order
+// => Get a single, observable order
+  getOrder(key: string): FirebaseObjectObservable<Order> { 
     const orderPath = `${this.basePath}/${key}`;
-    this.order = this.db.object{orderPath}
+    this.order = this.db.object(orderPath);
     return this.order;
   }
-  createOrder(order: Order): void {   // => Create a new order
+  
+  // => Create a new order . void operates on items variable or takes a specific key as component
+  createOrder(order: Order): void {   
     this.orders.push(order)
     .catch(error => this.handleError(error));
   }
