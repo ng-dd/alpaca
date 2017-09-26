@@ -6,6 +6,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
+import { Order } from './order';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ import * as firebase from 'firebase/app';
 export class AppComponent {
   // Create properties for orders
   user: Observable<firebase.User>;
-  orders: FirebaseListObservable<any[]>;
+  order: FirebaseListObservable<Order> = null;
+  orders: FirebaseListObservable<Order[]> = null;
 
   // Pass in Fire auth and database
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
@@ -24,9 +26,8 @@ export class AppComponent {
         orderByChild: 'timestamp'
       }
     });
-
+    
     this.user = this.afAuth.authState;
-
   }
 
   login() {
@@ -37,9 +38,21 @@ export class AppComponent {
     this.afAuth.auth.signOut();
   }
 // CREATE
-  addOrder(newName: string) {
-    this.orders.push({ text: newName });
+  addOrder(newName) {
+    this.orders.push({
+      itemname: newName.itemname,
+      store: newName.store
+    });
   }
+
+//READ
+  getOrder() {
+    // console.log(this.orders);
+    this.orders.subscribe((order) => {
+      console.log(order)
+    })
+  }
+
 // UPDATE
   updateItem(key: string, newText: string) {
     this.orders.update(key, { text: newText });
