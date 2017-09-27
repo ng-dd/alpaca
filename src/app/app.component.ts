@@ -13,7 +13,8 @@ import { OrderService } from './services/order.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  // templateUrl: './app.component.html',
+  templateUrl: './add-order-dashboard/add-order-dashboard.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {

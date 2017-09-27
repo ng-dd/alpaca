@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-add-order-dashboard',
@@ -6,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-order-dashboard.component.css']
 })
 export class AddOrderDashboardComponent implements OnInit {
+  submitted = false;
+  
+  constructor(
+    private orderService: OrderService) { }
 
-  constructor() { }
 
+  onsubmit() {
+    this.submitted = true
+  }
+  
   ngOnInit() {
   }
 

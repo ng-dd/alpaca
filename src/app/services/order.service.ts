@@ -10,15 +10,26 @@ export class OrderService {
 
   orders: FirebaseListObservable<Order[]> = null; // List of orders
   order: FirebaseObjectObservable<Order> = null; // Single orders
+  store: '' ;
+  nickname: '';
 
   constructor(private db: AngularFireDatabase, private http: Http) {
-
+    this.orders = db.list('/orders', {
+      query: {
+        orderByChild: 'timestamp'
+      }
+    })
   }
 
   //create authorization for headers
   createAuthorizationHeader(headers:Headers) {
     headers.append('Authorization', 'ShippoToken shippo_live_f6263ed293b9383dd58aaff78ca2ce1626e77645'); 
   }  
+
+
+  send(desc: string) {
+
+  }
 
   // => Get a list of orders using API
   getData(trackingNumber) {
@@ -38,12 +49,15 @@ export class OrderService {
     .subscribe(res => {
       var data = res.json();
       this.orders.push({
+        store: this.store,
+        nickname: this.nickname,
         carrier: data.carrier,
         status: data.tracking_status.status,
         location: data.tracking_status.location.city, 
       })
     })
   }
+
    // Return an observable list with optional query
   // You will usually call this from OnInit in a component
   getOrdersList(query= {}): FirebaseListObservable<Order[]> { 
