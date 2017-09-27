@@ -1,3 +1,32 @@
-<p>
-  add-order-dashboard works!
-</p>
+<div *ngIf='!name; else forminfo'>
+    <form [formGroup]='rForm' (ngSubmit)="addPost(rForm.value)">
+        <div class="form-container">
+            <div class="row columns">
+            
+                <h1> Add Order</h1>
+                <label>Nickname
+                    <input type='text' formControlName='name'>
+                </label>
+                <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+                    This is required
+                </div>
+
+                <label> Tracking Number
+                        <input type='text' formControlName='trackingnumber'>
+                </label>
+                <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+                        A tracking number is required
+                </div>
+
+                <label> Store
+                        <input type='text' formControlName='store'>
+                </label>
+                <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+                        You must specify a store
+                </div>
+
+                <input type='submit' class='button expanded' value='submit form' [disabled]='!rForm.valid'>
+            </div>
+        </div>
+    </form>
+</div>
