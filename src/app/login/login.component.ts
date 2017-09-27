@@ -12,10 +12,10 @@ export class LoginComponent {
 
   constructor(public authService: AuthService) {}
 
-  signup() {
-    this.authService.signup(this.email, this.password);
-    this.email = this.password = '';
-  }
+  // signup() {
+  //   this.authService.signup(this.email, this.password);
+  //   this.email = this.password = '';
+  // }
 
   login() {
     this.authService.login(this.email, this.password);

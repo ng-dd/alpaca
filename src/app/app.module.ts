@@ -11,6 +11,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { firebaseConfig } from '../environments/firebase.config';
 import { AuthService } from './services/auth.service';
 import { OrderService } from './services/order.service';
+import { UserService } from './services/user.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
@@ -53,6 +54,7 @@ import { HomeComponent } from './home/home.component';
   providers: [
     AuthService, 
     OrderService,
+    UserService,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
