@@ -32,8 +32,7 @@ export class OrderService {
   }
 
   // => Get a list of orders using API
-  getData(trackingNumber) {
-    var carrier = guessCarrier(trackingNumber)[0];
+  getData(trackingNumber, carrier, nickname, store) {
     var headers = new Headers();
     this.createAuthorizationHeader(headers);
 
@@ -49,11 +48,11 @@ export class OrderService {
     .subscribe(res => {
       var data = res.json();
       this.orders.push({
-        store: this.store,
-        nickname: this.nickname,
         carrier: data.carrier,
         status: data.tracking_status.status,
-        location: data.tracking_status.location.city, 
+        location: data.tracking_status.location.city,
+        nickname: nickname,
+        store: store
       })
     })
   }

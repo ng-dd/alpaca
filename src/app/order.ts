@@ -1,3 +1,8 @@
 export class Order {
-    itemname: String;
+    
+    constructor(
+        public nickName: string,
+        public trackingNumber: string,
+        public store: string
+    ) { }
 }

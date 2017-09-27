@@ -35,6 +35,12 @@ export class AppComponent {
     this.user = this.afAuth.authState;
   }
 
+
+  //testing some shit
+  onSubmit(form: any):void {
+    console.log("forms", form)
+  }
+
   login() {
     this.afAuth.auth.signInWithPopup (new firebase.auth.GoogleAuthProvider());
   }
