@@ -6,6 +6,10 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
+import { Order } from './order';
+
+//services
+import { OrderService } from './services/order.service';
 
 @Component({
   selector: 'app-root',
@@ -16,18 +20,18 @@ export class AppComponent {
   title= 'Alpaca';
   // Create properties for orders
   user: Observable<firebase.User>;
-  orders: FirebaseListObservable<any[]>;
+  order: FirebaseListObservable<Order> = null;
+  orders: FirebaseListObservable<Order[]> = null;
 
   // Pass in Fire auth and database
-  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
+  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, public orderService: OrderService) {
     this.orders = db.list('/orders', {
       query: {
         orderByChild: 'timestamp'
       }
     });
-
+    
     this.user = this.afAuth.authState;
-
   }
 
   login() {
@@ -38,20 +42,11 @@ export class AppComponent {
     this.afAuth.auth.signOut();
   }
 // CREATE
-  addOrder(newName: string) {
-    this.orders.push({ text: newName });
-  }
-// UPDATE
-  updateItem(key: string, newText: string) {
-    this.orders.update(key, { text: newText });
-  }
-// DELETE
-  deleteItem(key: string) {
-    this.orders.remove(key);
-  }
-// DELETE ALL
-  deleteEverything() {
-    this.orders.remove();
+  addOrder(newName) {
+    this.orders.push({
+      itemname: newName.itemname,
+      store: newName.store
+    });
   }
 
 }

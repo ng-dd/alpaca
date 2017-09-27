@@ -2,7 +2,7 @@
 <!-- <app-navbar></app-navbar> -->
 <div class="container">
   <h1>
-    {{title}}
+    Alpaca
   </h1>
   <app-register></app-register>
   <div> {{ (user | async)?.uid }} </div>
@@ -17,13 +17,3 @@
 <!-- Uncomment below when we have our routes working -->
 <!-- <router-outlet></router-outlet> -->
 </div>
-
-
-<!-- // <div> {{ (user | async)?.uid }} </div>
-<button (click)="login()">Login</button>
-<button (click)="logout()">Logout</button>
-<ul>
-  <li class="text" *ngFor="let order of orders | async">
-    {{order.$value}}
-  </li>
-</ul> -->

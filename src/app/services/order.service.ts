@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database';
 import { Order } from '../shared/order';
+import { Http, Response, Headers } from '@angular/http';
+import * as guessCarrier from 'guess-carrier'
 
 @Injectable()
 export class OrderService {
@@ -9,10 +11,39 @@ export class OrderService {
   orders: FirebaseListObservable<Order[]> = null; // List of orders
   order: FirebaseObjectObservable<Order> = null; // Single orders
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase, private http: Http) {
+
   }
 
+  //create authorization for headers
+  createAuthorizationHeader(headers:Headers) {
+    headers.append('Authorization', 'ShippoToken shippo_live_f6263ed293b9383dd58aaff78ca2ce1626e77645'); 
+  }  
+
   // => Get a list of orders using API
+  getData(trackingNumber) {
+    var carrier = guessCarrier(trackingNumber)[0];
+    var headers = new Headers();
+    this.createAuthorizationHeader(headers);
+
+    var content = JSON.stringify({
+      carrier: carrier,
+      tracking_number: trackingNumber
+    })
+
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('https://api.goshippo.com/tracks/', content, {
+      headers: headers
+    })
+    .subscribe(res => {
+      var data = res.json();
+      this.orders.push({
+        carrier: data.carrier,
+        status: data.tracking_status.status,
+        location: data.tracking_status.location.city, 
+      })
+    })
+  }
    // Return an observable list with optional query
   // You will usually call this from OnInit in a component
   getOrdersList(query= {}): FirebaseListObservable<Order[]> { 
@@ -38,10 +69,6 @@ export class OrderService {
     this.orders.update(key, value)
     .catch(error => this.handleError(error));
   }
-  // // UPDATE FROM MESSAGING APP 
-  // updateItem(key: string, newText: string) {
-  //   this.orders.update(key, { text: newText });
-  // }
 
   // => Delete a single order
   deleteOrder(key: string): void {
