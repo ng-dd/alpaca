@@ -36,24 +36,12 @@ export class AppComponent {
   }
 
 
-  //testing some shit
-  onSubmit(form: any):void {
-    console.log("forms", form)
-  }
-
   login() {
     this.afAuth.auth.signInWithPopup (new firebase.auth.GoogleAuthProvider());
   }
 
   logout() {
     this.afAuth.auth.signOut();
-  }
-// CREATE
-  addOrder(newName) {
-    this.orders.push({
-      itemname: newName.itemname,
-      store: newName.store
-    });
   }
 
 }

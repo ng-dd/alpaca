@@ -1,34 +1,32 @@
-<div class="container">
-  <h1>Add Order Form</h1>
-  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" >
-    <div class="form-group">
-      <label>nickname</label>
-      <input type="text" name="nickname" required ngModel>
-    </div>
+<div *ngIf='!name; else forminfo'>
+    <form [formGroup]='rForm' (ngSubmit)="addPost(rForm.value)">
+        <div class="form-container">
+            <div class="row columns">
+            
+                <h1> Add Order</h1>
+                <label>Nickname
+                    <input type='text' formControlName='name'>
+                </label>
+                <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+                    This is required
+                </div>
 
-    <div class="form-group">
-      <label>tracking number</label>
-      <input type="text" id="trackingnumber" name="trackingNumber" ngModel>
-    </div>
+                <label> Tracking Number
+                        <input type='text' formControlName='trackingnumber'>
+                </label>
+                <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+                        A tracking number is required
+                </div>
 
-    <div class="form-group">
-        <label>store</label>
-        <input type="text" id="store" name="store" ngModel>
-    </div>
+                <label> Store
+                        <input type='text' formControlName='store'>
+                </label>
+                <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+                        You must specify a store
+                </div>
 
-    <button type="submit">submit</button>
-  </form>
+                <input type='submit' class='button expanded' value='submit form' [disabled]='!rForm.valid'>
+            </div>
+        </div>
+    </form>
 </div>
-
-<!-- <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name"
-             required
-             [(ngModel)]="model.name" name="name"
-             #name="ngModel">
-      <div [hidden]="name.valid || name.pristine"
-           class="alert alert-danger">
-        Name is required
-      </div>
-    </div> -->

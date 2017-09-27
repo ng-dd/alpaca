@@ -26,11 +26,6 @@ export class OrderService {
     headers.append('Authorization', 'ShippoToken shippo_live_f6263ed293b9383dd58aaff78ca2ce1626e77645'); 
   }  
 
-
-  send(desc: string) {
-
-  }
-
   // => Get a list of orders using API
   getData(trackingNumber, carrier, nickname, store) {
     var headers = new Headers();
