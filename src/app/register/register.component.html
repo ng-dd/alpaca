@@ -1,8 +1,8 @@
 <div>
   <input placeholder="firstname" [(ngModel)]="firstname"/>
   <input placeholder="lastname" [(ngModel)]="lastname"/>
-  <input placeholder="username" [(ngModel)]="username"/>
-  <input placeholder="password" [(ngModel)]="password" (keyup.enter)="signup(username, password)"/>
-  <button (click)="checkToken()">Check user token</button>
+  <input placeholder="email" [(ngModel)]="email"/>
+  <input placeholder="password" [(ngModel)]="password" (keyup.enter)="signup()"/>
   <button (click)="signup()">SIGN UP</button>
+  <button (click)="checkToken()">Check user token</button>
 </div>

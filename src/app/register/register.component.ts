@@ -11,17 +11,17 @@ import { ReactiveFormsModule, FormGroup, Validators } from '@angular/forms'; //m
 })
 export class RegisterComponent implements OnInit {
   // userForm: FormGroup;
-  username: "";
-  password: "";
-  firstname: "";
-  lastname: "";
+  email: string;
+  password: string;
+  firstname: string;
+  lastname: string;
   newUser: boolean = true;
   passReset: boolean = false;
 
   constructor(private auth: AuthService, private user: UserService, private afAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
-    // this.buildForm();
+
   }
 
   
@@ -36,15 +36,7 @@ export class RegisterComponent implements OnInit {
   }
 
   signup(): void {
-    this.auth.signup(this.username, this.password, this.firstname, this.lastname)
-    console.log(this.username, this.password, this.firstname, this.lastname)
-    // this.user.createUser({
-    //   $key: this.afAuth.auth.currentUser.uid,
-    //   email: this.afAuth.auth.currentUser.email,
-    //   firstname: string,
-    //   lastname: string,
-    //   imageUrl: string,
-    // })
+    this.auth.signup(this.email, this.password, this.firstname, this.lastname)
   }
 
 }
