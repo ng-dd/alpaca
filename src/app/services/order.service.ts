@@ -8,7 +8,7 @@ import { UserService } from './user.service';
 
 @Injectable()
 export class OrderService {
-  private basePath: '/orders'; // => declare a path for nosql db
+  private basePath: '/users'; // => declare a path for nosql db
 
   orders: FirebaseListObservable<Order[]> = null; // List of orders
   order: FirebaseObjectObservable<Order> = null; // Single orders
@@ -72,54 +72,21 @@ export class OrderService {
     })
   }
 
-  // => Get a list of orders using API
-  // getData(trackingNumber, carrier, nickname, store) {
-  //   var headers = new Headers();
-  //   this.createAuthorizationHeader(headers);
-
-  //   var content = JSON.stringify({
-  //     carrier: carrier,
-  //     tracking_number: trackingNumber
-  //   })
-
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.post('https://api.goshippo.com/tracks/', content, {
-  //     headers: headers
-  //   })
-  //   .subscribe(res => {
-  //     var data = res.json();
-  //     this.orders.push({
-  //       carrier: data.carrier,
-  //       status: data.tracking_status.status,
-  //       location: data.tracking_status.location.city,
-  //       nickname: nickname,
-  //       store: store
-  //     })
-
-  //     console.log(this.afAuth.auth.currentUser, 'checking some uer')
-  //   })
-  // }
-
    // Return an observable list with optional query
   // You will usually call this from OnInit in a component
   getOrdersList(query= {}): FirebaseListObservable<Order[]> { 
-    this.orders = this.db.list('/orders', {
+    this.orders = this.db.list(`/users/${this.afAuth.auth.currentUser.uid}/orders`, {
       query: query
     });
     return this.orders;
   }
 // => Get a single, observable order
-  getOrder(key: string): FirebaseObjectObservable<Order> { 
-    const orderPath = `${this.basePath}/${key}`;
+  getOrder(order: string): FirebaseObjectObservable<Order> { 
+    const orderPath = `/users/${this.afAuth.auth.currentUser.uid}/orders/${order}`;
     this.order = this.db.object(orderPath);
     return this.order;
   }
   
-  // => Create a new order . void operates on items variable or takes a specific key as component
-  // createOrder(order: Order): void {   
-  //   this.orders.push(order)
-  //   .catch(error => this.handleError(error));
-  // }
   // => Update an existing order
   updateOrder(key: string, value: any): void {
     this.orders.update(key, value)

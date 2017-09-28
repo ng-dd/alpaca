@@ -1,7 +1,11 @@
-<div *ngIf="order">
-  <h4>order component testing</h4>
+<div>
+  <!-- <h4>order component testing</h4>
   {{order.carrier}}
-  <button (click)="getOrder()">click me!</button>
+  <button (click)="getOrder()">click me!</button> -->
   <button (click)="getOrderList()">log orders</button>
-  <button (click)="findUser()">Check User</button>
+  <!-- <button (click)="findUser()">Check User</button> -->
+  <div *ngFor="let item of orders" >
+    <p>{{ item.status }}</p>
+    <button (click)="getOrder()">get order details</button>
+  </div>
 </div>

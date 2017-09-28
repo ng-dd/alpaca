@@ -13,15 +13,15 @@ import { Order } from '../../shared/order';
 export class OrderComponent implements OnInit {
   
   order: Object = null;
-  orders: FirebaseListObservable<Order[]> = null;
+  orders: Order[] = null;
   user: string = null;
 
   constructor( public db: AngularFireDatabase, public orderService: OrderService, public afAuth: AngularFireAuth ) {
-    this.orders = db.list('/orders')
+    // this.orders = db.list('/orders')
   }
 
   ngOnInit() {
-    this.getOrder();
+    this.getOrderList();
   }
 
   findUser() {
@@ -30,17 +30,18 @@ export class OrderComponent implements OnInit {
   }
 
   getOrder() {
-    // this.orders.push(this.orderService.getOrder('-Kv09YXEau8J-y8fQCQN'))
-    this.orderService.getOrder('-Kv09YXEau8J-y8fQCQN')
+    this.orderService.getOrder('920241085725456')
       .subscribe(data => {
         this.order = data;
       })
       console.log('ORDER -->', this.order)
   }  
+
   getOrderList() {
     this.orderService.getOrdersList()
       .subscribe((data) => {
         console.log('LIST -->', data);
+        this.orders = data;
       })
   }
 
