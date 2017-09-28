@@ -22,7 +22,7 @@ export class AuthService {
       .then(value => {  
         console.log('Success!', value, value.uid);
         this.userService.createUser({
-          key: String(value.uid),
+          key: value.uid,
           email: value.email,
           firstname: firstname,
           lastname: lastname,
@@ -35,23 +35,53 @@ export class AuthService {
       });    
   }
 
-  facebookLogin() {
+  facebookLogin() { //bug in which account cannot be wiped from database as long user is still on webpage
     this.firebaseAuth.auth
     .signInWithPopup(new firebase.auth.FacebookAuthProvider)
-    .then(res => console.log(res));
-
+    .then(res => {
+      console.log(res)
+      this.userService.createUser({
+        key: this.firebaseAuth.auth.currentUser.uid,
+        email: this.firebaseAuth.auth.currentUser.email,
+        firstname: res.additionalUserInfo.profile.first_name,
+        lastname: res.additionalUserInfo.profile.last_name,
+        imageUrl: res.additionalUserInfo.profile.picture.data.url,
+        orders: null,
+      });
+    });
   }
 
   googleLogin() {
     this.firebaseAuth.auth
     .signInWithPopup(new firebase.auth.GoogleAuthProvider)
-    .then(res => console.log(res));
+    .then(res => {
+      console.log(res)
+      this.userService.createUser({
+        key: this.firebaseAuth.auth.currentUser.uid,
+        email: this.firebaseAuth.auth.currentUser.email,
+        firstname: res.additionalUserInfo.profile.given_name,
+        lastname: res.additionalUserInfo.profile.family_name,
+        imageUrl: res.additionalUserInfo.profile.picture,
+        orders: null,
+      });
+    });
   }
   
   twitterLogin() {
     this.firebaseAuth.auth
     .signInWithPopup(new firebase.auth.TwitterAuthProvider)
-    .then(res => console.log(res));
+    .then(res => {
+      console.log(res)
+      let nameArray: string[] = res.additionalUserInfo.profile.name.split(' ')
+      this.userService.createUser({
+        key: this.firebaseAuth.auth.currentUser.uid,
+        email: this.firebaseAuth.auth.currentUser.email,
+        firstname: nameArray[0],
+        lastname: nameArray.length > 1 ? nameArray[nameArray.length - 1] : 'unspecified',
+        imageUrl: res.additionalUserInfo.profile.profile_image_url,
+        orders: null,
+      });
+    });
   }
 
   login(email: string, password: string) {
