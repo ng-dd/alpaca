@@ -19,11 +19,6 @@ export class UserService {
     this.user = this.db.object(userPath);
     return this.user;
   }
-<<<<<<< 6b05d01fbb02be626acad6a22940a9b31bd089d5
-    
-=======
-
->>>>>>> deleted comments
   createUser(user: User) {
     this.getUser(user.key)
     .subscribe((data) =>{
