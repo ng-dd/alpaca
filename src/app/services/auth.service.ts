@@ -15,6 +15,17 @@ export class AuthService {
     this.user = firebaseAuth.authState;
   }
 
+  resetPassword(email: string) {
+    let auth = firebase.auth();
+    return auth.sendPasswordResetEmail(email)
+      .then(()=> {
+        console.log('email sent')
+      })
+      .catch((err) => {
+        console.log(err, 'couldnt send email')
+      })
+  }
+
   signup(email: string, password: string, firstname: string, lastname: string) {
     this.firebaseAuth
       .auth
