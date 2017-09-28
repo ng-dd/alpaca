@@ -19,7 +19,6 @@ export class UserService {
     this.user = this.db.object(userPath);
     return this.user;
   }
-    
   createUser(user: User) {
     this.getUser(user.key)
     .subscribe((data) =>{
