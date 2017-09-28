@@ -29,8 +29,8 @@ export class OrderComponent implements OnInit {
     console.log(this.user);
   }
 
-  getOrder() {
-    this.orderService.getOrder('920241085725456')
+  getOrder(order) {
+    this.orderService.getOrder(order)
       .subscribe(data => {
         this.order = data;
       })

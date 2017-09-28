@@ -6,6 +6,6 @@
   <!-- <button (click)="findUser()">Check User</button> -->
   <div *ngFor="let item of orders" >
     <p>{{ item.status }}</p>
-    <button (click)="getOrder()">get order details</button>
+    <button (click)="getOrder(item.trackingNumber)">get order details</button>
   </div>
 </div>
