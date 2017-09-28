@@ -1,20 +1,17 @@
-<div class="nav">
-    <div class="nav-header">
-      <div class="nav-title">
-        {{title}}
-      </div>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">
+      <i class="fa fa-home" aria-hidden="true"></i>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Track a package</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Sign up</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+        <li class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li>
+      </ul>
     </div>
-    <div class="nav-btn">
-      <label for="nav-check">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-    </div>
-    <input type="checkbox" id="nav-check">
-    <div class="nav-links">
-      <a href="/#" target="_blank">Github</a>
-      <a href="/#" target="_blank">Stackoverflow</a>
-      <a href="/#" target="_blank">LinkedIn</a>
-    </div>
-  </div>
+  </nav>  
