@@ -16,7 +16,7 @@ export class OrderService {
   nickname: '';
 
   constructor(private db: AngularFireDatabase, private http: Http, private afAuth: AngularFireAuth, private userService: UserService) {
-    this.orders = db.list('/orders', {
+    this.orders = db.list('/users', {
       query: {
         orderByChild: 'timestamp'
       }
@@ -37,6 +37,8 @@ export class OrderService {
   getData(trackingNumber, carrier, nickname, store) {
     var headers = new Headers();
     this.createAuthorizationHeader(headers);
+    var userid = this.afAuth.auth.currentUser.uid
+    this.orders = this.db.list(`/users/${userid}/orders`)
 
     var content = JSON.stringify({
       carrier: carrier,
@@ -51,6 +53,7 @@ export class OrderService {
       //change commit
       var data = res.json();
       console.log('THIS IS DATA -->', data);
+      // this.order = db.list('')
       this.createOrder({
         // key: data.tracking_status.object_id,
         key: trackingNumber,
@@ -66,8 +69,6 @@ export class OrderService {
         active: null //boolean = true;
       })
       
-      //adds tracking number to current user
-      this.userService.findUser(trackingNumber)
     })
   }
 

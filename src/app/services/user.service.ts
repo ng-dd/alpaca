@@ -25,23 +25,23 @@ export class UserService {
     return this.user;
   }
 
-  findUser(id) {
-    
-    console.log(this.afAuth.auth.currentUser.uid)
-    var userKey = this.afAuth.auth.currentUser.uid;
-    this.users.forEach((user) => {
-      user.forEach((person) => {
-        if (person.key === userKey) {
-          this.user = this.db.object(`/users/${userKey}`)
-          console.log(this.user)
-          this.user.update({
-            key: userKey,
-            orders: id
-          })
-        }
-      })
-    })
-  }
+  // findUser(id) {
+  
+  //   console.log(this.afAuth.auth.currentUser.uid)
+  //   var userKey = this.afAuth.auth.currentUser.uid;
+  //   this.users.forEach((user) => {
+  //     user.forEach((person) => {
+  //       if (person.key === userKey) {
+  //         this.user = this.db.object(`/users/${userKey}`)
+  //         console.log(this.user)
+  //         this.user.update({
+  //           key: userKey,
+  //           orders: id
+  //         })
+  //       }
+  //     })
+  //   })
+  // }
 
   createUser(user: User) {
     this.users.update(user.key, user)
