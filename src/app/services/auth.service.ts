@@ -27,7 +27,8 @@ export class AuthService {
           firstname: firstname,
           lastname: lastname,
           imageUrl: null,
-          orders: null
+          orders: null,
+          address: null,
         })
       })
       .catch(err => {
@@ -47,6 +48,7 @@ export class AuthService {
         lastname: res.additionalUserInfo.profile.last_name,
         imageUrl: res.additionalUserInfo.profile.picture.data.url,
         orders: null,
+        address: null,
       });
     });
   }
@@ -63,6 +65,7 @@ export class AuthService {
         lastname: res.additionalUserInfo.profile.family_name,
         imageUrl: res.additionalUserInfo.profile.picture,
         orders: null,
+        address: null,
       });
     });
   }
@@ -80,6 +83,7 @@ export class AuthService {
         lastname: nameArray.length > 1 ? nameArray[nameArray.length - 1] : 'unspecified',
         imageUrl: res.additionalUserInfo.profile.profile_image_url,
         orders: null,
+        address: null,
       });
     });
   }

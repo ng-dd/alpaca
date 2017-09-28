@@ -5,4 +5,5 @@ export class User {
     lastname: string;
     imageUrl: string;
     orders: object;
+    address: string;
 }
