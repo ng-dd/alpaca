@@ -66,7 +66,8 @@ export class OrderService {
         status: data.tracking_status.status, // => departed
         deliveryDate: null, // => date, evening/afternoon/moring;
         timeStamp: null, //Date = new Date();
-        active: null //boolean = true;
+        active: null, //boolean = true;
+        archived: false
       })
       
     })
@@ -74,12 +75,30 @@ export class OrderService {
 
    // Return an observable list with optional query
   // You will usually call this from OnInit in a component
-  getOrdersList(query= {}): FirebaseListObservable<Order[]> { 
+  getOrdersList(): FirebaseListObservable<Order[]> { 
     this.orders = this.db.list(`/users/${this.afAuth.auth.currentUser.uid}/orders`, {
-      query: query
+      query: {
+        orderByChild: 'archived',
+        equalTo: false
+      }
     });
     return this.orders;
   }
+
+  getArchivedList(): FirebaseListObservable<Order[]> { 
+    this.orders = this.db.list(`/users/${this.afAuth.auth.currentUser.uid}/orders`, {
+      query: {
+        orderByChild: 'archived',
+        equalTo: true
+      }
+    });
+    return this.orders;
+  }
+
+  createTimestamp(): void {
+    
+  }
+
 // => Get a single, observable order
   getOrder(order: string): FirebaseObjectObservable<Order> { 
     const orderPath = `/users/${this.afAuth.auth.currentUser.uid}/orders/${order}`;
