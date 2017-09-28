@@ -3,7 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { RoutingModule } from './routing/routing.module';
 // Firebase - Require Firebase config, db, auth
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -45,6 +45,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
     HomeComponent
   ],
   imports: [
+    RoutingModule,
     BrowserModule,
     NgbModule.forRoot(),
     FormsModule,
