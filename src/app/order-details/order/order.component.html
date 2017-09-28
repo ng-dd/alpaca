@@ -1,3 +1,7 @@
-<p>
-  order works!
-</p>
+<div *ngIf="order">
+  <h4>order component testing</h4>
+  {{order.carrier}}
+  <button (click)="getOrder()">click me!</button>
+  <button (click)="getOrderList()">log orders</button>
+  <button (click)="findUser()">Check User</button>
+</div>
