@@ -42,8 +42,7 @@ export class OrderComponent implements OnInit {
       .subscribe((data) => {
         // console.log('LIST -->', data);
         this.orders = data;
-        this.orderService.createTimestamp(data);
-        console.log('timestamp updated!');
+        this.orderService.createTimestamp(new Date());
       })
   }
 

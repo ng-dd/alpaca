@@ -102,12 +102,18 @@ export class OrderService {
     //     equalTo: true
     //   }
     // });
+    // let current = Number(new Date());
     let filteredList: Order[] = list.filter(listitem => {
       return listitem.status === "DELIVERED";
     })
     filteredList.forEach(listitem => {
       if (!listitem.timeStamp) {
-        this.updateOrder(listitem.key, {timeStamp: 'something'})
+        this.updateOrder(listitem.key, {timeStamp: Number(new Date())})
+      } else {
+        if ((Number(new Date()) - Number(listitem.timeStamp))/86400000 > 1) {
+          this.updateOrder(listitem.key, {archived: true})
+        }
+        console.log('difference -->', (Number(new Date()) - Number(listitem.timeStamp))/86400000);
       }
     })
   }
