@@ -5,6 +5,7 @@
     Alpaca
   </h1>
   <app-register></app-register>
+  <app-login></app-login>
   <div> {{ (user | async)?.uid }} </div>
   <button (click)="login()">Login</button>
   <button (click)="logout()">Logout</button>
