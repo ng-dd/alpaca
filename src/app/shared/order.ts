@@ -1,5 +1,5 @@
 export class Order {
-    $key: string;
+    key: string;
     ordername: string; // => jordan
     store: string; // => nordstrom
     trackingNumber: string;

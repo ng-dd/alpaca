@@ -24,8 +24,11 @@ export class RegisterComponent implements OnInit {
     // this.buildForm();
   }
 
+  
   checkToken() {
-    console.log(this.afAuth.auth.currentUser)
+    console.log(this.afAuth.auth.currentUser.uid)
+    var key = this.afAuth.auth.currentUser.uid
+    // this.user.findUser(key)
   }
 
   toggleForm(): void {
@@ -34,6 +37,7 @@ export class RegisterComponent implements OnInit {
 
   signup(): void {
     this.auth.signup(this.username, this.password, this.firstname, this.lastname)
+    console.log(this.username, this.password, this.firstname, this.lastname)
     // this.user.createUser({
     //   $key: this.afAuth.auth.currentUser.uid,
     //   email: this.afAuth.auth.currentUser.email,

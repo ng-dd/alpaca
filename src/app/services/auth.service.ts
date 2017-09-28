@@ -27,6 +27,7 @@ export class AuthService {
           firstname: firstname,
           lastname: lastname,
           imageUrl: null,
+          orders: null
         })
       })
       .catch(err => {
