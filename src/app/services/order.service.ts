@@ -95,8 +95,21 @@ export class OrderService {
     return this.orders;
   }
 
-  createTimestamp(): void {
-    
+  createTimestamp(list): void {
+    // this.orders = this.db.list(`/users/${this.afAuth.auth.currentUser.uid}/orders`, {
+    //   query: {
+    //     orderByChild: 'archived',
+    //     equalTo: true
+    //   }
+    // });
+    let filteredList: Order[] = list.filter(listitem => {
+      return listitem.status === "DELIVERED";
+    })
+    filteredList.forEach(listitem => {
+      if (!listitem.timeStamp) {
+        this.updateOrder(listitem.key, {timeStamp: 'something'})
+      }
+    })
   }
 
 // => Get a single, observable order
