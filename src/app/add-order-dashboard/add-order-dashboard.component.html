@@ -14,14 +14,14 @@
                 <label> Tracking Number
                         <input type='text' formControlName='trackingnumber'>
                 </label>
-                <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+                <div *ngIf="!rForm.controls['trackingnumber'].valid && rForm.controls['trackingnumber'].touched">
                         A tracking number is required
                 </div>
 
                 <label> Store
                         <input type='text' formControlName='store'>
                 </label>
-                <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+                <div *ngIf="!rForm.controls['store'].valid && rForm.controls['store'].touched">
                         You must specify a store
                 </div>
 

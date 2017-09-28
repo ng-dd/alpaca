@@ -25,6 +25,8 @@ import { RegisterComponent } from './register/register.component';
 // import { OrderComponent } from './order/order.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -50,13 +52,13 @@ import { HomeComponent } from './home/home.component';
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     HttpModule,
-    FormsModule,
     ReactiveFormsModule,
   ],
   providers: [
     AuthService, 
     OrderService,
     UserService,
+    FormBuilder
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],

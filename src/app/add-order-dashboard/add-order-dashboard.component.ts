@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../services/order.service';
 import { Order } from '../order';
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import * as guessCarrier from 'guess-carrier';
 
 @Component({
@@ -20,9 +20,16 @@ export class AddOrderDashboardComponent implements OnInit {
   
   constructor(private orderService: OrderService, private fb: FormBuilder) {
 
+    function validTracking(input: FormControl) {
+      if (guessCarrier(input.value).length === 0) {
+        return {invalid: true}
+      }
+      return null;
+    }
+
     this.rForm = fb.group({
       'name': [null, Validators.required],
-      'trackingnumber': [null, Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(500)])],
+      'trackingnumber': new FormControl('', [Validators.required, validTracking]),
       'store': [null, Validators.required]
     })
 
