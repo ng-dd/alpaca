@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Order } from '../shared/order';
 import { Http, Response, Headers } from '@angular/http';
 import * as guessCarrier from 'guess-carrier'
@@ -13,7 +14,7 @@ export class OrderService {
   store: '' ;
   nickname: '';
 
-  constructor(private db: AngularFireDatabase, private http: Http) {
+  constructor(private db: AngularFireDatabase, private http: Http, private afAuth: AngularFireAuth) {
     this.orders = db.list('/orders', {
       query: {
         orderByChild: 'timestamp'
@@ -49,6 +50,8 @@ export class OrderService {
         nickname: nickname,
         store: store
       })
+
+      console.log(this.afAuth.auth.currentUser, 'checking some uer')
     })
   }
 
