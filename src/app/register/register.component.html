@@ -1,8 +1,27 @@
-<div>
-  <input placeholder="firstname" [(ngModel)]="firstname"/>
-  <input placeholder="lastname" [(ngModel)]="lastname"/>
-  <input placeholder="username" [(ngModel)]="username"/>
-  <input placeholder="password" [(ngModel)]="password" (keyup.enter)="signup(username, password)"/>
-  <button (click)="checkToken()">Check user token</button>
-  <button (click)="signup()">SIGN UP</button>
+<div *ngIf='!name; else forminfo'>
+  <form [formGroup]='rForm' (ngSubmit)="signup()">
+
+    <input placeholder="firstname" formControlName="firstname" [(ngModel)]="firstname"/>
+    <div *ngIf="!rForm.controls['firstname'].valid && rForm.controls['firstname'].touched">
+      This field is required
+    </div>
+
+    <input placeholder="lastname" formControlName="lastname" [(ngModel)]="lastname"/>
+    <div *ngIf="!rForm.controls['lastname'].valid && rForm.controls['lastname'].touched">
+        This field is required
+    </div>
+    
+    <input placeholder="email" formControlName="email" [(ngModel)]="email"/>
+    <div *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
+        A valid email address is required
+    </div>
+    
+    <input placeholder="password" formControlName="password" [(ngModel)]="password" (keyup.enter)="signup()"/>
+    <div *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">
+        Password must be at least 8 characters
+    </div>
+
+    <input type='submit' value='sign up' [disabled]='!rForm.valid'>    
+    <button (click)="checkToken()">Check user token</button>
+  </form>
 </div>
