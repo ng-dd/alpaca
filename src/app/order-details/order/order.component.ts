@@ -34,14 +34,15 @@ export class OrderComponent implements OnInit {
       .subscribe(data => {
         this.order = data;
       })
-      console.log('ORDER -->', this.order)
+      // console.log('ORDER -->', this.order)
   }  
 
   getOrderList() {
     this.orderService.getOrdersList()
       .subscribe((data) => {
-        console.log('LIST -->', data);
+        // console.log('LIST -->', data);
         this.orders = data;
+        this.orderService.createTimestamp(new Date());
       })
   }
 

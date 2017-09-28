@@ -22,7 +22,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AddOrderDashboardComponent } from './add-order-dashboard/add-order-dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
-// import { OrderComponent } from './order/order.component';
+import { OrderComponent } from './order-details/order/order.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -40,7 +40,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
     AddOrderDashboardComponent,
     NotFoundComponent,
     RegisterComponent,
-    // OrderComponent,
+    OrderComponent,
     UserComponent,
     HomeComponent
   ],
