@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { ReactiveFormsModule, FormGroup, Validators } from '@angular/forms'; //may be overkill but handles all login requirements
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -11,17 +11,28 @@ import { ReactiveFormsModule, FormGroup, Validators } from '@angular/forms'; //m
 })
 export class RegisterComponent implements OnInit {
   // userForm: FormGroup;
-  username: "";
-  password: "";
-  firstname: "";
-  lastname: "";
+  email: string;
+  password: string;
+  firstname: string;
+  lastname: string;
   newUser: boolean = true;
   passReset: boolean = false;
+  
+  //form val
+  rForm: FormGroup;
 
-  constructor(private auth: AuthService, private user: UserService, private afAuth: AngularFireAuth) { }
+  constructor(private fb: FormBuilder, private auth: AuthService, private user: UserService, private afAuth: AngularFireAuth) { 
+    this.rForm = fb.group({
+      'firstname': [null, Validators.required],
+      'lastname': [null, Validators.required],
+      'email': [null, Validators.compose([Validators.required, Validators.pattern("[^ @]*@[^ @]*")])],
+      'password': [null, Validators.compose([Validators.required, Validators.minLength(8)])]
+    })
+
+  }
 
   ngOnInit(): void {
-    // this.buildForm();
+
   }
 
   
@@ -36,15 +47,7 @@ export class RegisterComponent implements OnInit {
   }
 
   signup(): void {
-    this.auth.signup(this.username, this.password, this.firstname, this.lastname)
-    console.log(this.username, this.password, this.firstname, this.lastname)
-    // this.user.createUser({
-    //   $key: this.afAuth.auth.currentUser.uid,
-    //   email: this.afAuth.auth.currentUser.email,
-    //   firstname: string,
-    //   lastname: string,
-    //   imageUrl: string,
-    // })
+    this.auth.signup(this.email, this.password, this.firstname, this.lastname)
   }
 
 }

@@ -3,7 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { RoutingModule } from './routing/routing.module';
 // Firebase - Require Firebase config, db, auth
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -22,7 +22,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AddOrderDashboardComponent } from './add-order-dashboard/add-order-dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
-// import { OrderComponent } from './order/order.component';
+import { OrderComponent } from './order-details/order/order.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -40,11 +40,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
     AddOrderDashboardComponent,
     NotFoundComponent,
     RegisterComponent,
-    // OrderComponent,
+    OrderComponent,
     UserComponent,
     HomeComponent
   ],
   imports: [
+    RoutingModule,
     BrowserModule,
     NgbModule.forRoot(),
     FormsModule,

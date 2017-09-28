@@ -5,6 +5,7 @@
     Alpaca
   </h1>
   <app-register></app-register>
+  <app-login></app-login>
   <div> {{ (user | async)?.uid }} </div>
   <button (click)="login()">Login</button>
   <button (click)="logout()">Logout</button>
@@ -18,4 +19,7 @@
 <!-- <router-outlet></router-outlet> -->
 <app-add-order-dashboard></app-add-order-dashboard>
 <app-register></app-register>
+
+<h3>app order</h3>
+<app-order></app-order>
 </div>
