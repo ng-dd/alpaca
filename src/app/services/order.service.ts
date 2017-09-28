@@ -72,34 +72,6 @@ export class OrderService {
     })
   }
 
-  // => Get a list of orders using API
-  // getData(trackingNumber, carrier, nickname, store) {
-  //   var headers = new Headers();
-  //   this.createAuthorizationHeader(headers);
-
-  //   var content = JSON.stringify({
-  //     carrier: carrier,
-  //     tracking_number: trackingNumber
-  //   })
-
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.post('https://api.goshippo.com/tracks/', content, {
-  //     headers: headers
-  //   })
-  //   .subscribe(res => {
-  //     var data = res.json();
-  //     this.orders.push({
-  //       carrier: data.carrier,
-  //       status: data.tracking_status.status,
-  //       location: data.tracking_status.location.city,
-  //       nickname: nickname,
-  //       store: store
-  //     })
-
-  //     console.log(this.afAuth.auth.currentUser, 'checking some uer')
-  //   })
-  // }
-
    // Return an observable list with optional query
   // You will usually call this from OnInit in a component
   getOrdersList(query= {}): FirebaseListObservable<Order[]> { 
