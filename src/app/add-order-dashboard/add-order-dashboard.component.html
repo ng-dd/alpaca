@@ -1,4 +1,4 @@
-<div *ngIf='!name; else forminfo'>
+<div *ngIf='!name; else forminfo' class="ordertrack">
     <form [formGroup]='rForm' (ngSubmit)="addPost(rForm.value)">
         <div class="form-container">
             <div class="row columns">
