@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import { Order } from './order';
 
-//services
+// services
 import { OrderService } from './services/order.service';
 
 @Component({

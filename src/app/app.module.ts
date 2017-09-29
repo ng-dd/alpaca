@@ -1,3 +1,4 @@
+/* END OF PROJECT NOTE: Commented out modules or components we should remove later */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

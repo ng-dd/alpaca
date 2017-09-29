@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'dashboard', component: OrderDashboardComponent },
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound' },
-]
+];
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
