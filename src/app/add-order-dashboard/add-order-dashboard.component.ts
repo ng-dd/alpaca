@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../services/order.service';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import * as guessCarrier from 'guess-carrier';
+import { Order } from '../shared/order';
 
 @Component({
   selector: 'app-add-order-dashboard',
@@ -35,6 +36,7 @@ export class AddOrderDashboardComponent implements OnInit {
   }
 
   addPost(post) {
+    console.log(post, 'this is post')
     let tracking = post.trackingnumber;
     let name = post.name;
     let store = post.store;

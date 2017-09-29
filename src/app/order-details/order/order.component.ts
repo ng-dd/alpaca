@@ -12,6 +12,7 @@ import { Order } from '../../shared/order';
 
 export class OrderComponent {
   
+  order: Order = null;
   orders: Order[] = null;
   user: string = null;
   checked: boolean = false;
@@ -19,30 +20,44 @@ export class OrderComponent {
   constructor( public db: AngularFireDatabase, public orderService: OrderService, public afAuth: AngularFireAuth ) {
     // this.orders = db.list('/orders')
     afAuth = this.afAuth;
+    // this.authenticated();
   }
 
-  ngOnInit() {
-
-    this.afAuth.auth.onIdTokenChanged(user => {
-        if(user) {
-          this.getList()
-        }
-    })
-
-  }
+  ngOnInit(): void {
   
+  }
+
+  authenticated() {
+    new Promise((resolve, reject) => {
+      var user = this.afAuth.auth.currentUser
+      if (user == null) {
+        resolve(null);
+      } else {
+        reject(user);
+      }
+    }).then((user) => {console.log(user)}
+
+    )}    
       
   findUser() {
     // this.user = this.afAuth.auth.currentUser;
     console.log(this.afAuth.auth.currentUser);
   }
 
+  getOrder(order) {
+    this.orderService.getOrder(order)
+      .subscribe(data => {
+        this.order = data;
+      })
+      // console.log('ORDER -->', this.order)
+  }  
+
   getList() {
     this.orderService.getOrdersList()
       .subscribe((data) => {
         // console.log('LIST -->', data);
         this.orders = data;
-        this.orderService.createTimestamp(this.orders);
+        // this.orderService.createTimestamp(new Date());
       })
   }
 

@@ -68,7 +68,8 @@ export class OrderService {
         deliveryDate: this.printDate(data.eta), // => date, evening/afternoon/moring;
         timeStamp: null, //Date = new Date();
         active: null, //boolean = true;
-        archived: false
+        archived: false,
+        eta: this.printDate(data.eta)
       })
       
     })
@@ -124,7 +125,6 @@ export class OrderService {
   }
 
   createTimestamp(list): void {
-
     let filteredList: Order[] = list.filter(listitem => {
       return listitem.status === "DELIVERED";
     })

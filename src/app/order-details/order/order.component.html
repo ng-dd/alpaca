@@ -1,30 +1,33 @@
-<!-- uncomment below to signup and add orders for testing -->
-
-  <!-- <button (click)="findUser()">find user</button>
-          <h3>register</h3>
-          <app-register></app-register>
-          <h3>add order</h3>
-          <app-add-order-dashboard></app-add-order-dashboard> -->
-          
-  <!-- <button (click)="findUser()">Check User</button> -->
-
- <div *ngFor="let item of orders" >
-    
-  <article class="card">
-    <div class="card-block">
-      <div class="float-title-over-image">
-        <h4 class="card-title">Order Name: {{item.ordername}}</h4>
-        <h6 class="text-muted">ETA: {{item.deliveryDate || 'UNAVAILABLE'}}</h6>
-        <h6 class="text-muted">Status: {{item.status}}</h6>
-      </div>
-      <img class="order-detail-circle-crop" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/shopping-icon.png" alt="ICON ARRAY BASED ON TIME VALUE HERE" />
+<div>
+    <!-- <h4>order component testing</h4>
+    {{order.carrier}}
+    <button (click)="getOrder()">click me!</button> -->
+    <button (click)="getList()">log orders</button>
+    <button (click)="findUser()">find user</button>
+            <h3>register</h3>
+            <app-register></app-register>
+            <h3>add order</h3>
+            <app-add-order-dashboard></app-add-order-dashboard>
+    <!-- <button (click)="findUser()">Check User</button> -->
+    <div class="col-xs-12 col-md-4" *ngFor="let item of orders" >
+      <!-- <p>{{ item.status }}</p>
+      <button (click)="getOrder(item.trackingNumber)">get order details</button> -->
+      
+          <article class="card">
+            <div class="card-block">
+              <div class="float-title-over-image">
+                <h4 class="card-title">{{item.ordername}}</h4>
+                <h6 class="text-muted">{{item.currentLocation}}</h6>
+                <h6 class="text-muted">{{item.status}}</h6>
+              </div>
+              <img class="order-detail-circle-crop" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/shopping-icon.png" alt="ICON ARRAY BASED ON TIME VALUE HERE" />
+            </div>
+            <div class="card-block">
+              <div class="btn-group hidden-sm-down hidden-md-down" role="group" aria-label="Card buttons">
+                <a href="" class="btn btn-woah" data-toggle="modal" data-target="#order-detail">View Details</a>
+              </div>
+            </div>
+          </article>
+  
     </div>
-    <div class="card-block">
-      <div class="btn-group hidden-sm-down hidden-md-down" role="group" aria-label="Card buttons">
-        <a href="" class="btn btn-woah" data-toggle="modal" data-target="#order-detail">View Details</a>
-      </div>
-    </div>
-  </article>
-
-</div>
-
+  </div>

@@ -1,6 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
-  <!-- <app-register></app-register>
+<!-- <app-navbar></app-navbar> -->
+<!-- <div class="container">
+  <h1>
+    Alpaca
+  </h1>
+  <app-register></app-register>
   <app-login></app-login>
   <upload-form></upload-form> -->
   <div> {{ (user | async)?.uid }} </div>
@@ -8,10 +12,22 @@
   <button (click)="logout()">Logout</button>
   <!-- <ul>
     <li class="text" *ngFor="let order of orders | async">
-      {{order.$value}}
     </li>
-  </ul> -->
-<!-- <app-forgot-password></app-forgot-password> -->
-</div>
-<router-outlet></router-outlet>
+  </ul>
+  <button type="button" class ="btn btn-primary"> bootstrap test</button>
+  <app-forgot-password></app-forgot-password>
+</div> -->
 
+
+<!-- <app-add-order-dashboard></app-add-order-dashboard> -->
+<!-- <app-login></app-login> -->
+
+<!-- <app-register></app-register> -->
+
+  <app-order-dashboard></app-order-dashboard>
+  <!-- <app-order></app-order> -->
+
+
+<!-- {{order.$value}} -->
+<!-- Uncomment below when we have our routes working -->
+<!-- <router-outlet></router-outlet> -->

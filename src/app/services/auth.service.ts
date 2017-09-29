@@ -40,7 +40,7 @@ export class AuthService {
       .catch((err) => {
         console.log(err, 'couldnt send email')
       })
-  }
+  } 
 
   signup(email: string, password: string, firstname: string, lastname: string, upload: Upload, order: object) {
     this.firebaseAuth
