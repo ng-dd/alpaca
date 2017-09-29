@@ -65,7 +65,7 @@ export class OrderService {
         service: carrier, // => fedex
         currentLocation: data.tracking_status.location.city, // => somewhere
         status: data.tracking_status.status, // => departed
-        deliveryDate: null, // => date, evening/afternoon/moring;
+        deliveryDate: data.eta, // => date, evening/afternoon/moring;
         timeStamp: null, //Date = new Date();
         active: null, //boolean = true;
         archived: false
@@ -97,13 +97,7 @@ export class OrderService {
   }
 
   createTimestamp(list): void {
-    // this.orders = this.db.list(`/users/${this.afAuth.auth.currentUser.uid}/orders`, {
-    //   query: {
-    //     orderByChild: 'archived',
-    //     equalTo: true
-    //   }
-    // });
-    // let current = Number(new Date());
+
     let filteredList: Order[] = list.filter(listitem => {
       return listitem.status === "DELIVERED";
     })
@@ -114,7 +108,6 @@ export class OrderService {
         if ((Number(new Date()) - Number(listitem.timeStamp))/86400000 > 1) {
           this.updateOrder(listitem.key, {archived: true})
         }
-        console.log('difference -->', (Number(new Date()) - Number(listitem.timeStamp))/86400000);
       }
     })
   }

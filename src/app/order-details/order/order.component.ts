@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { OrderService } from '../../services/order.service';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -10,20 +10,29 @@ import { Order } from '../../shared/order';
   styleUrls: ['./order.component.css']
 })
 
-export class OrderComponent implements OnInit {
+export class OrderComponent {
   
-  order: Object = null;
+  order: Order = null;
   orders: Order[] = null;
   user: string = null;
+  checked: boolean = false;
 
   constructor( public db: AngularFireDatabase, public orderService: OrderService, public afAuth: AngularFireAuth ) {
     // this.orders = db.list('/orders')
+    afAuth = this.afAuth;
   }
 
   ngOnInit() {
-    this.getOrderList();
-  }
 
+    this.afAuth.auth.onIdTokenChanged(user => {
+        if(user) {
+          this.getList()
+        }
+    })
+
+  }
+  
+      
   findUser() {
     this.user = this.afAuth.auth.currentUser.email;
     console.log(this.user);
@@ -37,12 +46,12 @@ export class OrderComponent implements OnInit {
       // console.log('ORDER -->', this.order)
   }  
 
-  getOrderList() {
+  getList() {
     this.orderService.getOrdersList()
       .subscribe((data) => {
         // console.log('LIST -->', data);
         this.orders = data;
-        this.orderService.createTimestamp(new Date());
+        this.orderService.createTimestamp(this.orders);
       })
   }
 
