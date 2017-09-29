@@ -1,8 +1,9 @@
+/* END OF PROJECT NOTE: Commented out modules or components we should remove later */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RoutingModule } from './routing/routing.module';
 // Firebase - Require Firebase config, db, auth
 import { AngularFireModule } from 'angularfire2';
@@ -51,7 +52,7 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     RoutingModule,
     BrowserModule,
-    NgbModule.forRoot(),
+    // NgbModule.forRoot(),
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig), // imports firebase/app needed for everything
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
