@@ -23,5 +23,20 @@
 
     <input type='submit' value='sign up' [disabled]='!rForm.valid'>    
     <button (click)="checkToken()">Check user token</button>
+
+    <div *ngIf="upload">
+      <div class="progress">
+        <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': upload?.progress + '%' }"></div>
+      </div>
+      Progress: {{upload?.name}} | {{upload?.progress}}% Complete
+    </div>
+        <label>
+          <input type="file" (change)="detectFiles($event)">
+        </label>
+        <button
+                [disabled]="!selectedFiles"
+                (click)="signup()">
+          Upload Single
+        </button>
   </form>
 </div>

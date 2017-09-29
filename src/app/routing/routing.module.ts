@@ -6,11 +6,12 @@ import { OrderDashboardComponent } from '../order-dashboard/order-dashboard.comp
 import { NotFoundComponent } from '../not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  // { path: '', component: HomeComponent },  
   { path: 'dashboard', component: OrderDashboardComponent },
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound' },
-]
+];
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

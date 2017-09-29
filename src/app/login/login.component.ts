@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 
+//angular fire shit
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,7 +13,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent {
   email: string;
-  password: string;
+  password: string; 
 
   constructor(public authService: AuthService) {}
 
@@ -16,6 +21,10 @@ export class LoginComponent {
   //   this.authService.signup(this.email, this.password);
   //   this.email = this.password = '';
   // }
+
+  forgotPassword() {
+    console.log(this.email);
+  }
 
   login() {
     this.authService.login(this.email, this.password);
@@ -37,4 +46,6 @@ export class LoginComponent {
   logout() {
     this.authService.logout();
   }
+
+
 }

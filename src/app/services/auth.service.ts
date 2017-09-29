@@ -3,6 +3,10 @@ import { UserService } from '../services/user.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
+import { UploadService } from '../services/upload.service';
+import { Upload } from '../shared/upload';
+import * as _ from "lodash";
+
 import { EmailPasswordCredentials } from '../shared/email-password-credentials';
 
 import { Observable } from 'rxjs/Observable';
@@ -10,12 +14,32 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
+  userKey: string;
 
-  constructor(private firebaseAuth: AngularFireAuth, private userService: UserService) {
+  constructor(private firebaseAuth: AngularFireAuth, private userService: UserService, private uploadService: UploadService) {
     this.user = firebaseAuth.authState;
   }
 
-  signup(email: string, password: string, firstname: string, lastname: string) {
+  confirmEmail() {
+    let user = firebase.auth().currentUser;
+
+    user.sendEmailVerification()
+      .then(()=> {console.log('email send')})
+      .catch((err)=> {console.log(err, 'error')})
+  }
+
+  resetPassword(email: string) {
+    let auth = firebase.auth();
+    return auth.sendPasswordResetEmail(email)
+      .then(()=> {
+        console.log('email sent')
+      })
+      .catch((err) => {
+        console.log(err, 'couldnt send email')
+      })
+  }
+
+  signup(email: string, password: string, firstname: string, lastname: string, upload: Upload) {
     this.firebaseAuth
       .auth
       .createUserWithEmailAndPassword(email, password)
@@ -27,12 +51,16 @@ export class AuthService {
           firstname: firstname,
           lastname: lastname,
           imageUrl: null,
-          orders: null
+          orders: null,
+          address: null,
         })
+        this.confirmEmail();
+        this.uploadService.pushUpload(value.uid, upload);
       })
       .catch(err => {
-        console.log('Something went wrong:',err.message);
+        console.log('Something went wrong:', err.message);
       });    
+
   }
 
   facebookLogin() { //bug in which account cannot be wiped from database as long user is still on webpage
@@ -47,6 +75,7 @@ export class AuthService {
         lastname: res.additionalUserInfo.profile.last_name,
         imageUrl: res.additionalUserInfo.profile.picture.data.url,
         orders: null,
+        address: null,
       });
     });
   }
@@ -63,6 +92,7 @@ export class AuthService {
         lastname: res.additionalUserInfo.profile.family_name,
         imageUrl: res.additionalUserInfo.profile.picture,
         orders: null,
+        address: null,
       });
     });
   }
@@ -80,6 +110,7 @@ export class AuthService {
         lastname: nameArray.length > 1 ? nameArray[nameArray.length - 1] : 'unspecified',
         imageUrl: res.additionalUserInfo.profile.profile_image_url,
         orders: null,
+        address: null,
       });
     });
   }

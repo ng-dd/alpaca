@@ -1,32 +1,254 @@
-<!-- Main hero section
-  <div class="jumbotron">
-      <div class="mary">
-        <h1 class="display-3">Alpaca</h1>
-        <p class="lead">Save and track all your orders in one place.</p>
-        <p>
-           <div class="ordertrack">
-              <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                  <div class="form-section">
-                    <div class="row">
-                        <form role="form">
-                          <div class="col-md-4">
-                            <div class="form-group">
-                              <label class="sr-only" for="location">Location</label>
-                              <input type="email" class="form-control" id="location" placeholder="Where ?">
-                            </div>
-                          </div>
-                          <div class="col-md-2">
-                            <button type="submit" class="btn btn-default btn-primary">PAC IT</button>
-                          </div>
-                        </form>
-                    </div>
-                  </div>
+<body>
+  <app-navbar></app-navbar>
+  <!-- Register with Email - Modal Auth #3 -->
+  <div class="modal" id="register-with-email" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <p>Sign up with <a href="#sign-up-modal" data-toggle="modal" data-target="#log-in-modal" data-dismiss="modal">Facebook</a>,
+            <a href="#sign-up-modal" data-toggle="modal" data-target="#log-in-modal" data-dismiss="modal">Twitter</a>, or
+            <a href="#sign-up-modal" data-toggle="modal" data-target="#log-in-modal" data-dismiss="modal">Google</a></p>
+          <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
+            <span style="font-size: 12px; background-color: white; padding: 10px 10px;"> or</span>
+          </div>
+          <form>
+            <div class="form-group" id="snazzy-login">
+              <label class="sr-only" for="inlineFormInputGroup">Email&hellip;</label>
+              <div class="col-12 input-group">
+                <input class="form-control" type="email" placeholder="Email" id="modal">
+                <div class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
               </div>
             </div>
-          </div>
-        </p>
+            <div class="form-group">
+              <label class="sr-only" for="inlineFormInputGroup">First name&hellip;</label>
+              <div class="col-12 input-group">
+                <input class="form-control" type="email" placeholder="First name" id="example-email-input">
+                <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="inlineFormInputGroup">Last name&hellip;</label>
+              <div class="col-12 input-group">
+                <input class="form-control" type="email" placeholder="Last name" id="example-email-input">
+                <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
+
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="example-password-input">Password</label>
+              <div class="col-12 input-group">
+                <input class="form-control" type="password" placeholder="Password" id="example-password-input">
+                <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
+              </div>
+            </div>
+            <div class="form-group col-12">
+              <label class="btn btn-browse">
+              Upload profile photo <input type="file" style="display: none;" class="form-control-file" >
+          </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          <hr>
+        </div>
+        <div class="modal-footer">
+          <p>Already have an Alpaca account? <a href="#log-in-modal" data-toggle="modal" data-target="#log-in-modal" data-dismiss="modal">Log in</a></p>
+        </div>
       </div>
     </div>
-    
-   -->
+  </div>
+
+  <!-- Login - Modal Auth #2 -->
+  <div class="modal fade" id="log-in-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <a href="#" class="btn btn-facebook" (click)="facebookAuth()"><i class="fa fa-facebook" aria-hidden="true"></i> Log in with Facebook</a>
+          <div class="w-100"></div>
+          <a href="#" class="btn btn-google"><img src="https://cdn1.iconfinder.com/data/icons/company-identity/100/new-google-favicon-128.png" style="width:22px;height:22px;"/> Log in with Google</a>
+          <div class="w-100"></div>
+          <a href="#" class="btn btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i>  Log in with Twitter</a>
+          <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
+            <span style="font-size: 12px; background-color: white; padding: 10px 10px;">
+      or
+    </span>
+          </div>
+          <div class="form-group" id="snazzy-login">
+            <label class="sr-only" for="inlineFormInputGroup">Email</label>
+            <div class="col-12 input-group">
+              <input class="form-control" type="email" placeholder="Email" id="example-email-input">
+              <div class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="example-password-input">Password</label>
+            <div class="col-12 input-group">
+              <input class="form-control" type="password" placeholder="Password" id="example-password-input">
+              <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
+            </div>
+            <small class="form-text text-muted"><a href="#">Forgot password? Send an email reminder.</a></small>
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" id="log-in" name="Log-in" value="Log in" />
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <p>Don't have an Alpaca account? <a href="#sign-up-modal" data-toggle="modal" data-target="#sign-up-modal" data-dismiss="modal">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- sign up modal-->
+<div class="modal" id="sign-up-modal" tabindex="-1">
+   <div class="modal-dialog">
+    <div class="modal-content">
+     <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+      <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+         <a href="#" class="btn btn-facebook"><i class="fa fa-facebook" aria-hidden="true"></i> Sign up with Facebook</a>
+         <div class="w-100"></div>
+         <a href="#" class="btn btn-google"><img src="https://cdn1.iconfinder.com/data/icons/company-identity/100/new-google-favicon-128.png" style="width:22px;height:22px;"> Sign up with Google</a>
+         <div class="w-100"></div>
+         <a href="#" class="btn btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i>  Sign up with Twitter</a>
+         <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
+            <span style="font-size: 12px; background-color: white; padding: 10px 10px;"> or</span>
+         </div>
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register-with-email" data-dismiss="modal"><i class="fa fa-envelope-o" aria-hidden="true"></i>  Sign up with Email</button>
+         <hr>
+     </div>
+     <div class="modal-footer">
+       <p>Already have an Alpaca account? <a href="#log-in-modal" data-toggle="modal" data-target="#log-in-modal" data-dismiss="modal">Log in</a></p>
+     </div>
+    </div>
+   </div>
+ </div>
+  <!-- Home Menu -->
+  <header class="header">
+    <div class="burger">
+      <div class="burger__patty"></div>
+      <div class="burger__patty"></div>
+      <div class="burger__patty"></div>
+    </div>
+
+    <nav class="menu">
+      <div class="menu__brand">
+        <a href="">
+          <div class="logo"></div>
+        </a>
+      </div>
+      <ul class="menu__list">
+        <li class="menu__item"><a href="" class="menu__link">Track a package</a></li>
+        <li class="menu__item"><a href="" class="menu__link" data-toggle="modal" data-target="#sign-up-modal">Sign up</a></li>
+        <li class="menu__item">
+          <a href="" class="menu__link" data-toggle="modal" data-target="#log-in-modal">Log in</a>
+        </li>
+        <li class="menu__item">
+          <a href="mailto:kan.adachi@hackreactor.com?Subject=Hello%20again" class="menu__link">Help</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Jumbotron Hero Section 1 -->
+  <div class="jumbotron">
+    <div class="mary">
+      <h1>Alpaca</h1>
+      <h2 class="fw300">Track all of your orders in one place.</h2>
+      <div class="ordertrack">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <form class="form">
+              <div class="row">
+                <div class="form-group">
+                  <label for="exampleInputEmail3">Track your package</label>
+                  <div class="w-100"></div>
+                  <input [(ngModel)]="trackingNumber" [ngModelOptions]="{standalone: true}" type="text" class="form-control order" id="exampleInputEmail3"
+                    placeholder="Your tracking number...">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail3">What did you get?</label>
+                  <div class="w-100"></div>
+                  <input [(ngModel)]="orderName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleInputEmail3"
+                    placeholder="Your order nickname...">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail3">Where did you buy it?</label>
+                  <div class="w-100"></div>
+                  <input [(ngModel)]="store" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleInputEmail3"
+                    placeholder="The store...">
+                </div>
+                <button type="submit" class="btn btn-hero" (click)="uninitiatedTrack()" data-toggle="modal" data-target="#log-in-modal">Pac It!</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featurettes -->
+  <div class="container">
+    <div class="background">
+
+      <!-- Featurette 1 -->
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Less worrying, more shopping</h2>
+          <p class="lead">Alpaca automatically stores and saves your order details for all your shopping needs.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-fluid mx-auto" src="http://dxe5lcrjpy7emwfo-zippykid.netdna-ssl.com/wp-content/uploads/2016/05/giphy-7.gif">x
+        </div>
+      </div>
+
+      <hr clss="featurette-divider">
+
+      <div class="row featurette">
+
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">We got your back</h2>
+          <p class="lead">Whatever product you buy on the web, we'll find and import your order shipping details for you, no matter the store.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img class="featurette-image img-fluid mx-auto" src="https://media.tenor.com/images/2de8669b9d2a0b7d6f575257f93a508f/tenor.gif">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Less worrying, more shopping</h2>
+          <p class="lead">Alpaca automatically stores and saves your order details for all your shopping needs.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-fluid mx-auto" src="http://dxe5lcrjpy7emwfo-zippykid.netdna-ssl.com/wp-content/uploads/2016/05/giphy-7.gif">
+        </div>
+      </div>
+      <hr class="featurette-divider">
+      <!--   THIS IS BUGGING OUT - NG will fix
+        <div class="row featurette">
+          <h2 class="featurette-heading">Join the pac.</h2>
+          <p class="lead">Alpaca is supported by major browsers.</p>
+          <div class="row">
+            <div class="col-md-3"><img src="https://cdn.joinhoney.com/images/browser-icons/ch.png"></img></div>
+            <div class="col-md-3"><img src="https://cdn.joinhoney.com/images/browser-icons/sf.png"></img></div>
+            <div class="col-md-3"><img src="https://cdn.joinhoney.com/images/browser-icons/ff.png"></img></div>
+            <div class="col-md-3"><img src="https://cdn.joinhoney.com/images/browser-icons/op.png"></img></div>
+          </div>
+        </div> -->
+    </div>
+  </div>
+</body>
+<footer></footer>

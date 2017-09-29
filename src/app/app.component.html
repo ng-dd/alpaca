@@ -1,11 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<!-- <app-navbar></app-navbar> -->
 <div class="container">
-  <h1>
-    Alpaca
-  </h1>
   <app-register></app-register>
   <app-login></app-login>
+  <upload-form></upload-form>
   <div> {{ (user | async)?.uid }} </div>
   <button (click)="login()">Login</button>
   <button (click)="logout()">Logout</button>
@@ -14,12 +11,7 @@
       <!-- {{order.$value}} -->
     </li>
   </ul>
-  <button type="button" class ="btn btn-primary"> bootstrap test</button>
-<!-- Uncomment below when we have our routes working -->
-<!-- <router-outlet></router-outlet> -->
-<app-add-order-dashboard></app-add-order-dashboard>
-<app-register></app-register>
-
-<h3>app order</h3>
-<app-order></app-order>
+<app-forgot-password></app-forgot-password>
 </div>
+<router-outlet></router-outlet>
+
