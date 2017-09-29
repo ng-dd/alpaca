@@ -15,6 +15,14 @@ export class AuthService {
     this.user = firebaseAuth.authState;
   }
 
+  confirmEmail() {
+    let user = firebase.auth().currentUser;
+
+    user.sendEmailVerification()
+      .then(()=> {console.log('email send')})
+      .catch((err)=> {console.log(err, 'error')})
+  }
+
   resetPassword(email: string) {
     let auth = firebase.auth();
     return auth.sendPasswordResetEmail(email)
@@ -41,6 +49,7 @@ export class AuthService {
           orders: null,
           address: null,
         })
+        this.confirmEmail();
       })
       .catch(err => {
         console.log('Something went wrong:',err.message);
