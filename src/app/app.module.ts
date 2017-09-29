@@ -28,6 +28,7 @@ import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     OrderComponent,
     UserComponent,
     HomeComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    FooterComponent
   ],
   imports: [
     RoutingModule,
@@ -58,7 +60,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ReactiveFormsModule,
   ],
   providers: [
-    AuthService, 
+    AuthService,
     OrderService,
     UserService,
     UploadService,
