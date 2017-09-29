@@ -3,6 +3,10 @@ import { UserService } from '../services/user.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
+import { UploadService } from '../services/upload.service';
+import { Upload } from '../shared/upload';
+import * as _ from "lodash";
+
 import { EmailPasswordCredentials } from '../shared/email-password-credentials';
 
 import { Observable } from 'rxjs/Observable';
@@ -10,8 +14,9 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
+  userKey: string;
 
-  constructor(private firebaseAuth: AngularFireAuth, private userService: UserService) {
+  constructor(private firebaseAuth: AngularFireAuth, private userService: UserService, private uploadService: UploadService) {
     this.user = firebaseAuth.authState;
   }
 
@@ -34,7 +39,7 @@ export class AuthService {
       })
   }
 
-  signup(email: string, password: string, firstname: string, lastname: string) {
+  signup(email: string, password: string, firstname: string, lastname: string, upload: Upload) {
     this.firebaseAuth
       .auth
       .createUserWithEmailAndPassword(email, password)
@@ -50,10 +55,12 @@ export class AuthService {
           address: null,
         })
         this.confirmEmail();
+        this.uploadService.pushUpload(value.uid, upload);
       })
       .catch(err => {
-        console.log('Something went wrong:',err.message);
+        console.log('Something went wrong:', err.message);
       });    
+
   }
 
   facebookLogin() { //bug in which account cannot be wiped from database as long user is still on webpage

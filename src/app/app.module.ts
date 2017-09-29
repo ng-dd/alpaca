@@ -12,6 +12,7 @@ import { firebaseConfig } from '../environments/firebase.config';
 import { AuthService } from './services/auth.service';
 import { OrderService } from './services/order.service';
 import { UserService } from './services/user.service';
+import { UploadService } from './services/upload.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
@@ -27,7 +28,6 @@ import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-
 
 @NgModule({
   declarations: [
@@ -61,6 +61,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     AuthService, 
     OrderService,
     UserService,
+    UploadService,
     FormBuilder
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
