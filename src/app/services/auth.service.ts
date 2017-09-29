@@ -63,7 +63,7 @@ export class AuthService {
 
   }
 
-  facebookLogin() { //bug in which account cannot be wiped from database as long user is still on webpage
+  facebookLogin() { 
     this.firebaseAuth.auth
     .signInWithPopup(new firebase.auth.FacebookAuthProvider)
     .then(res => {
