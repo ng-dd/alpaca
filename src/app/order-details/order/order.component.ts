@@ -34,8 +34,8 @@ export class OrderComponent {
   
       
   findUser() {
-    this.user = this.afAuth.auth.currentUser.email;
-    console.log(this.user);
+    // this.user = this.afAuth.auth.currentUser;
+    console.log(this.afAuth.auth.currentUser);
   }
 
   getOrder(order) {

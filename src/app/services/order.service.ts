@@ -65,13 +65,36 @@ export class OrderService {
         service: carrier, // => fedex
         currentLocation: data.tracking_status.location.city, // => somewhere
         status: data.tracking_status.status, // => departed
-        deliveryDate: data.eta, // => date, evening/afternoon/moring;
+        deliveryDate: this.printDate(data.eta), // => date, evening/afternoon/moring;
         timeStamp: null, //Date = new Date();
         active: null, //boolean = true;
         archived: false
       })
       
     })
+  }
+
+  printDate(timestamp) {
+
+    var date = timestamp.slice(0, 10);
+    var year = timestamp.slice(0, 4);
+    var month = timestamp.slice(5, 7);
+    var day = timestamp.slice(8, 10);
+    
+    
+    let d = new Date();
+    
+    d.setFullYear(Number(year), Number(month) - 1, Number(day))
+    
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    
+    
+    var deliveryTime = days[d.getDay()] + ', ' + monthNames[d.getMonth()] + ' ' + Number(day) + ' ' + d.getFullYear()
+    return deliveryTime;
   }
 
    // Return an observable list with optional query
