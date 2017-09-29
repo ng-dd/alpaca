@@ -26,6 +26,7 @@ import { OrderComponent } from './order-details/order/order.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
     RegisterComponent,
     OrderComponent,
     UserComponent,
-    HomeComponent
+    HomeComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     RoutingModule,
