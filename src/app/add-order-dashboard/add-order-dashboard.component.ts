@@ -7,7 +7,7 @@ import * as guessCarrier from 'guess-carrier';
 @Component({
   selector: 'app-add-order-dashboard',
   templateUrl: './add-order-dashboard.component.html',
-  styleUrls: ['./add-order-dashboard.component.css']
+  styleUrls: ['./add-order-dashboard.component.scss']
 })
  
 export class AddOrderDashboardComponent implements OnInit {
