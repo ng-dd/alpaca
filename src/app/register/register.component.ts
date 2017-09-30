@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
 
   signup(): void {
     console.log(this.upload)
-    this.auth.signup(this.email, this.password, this.firstname, this.lastname, this.upload)
+    this.auth.signup(this.email, this.password, this.firstname, this.lastname, this.upload, {})
     
   }
 

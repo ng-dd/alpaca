@@ -38,6 +38,7 @@ export class OrderService {
     var headers = new Headers();
     this.createAuthorizationHeader(headers);
     var userid = this.afAuth.auth.currentUser.uid
+    console.log(userid);
     this.orders = this.db.list(`/users/${userid}/orders`)
 
     var content = JSON.stringify({
