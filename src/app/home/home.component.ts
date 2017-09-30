@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { Order } from '../order';
+import { Order } from '../shared/order';
 import { Upload } from '../shared/upload';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   store: string;
   email: string;
   password: string; 
-  // unsavedTrack: Order;
+  unsavedTrack: Order;
   loginModal: HTMLElement;
 
   loginEmail: string;
