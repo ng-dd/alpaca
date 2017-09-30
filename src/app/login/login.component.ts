@@ -26,26 +26,26 @@ export class LoginComponent {
     console.log(this.email);
   }
 
-  login() {
-    this.authService.login(this.email, this.password);
-    this.email = this.password = '';    
-  }
+//   login() {
+//     this.authService.login(this.email, this.password);
+//     this.email = this.password = '';    
+//   }
 
-  facebookAuth() {
-    this.authService.facebookLogin();
-  }
+//   facebookAuth() {
+//     this.authService.facebookLogin();
+//   }
 
-  googleAuth() {
-    this.authService.googleLogin();
-  }
+//   googleAuth() {
+//     this.authService.googleLogin();
+//   }
 
-  twitterAuth() {
-    this.authService.twitterLogin();
-  }
+//   twitterAuth() {
+//     this.authService.twitterLogin();
+//   }
 
-  logout() {
-    this.authService.logout();
-  }
+//   logout() {
+//     this.authService.logout();
+//   }
 
 
 }

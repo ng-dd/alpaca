@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { OrderService } from '../services/order.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
+import * as guessCarrier from 'guess-carrier';
 import { UploadService } from '../services/upload.service';
 import { Upload } from '../shared/upload';
+import { Order } from '../shared/order';
 import * as _ from "lodash";
 
 import { EmailPasswordCredentials } from '../shared/email-password-credentials';
@@ -16,7 +19,7 @@ export class AuthService {
   user: Observable<firebase.User>;
   userKey: string;
 
-  constructor(private firebaseAuth: AngularFireAuth, private userService: UserService, private uploadService: UploadService) {
+  constructor(private firebaseAuth: AngularFireAuth, private userService: UserService, private uploadService: UploadService, private orderService: OrderService) {
     this.user = firebaseAuth.authState;
   }
 
@@ -39,7 +42,7 @@ export class AuthService {
       })
   }
 
-  signup(email: string, password: string, firstname: string, lastname: string, upload: Upload) {
+  signup(email: string, password: string, firstname: string, lastname: string, upload: Upload, order: object) {
     this.firebaseAuth
       .auth
       .createUserWithEmailAndPassword(email, password)
@@ -51,11 +54,14 @@ export class AuthService {
           firstname: firstname,
           lastname: lastname,
           imageUrl: null,
-          orders: null,
+          orders: new Order(),
           address: null,
         })
         this.confirmEmail();
         this.uploadService.pushUpload(value.uid, upload);
+        if (order) {
+          this.addPost(order);
+        }
       })
       .catch(err => {
         console.log('Something went wrong:', err.message);
@@ -63,7 +69,7 @@ export class AuthService {
 
   }
 
-  facebookLogin() { //bug in which account cannot be wiped from database as long user is still on webpage
+  facebookLogin(order: object) { 
     this.firebaseAuth.auth
     .signInWithPopup(new firebase.auth.FacebookAuthProvider)
     .then(res => {
@@ -74,13 +80,16 @@ export class AuthService {
         firstname: res.additionalUserInfo.profile.first_name,
         lastname: res.additionalUserInfo.profile.last_name,
         imageUrl: res.additionalUserInfo.profile.picture.data.url,
-        orders: null,
+        orders: new Order(),
         address: null,
       });
+      if (order) {
+        this.addPost(order);
+      }
     });
   }
 
-  googleLogin() {
+  googleLogin(order: object) {
     this.firebaseAuth.auth
     .signInWithPopup(new firebase.auth.GoogleAuthProvider)
     .then(res => {
@@ -91,13 +100,16 @@ export class AuthService {
         firstname: res.additionalUserInfo.profile.given_name,
         lastname: res.additionalUserInfo.profile.family_name,
         imageUrl: res.additionalUserInfo.profile.picture,
-        orders: null,
+        orders: new Order(),
         address: null,
       });
+      if (order) {
+        this.addPost(order);
+      }
     });
   }
   
-  twitterLogin() {
+  twitterLogin(order: object) {
     this.firebaseAuth.auth
     .signInWithPopup(new firebase.auth.TwitterAuthProvider)
     .then(res => {
@@ -109,18 +121,24 @@ export class AuthService {
         firstname: nameArray[0],
         lastname: nameArray.length > 1 ? nameArray[nameArray.length - 1] : 'unspecified',
         imageUrl: res.additionalUserInfo.profile.profile_image_url,
-        orders: null,
+        orders: {},
         address: null,
       });
+      if (order) {
+        this.addPost(order);
+      }
     });
   }
 
-  login(email: string, password: string) {
+  login(email: string, password: string, order: object) {
     this.firebaseAuth
       .auth
       .signInWithEmailAndPassword(email, password)
       .then(value => {
         console.log('Nice, it worked!');
+        if (order){
+          this.addPost(order)
+        }
       })
       .catch(err => {
         console.log('Something went wrong:',err.message);
@@ -132,5 +150,13 @@ export class AuthService {
       .auth
       .signOut();
   }
+
+  addPost(post) {
+    let tracking = post.trackingNumber;
+    let name = post.ordername;
+    let store = post.store;
+    let carrier = guessCarrier(tracking)[0];
+    this.orderService.getData(tracking, carrier, name, store);
+   }
 
 }
