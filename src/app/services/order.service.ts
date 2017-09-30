@@ -56,7 +56,6 @@ export class OrderService {
       console.log('THIS IS DATA -->', data);
       // this.order = db.list('')
       this.createOrder({
-        // key: data.tracking_status.object_id,
         key: trackingNumber,
         ordername: nickname, // => jordan
         store: store, // => nordstrom
@@ -114,6 +113,9 @@ export class OrderService {
   }
 
   printDate(timestamp) {
+    if (timestamp === null) {
+      return 'unavailable'
+    }
     var trackDate = "2017-09-02T00:00:00Z";
     var date = timestamp.slice(0, 10);
     var year = timestamp.slice(0, 4);
@@ -132,7 +134,7 @@ export class OrderService {
     ];
     
     
-    var deliveryTime = days[d.getDay()] + ', ' + monthNames[d.getMonth()] + ' ' + d.getDay() + ' ' + d.getFullYear()
+    var deliveryTime = days[d.getDay()] + ', ' + monthNames[d.getMonth()] + ' ' + Number(d.getDay()) + ' ' + d.getFullYear()
 
     return deliveryTime;
   }

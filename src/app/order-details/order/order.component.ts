@@ -24,7 +24,11 @@ export class OrderComponent {
   }
 
   ngOnInit(): void {
-  
+    this.afAuth.auth.onIdTokenChanged((user) => {
+      if (user) {
+        this.getList();
+      }
+    })
   }
 
   authenticated() {
