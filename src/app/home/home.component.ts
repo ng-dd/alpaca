@@ -11,21 +11,24 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, F
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  //packing variables
   trackingNumber: string;
   orderName: string;
   store: string;
-  email: string;
-  password: string; 
-  unsavedTrack: Order;
-  loginModal: HTMLElement;
+  unsavedTrack: object = null;
 
+  //login variables
   loginEmail: string;
   loginPassword: string;
+
+  //registration variables
   selectedFiles: FileList;
   firstname: string;
   lastname: string;
   newUser: boolean = true;
   passReset: boolean = false;
+  email: string;
+  password: string; 
   upload: Upload;
   rForm: FormGroup;
   
@@ -40,7 +43,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.loginModal = document.getElementById('log-in-modal');
   }
 
   uninitiatedTrack(): void {
@@ -49,7 +51,7 @@ export class HomeComponent implements OnInit {
 
   login() {
     this.authService.login(this.email, this.password, this.unsavedTrack);
-    this.email = this.password = '';    
+    this.email = this.password = '';   
   }
 
   facebookAuth() {
@@ -67,7 +69,6 @@ export class HomeComponent implements OnInit {
   signup(): void {
     console.log(this.email, this.password, this.firstname, this.lastname, this.upload, this.unsavedTrack)
     this.authService.signup(this.email, this.password, this.firstname, this.lastname, this.upload, this.unsavedTrack)
-    
   }
 
   detectFiles(event) {

@@ -28,8 +28,8 @@ export class ProfileComponent implements OnInit {
       })
   }
 
-  changeProfile(changeProperty): void {
-    this.userService.updateUser(this.key, changeProperty)
-  }
+  // changeProfile(changeProperty): void {
+  //   this.userService.updateUser(this.key, changeProperty)
+  // }
 
 }

@@ -30,17 +30,20 @@ export class AppComponent {
         orderByChild: 'timestamp'
       }
     });
+
+    // ngOnInit() {
+    //   this.afAuth.authState.subscribe(user => {
+    //     if (user) {
+    //       // go to home page
+    //     } else {
+    //       // go to login page
+    //     }
+    //   });
+    // }
     
     this.user = this.afAuth.authState;
   }
 
 
-  login() {
-    this.afAuth.auth.signInWithPopup (new firebase.auth.GoogleAuthProvider());
-  }
-
-  logout() {
-    this.afAuth.auth.signOut();
-  }
 
 }

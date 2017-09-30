@@ -82,20 +82,20 @@
           <div class="form-group" id="snazzy-login">
             <label class="sr-only" for="inlineFormInputGroup">Email</label>
             <div class="col-12 input-group">
-              <input class="form-control" type="email" placeholder="Email" id="example-email-input">
+              <input class="form-control" type="email" placeholder="Email" id="example-email-input" [(ngModel)]="loginEmail">
               <div class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
             </div>
           </div>
           <div class="form-group">
             <label class="sr-only" for="example-password-input">Password</label>
             <div class="col-12 input-group">
-              <input class="form-control" type="password" placeholder="Password" id="example-password-input">
+              <input class="form-control" type="password" placeholder="Password" id="example-password-input" [(ngModel)]="loginPassword">
               <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
             </div>
             <small class="form-text text-muted"><a href="#">Forgot password? Send an email reminder.</a></small>
           </div>
           <div class="form-group">
-            <input type="submit" class="btn btn-primary" id="log-in" name="Log-in" value="Log in" />
+            <input type="submit" class="btn btn-primary" id="log-in" name="Log-in" value="Log in" (click)="login()" />
           </div>
 
         </div>

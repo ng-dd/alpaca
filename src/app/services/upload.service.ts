@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { Upload } from '../shared/upload';
-import { UserService } from './user.service'
+
 
 @Injectable()
 export class UploadService {
 
-  constructor(private db: AngularFireDatabase, private userService: UserService) { }
+  constructor(private db: AngularFireDatabase) { }
 
   private uploadTask: firebase.storage.UploadTask;
   uploads: FirebaseListObservable<Upload[]>;
@@ -30,7 +30,7 @@ export class UploadService {
         upload.url = uploadTask.snapshot.downloadURL
         upload.name = upload.file.name
         this.saveFileData(key, upload)
-        this.userService.updateUser(key, { imageUrl: upload.url })
+        this.db.object(`/users/${key}/`).update({ imageUrl: upload.url })
       }
     )
   }
