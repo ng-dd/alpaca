@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   store: string;
   email: string;
   password: string; 
-  unsavedTrack: object = null;
+  unsavedTrack: Order;
   loginModal: HTMLElement;
 
   loginEmail: string;
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
   }
 
   uninitiatedTrack(): void {
-    this.unsavedTrack = {ordername: this.orderName, trackingNumber: this.trackingNumber, store: this.store}
+    // this.unsavedTrack = new Order(this.orderName, this.trackingNumber, this.store)
   }
 
   login() {

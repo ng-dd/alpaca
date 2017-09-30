@@ -1,17 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <app-register></app-register>
+  <!-- <app-register></app-register>
   <app-login></app-login>
-  <upload-form></upload-form>
+  <upload-form></upload-form> -->
   <div> {{ (user | async)?.uid }} </div>
   <button (click)="login()">Login</button>
   <button (click)="logout()">Logout</button>
-  <ul>
+  <!-- <ul>
     <li class="text" *ngFor="let order of orders | async">
-      <!-- {{order.$value}} -->
+      {{order.$value}}
     </li>
-  </ul>
-<app-forgot-password></app-forgot-password>
+  </ul> -->
+<!-- <app-forgot-password></app-forgot-password> -->
 </div>
 <router-outlet></router-outlet>
 
