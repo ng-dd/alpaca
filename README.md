@@ -86,8 +86,8 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 ### Team
   - __Product Owner__: [Nadina Gerlach](https://github.com/nadinagerlach)
-  - __Scrum Master__: [Nadina Gerlach](https://github.com/nadinagerlach)
-  - __Development Team Members__: [Nadina Gerlach](https://github.com/nadinagerlach), [Nadina Gerlach](https://github.com/nadinagerlach)
+  - __Scrum Master__: [David Kang](https://github.com/davidxkang)
+  - __Development Team Members__: [Gabriel Katz](https://github.com/gabekatz), [Dan Kim](https://github.com/dankim9)
 
 ## Contributing
 
