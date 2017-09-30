@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from '../shared/order';
-import { Upload } from '../shared/upload';
 import { AuthService } from '../services/auth.service';
-import { UserService } from '../services/user.service';
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+// import { Order } from '../shared/order';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +13,7 @@ export class HomeComponent implements OnInit {
   store: string;
   email: string;
   password: string; 
-  unsavedTrack: Order;
+  // unsavedTrack: Order;
   loginModal: HTMLElement;
 
   loginEmail: string;
@@ -44,7 +41,11 @@ export class HomeComponent implements OnInit {
   }
 
   uninitiatedTrack(): void {
+<<<<<<< 220e3ee5a553a33d6bed79d21dd369556f0e7243
     // this.unsavedTrack = new Order(this.orderName, this.trackingNumber, this.store)
+=======
+    // this.unsavedTrack = new Order(null,this.orderName,null, this.trackingNumber,null, this.store)
+>>>>>>> commit
   }
 
   login() {
