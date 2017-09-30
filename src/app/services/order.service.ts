@@ -76,6 +76,10 @@ export class OrderService {
 
   printDate(timestamp) {
 
+    if(timestamp === null) {
+      return 'UNAVAILABLE';
+    }
+
     var date = timestamp.slice(0, 10);
     var year = timestamp.slice(0, 4);
     var month = timestamp.slice(5, 7);

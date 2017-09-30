@@ -12,7 +12,6 @@ import { Order } from '../../shared/order';
 
 export class OrderComponent {
   
-  order: Order = null;
   orders: Order[] = null;
   user: string = null;
   checked: boolean = false;
@@ -37,14 +36,6 @@ export class OrderComponent {
     // this.user = this.afAuth.auth.currentUser;
     console.log(this.afAuth.auth.currentUser);
   }
-
-  getOrder(order) {
-    this.orderService.getOrder(order)
-      .subscribe(data => {
-        this.order = data;
-      })
-      // console.log('ORDER -->', this.order)
-  }  
 
   getList() {
     this.orderService.getOrdersList()
