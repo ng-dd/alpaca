@@ -1,79 +1,5 @@
-<!-- <div *ngFor="let order of orders | async" >
-  <order-details [order]='order'></order-details>
-</div>
-<button (click) ='deleteEverything'>Clear List of Orders</button>
-<hr>
-<add-order-dashboard></add-order-dashboard> -->
-
 <!-- [ User Settings - Modal 1 ] -->
-<!-- <div class="modal" id="user-settings" tabindex="-1">
-  <div class="modal-dialog">
-   <div class="modal-content">
-    <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
-     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-     </div>
-     <div class="modal-body">
-       <p>Hi User!</p>
-                 <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
-           <span style="font-size: 12px; background-color: white; padding: 10px 10px;"> or</span>
-        </div>
-<form>
-<div class="form-group" id="snazzy-login">
-<label class="sr-only" for="inlineFormInputGroup">Email</label>
-<div class="col-12 input-group">
-  <input class="form-control" type="email" placeholder="Email" id="modal">
-      <div class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
-</div>
-</div>
-<div class="form-group">
-<label class="sr-only" for="inlineFormInputGroup">First name</label>
-<div class="col-12 input-group">
-  <input class="form-control" type="email" placeholder="First name" id="example-email-input">
-      <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
-</div>
-</div>
-<div class="form-group">
-<label class="sr-only" for="inlineFormInputGroup">Last name&hellip;</label>
-<div class="col-12 input-group">
-  <input class="form-control" type="email" placeholder="Last name" id="example-email-input">
-      <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
-
-</div>
-</div>
-  <div class="form-group">
-<label class="sr-only" for="inlineFormInputGroup">Address</label>
-<div class="col-12 input-group">
-  <input class="form-control" type="email" placeholder="Address" id="example-email-input">
-      <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
-
-</div>
-</div>
-<div class="form-group">
-<label class="sr-only" for="example-password-input">Password</label>
-<div class="col-12 input-group">
-  <input class="form-control" type="password" placeholder="Password" id="example-password-input">
-      <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
-</div>
-</div>
-<div class="form-group col-12">
-              <label class="btn btn-browse">
-              Upload profile photo <input type="file" style="display: none;" class="form-control-file" >
-          </label>
-</div>
-<button type="submit" class="btn btn-primary">Submit</button>
-</form>  
-        <hr>
-    </div>
-    <div class="modal-footer">
-<p>Thanks for using Alpaca!</p>
-    </div>
-   </div>
-  </div>
-</div>   -->
-
-<!-- [ Order Details - Modal 2 ] -->
-<!-- <div class="modal" id="order-detail" tabindex="-1">
+<div class="modal" id="user-settings" tabindex="-1">
     <div class="modal-dialog">
      <div class="modal-content">
       <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
@@ -81,7 +7,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
        </div>
        <div class="modal-body">
-         <p>{{item}}</p>
+         <p>Hi User!</p>
                    <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
              <span style="font-size: 12px; background-color: white; padding: 10px 10px;"> or</span>
           </div>
@@ -137,7 +63,8 @@
       </div>
      </div>
     </div>
-  </div>     -->
+  </div>  
+  
   
   <!-- [ Menu - Navbar ] -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -156,9 +83,7 @@
       <li class="nav-item">
         <a href="" class="nav-link" data-toggle="modal" data-target="#user-settings">Settings</a>
       </li>
-     <li class="nav-item">
-        <a class="nav-link" href="#">Logout</a>
-      </li>
+   <li class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li>
     </ul>
   </div>
   </nav>
@@ -175,75 +100,15 @@
       </div>
       <div class="col-md-4">
         <h2 class="featurette-heading">9 Orders<button type="button" class="btn btn-woah">See All</button></h2>
+        <button (click)="logout()">logout</button>
       </div>
     </div>
    <div class="row">
   
     <app-order></app-order>
-     <!-- Card -->
-        <!-- <div class="col-xs-12 col-md-4">
-          <article class="card">
-            <div class="card-block">
-              <div class="float-title-over-image">
-                <h4 class="card-title">Birthday Shoes</h4>
-                <h6 class="text-muted">October 8, 2017</h6>
-                <h6 class="text-muted">Evening</h6>
-              </div>
-              <img class="order-detail-circle-crop" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/shopping-icon.png" alt="ICON ARRAY BASED ON TIME VALUE HERE" />
-            </div>
-            <div class="card-block">
-              <div class="btn-group hidden-sm-down hidden-md-down" role="group" aria-label="Card buttons">
-                <a href="" class="btn btn-woah" data-toggle="modal" data-target="#order-detail">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div> -->
-    <!-- .end Card -->
-  
-      <!-- Card -->
-          <!-- <div class="col-xs-12 col-md-4">
-          <article class="card">
-            <div class="card-block">
-              <div class="float-title-over-image">
-                <h4 class="card-title">Birthday Shoes</h4>
-                <h6 class="text-muted">October 8, 2017</h6>
-                <h6 class="text-muted">Evening</h6>
-              </div>
-              <img class="order-detail-circle-crop" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/shopping-icon.png" alt="ICON ARRAY BASED ON TIME VALUE HERE" />
-            </div>
-            <div class="card-block">
-              <div class="btn-group hidden-sm-down hidden-md-down" role="group" aria-label="Card buttons">
-                <a href="" class="btn btn-woah" data-toggle="modal" data-target="#order-detail">View Details</a>
-              </div>
-            </div>
-          </article>
-          </div> -->
-    <!-- .end Card -->
-  
-    <!-- Card -->
-          <!-- <div class="col-xs-12 col-md-4">
-          <article class="card">
-            <div class="card-block">
-              <div class="float-title-over-image">
-                <h4 class="card-title">Birthday Shoes</h4>
-                <h6 class="text-muted">October 8, 2017</h6>
-                <h6 class="text-muted">Evening</h6>
-              </div>
-              <img class="order-detail-circle-crop" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/shopping-icon.png" alt="ICON ARRAY BASED ON TIME VALUE HERE" />
-          </div>
-            <div class="card-block">
-              <div class="btn-group hidden-sm-down hidden-md-down" role="group" aria-label="Card buttons">
-                <a href="" class="btn btn-woah" data-toggle="modal" data-target="#order-detail">View Details</a>
-              </div>
-            </div>
-          </article>
-          </div> -->
-    <!-- .end Card -->
-     
+     <app-add-order-dashboard></app-add-order-dashboard>
     </div>
   </div>
   </div>
   </div>
-
-<!-- Add an Order Form -->
-<!-- <app-add-order-dashboard></app-add-order-dashboard> -->
+  

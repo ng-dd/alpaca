@@ -1,100 +1,67 @@
-<div>
-    <!-- <h4>order component testing</h4>
-    {{order.carrier}}
-    <button (click)="getOrder()">click me!</button> -->
-    <button (click)="getList()">log orders</button>
-    <button (click)="findUser()">find user</button>
-            <h3>register</h3>
-            <app-register></app-register>
-            <h3>add order</h3>
-            <app-add-order-dashboard></app-add-order-dashboard>
-    <!-- <button (click)="findUser()">Check User</button> -->
-    <div class="col-xs-12 col-md-4" *ngFor="let item of orders" >
-      <!-- <p>{{ item.status }}</p>
-      <button (click)="getOrder(item.trackingNumber)">get order details</button> -->
-      
-          <article class="card">
-            <div class="card-block">
-              <div class="float-title-over-image">
-                <h4 class="card-title">{{item.ordername}}</h4>
-                <h6 class="text-muted">{{item.currentLocation}}</h6>
-                <h6 class="text-muted">{{item.status}}</h6>
-              </div>
-              <img class="order-detail-circle-crop" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/shopping-icon.png" alt="ICON ARRAY BASED ON TIME VALUE HERE" />
-            </div>
-            <div class="card-block">
-              <div class="btn-group hidden-sm-down hidden-md-down" role="group" aria-label="Card buttons">
-                <a href="" class="btn btn-woah" data-toggle="modal" data-target="#order-detail">View Details</a>
-              </div>
-            </div>
-          </article>
+<!-- uncomment below to signup and add orders for testing -->
 
-          <div class="modal" id="order-detail" tabindex="-1">
-              <div class="modal-dialog">
-               <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
-                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                 </div>
-                 <div class="modal-body">
-                   <p>{{item.ordername}}</p>
-                     <ul>{{item.key}}</ul><ul>{{item.store}}</ul><ul>{{item.nickname}}</ul><ul>{{item.service}}</ul><ul>{{item.currentLocation}}</ul>
-                             <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
-                       <span style="font-size: 12px; background-color: white; padding: 10px 10px;"> or</span>
-                    </div>
-            <!-- <form>
-            <div class="form-group" id="snazzy-login">
-            <label class="sr-only" for="inlineFormInputGroup">Email</label>
-            <div class="col-12 input-group">
-              <input class="form-control" type="email" placeholder="Email" id="modal">
-                  <div class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
-            </div>
-            </div>
-            <div class="form-group">
-            <label class="sr-only" for="inlineFormInputGroup">First name</label>
-            <div class="col-12 input-group">
-              <input class="form-control" type="email" placeholder="First name" id="example-email-input">
-                  <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
-            </div>
-            </div>
-            <div class="form-group">
-            <label class="sr-only" for="inlineFormInputGroup">Last name&hellip;</label>
-            <div class="col-12 input-group">
-              <input class="form-control" type="email" placeholder="Last name" id="example-email-input">
-                  <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
-            
-            </div>
-            </div>
-              <div class="form-group">
-            <label class="sr-only" for="inlineFormInputGroup">Address</label>
-            <div class="col-12 input-group">
-              <input class="form-control" type="email" placeholder="Address" id="example-email-input">
-                  <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
-            
-            </div>
-            </div>
-            <div class="form-group">
-            <label class="sr-only" for="example-password-input">Password</label>
-            <div class="col-12 input-group">
-              <input class="form-control" type="password" placeholder="Password" id="example-password-input">
-                  <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
-            </div>
-            </div>
-            <div class="form-group col-12">
-                          <label class="btn btn-browse">
-                          Upload profile photo <input type="file" style="display: none;" class="form-control-file" >
-                      </label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            </form>   -->
-                    <hr>
-                </div>
-                <div class="modal-footer">
-            <p>Thanks for using Alpaca!</p>
-                </div>
-               </div>
+  <!-- <button (click)="findUser()">find user</button>
+          <h3>register</h3>
+          <app-register></app-register>
+          <h3>add order</h3>
+          <app-add-order-dashboard></app-add-order-dashboard> -->
+
+  <!-- <button (click)="findUser()">Check User</button> -->
+
+
+  <!-- ORDER COMPONENT -->
+
+ <div *ngFor="let item of orders" >
+    
+  <article class="card">
+    <div class="card-block">
+      <div class="float-title-over-image">
+        <h4 class="card-title">Order Name: {{item.ordername}}</h4>
+        <h6 class="text-muted">ETA: {{item.deliveryDate || 'UNAVAILABLE'}}</h6>
+        <h6 class="text-muted">Status: {{item.status}}</h6>
+      </div>
+      <img class="order-detail-circle-crop" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/shopping-icon.png" alt="ICON ARRAY BASED ON TIME VALUE HERE" />
+    </div>
+    <div class="card-block">
+      <div class="btn-group hidden-sm-down hidden-md-down" role="group" aria-label="Card buttons">
+        <a href="" class="btn btn-woah" data-toggle="modal" data-target="#order-detail" (click)="saveThing(item)">View Details</a>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="modal fade" id="order-detail" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-6">
+              <div class="photo-container">
+                <img src="" />
               </div>
-            </div> 
-  
+            <div class="col-md-6">
+              <p> Info nickname: {{thing.ordername}}</p>
+              <p> Info Date for arrival: {{thing.deliveryDate}} </p>
+              <p> Current Status: {{thing.status}} </p>
+              <p> Current Location: {{thing.currentLocation}} </p>
+              <p> Carrier: {{thing.service}} </p>
+              <p> Store: {{thing.store}} </p>
+              
+            </div>
+          </div>        
+        </div>
+        <div class="modal-footer">
+  <p>Share on Facebook or Twitter</p>
+        </div>
+      </div>
     </div>
   </div>
+  </div> 
+
+
+<!-- ORDER DETAILS MODAL -->
+

@@ -3,6 +3,8 @@ import { OrderService } from '../../services/order.service';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Order } from '../../shared/order';
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-order',
@@ -16,11 +18,19 @@ export class OrderComponent {
   orders: Order[] = null;
   user: string = null;
   checked: boolean = false;
+  rForm: FormGroup;
+  thing: object;
+  
 
-  constructor( public db: AngularFireDatabase, public orderService: OrderService, public afAuth: AngularFireAuth ) {
+  constructor(private fb: FormBuilder, public db: AngularFireDatabase, public orderService: OrderService, public afAuth: AngularFireAuth ) {
     // this.orders = db.list('/orders')
     afAuth = this.afAuth;
     // this.authenticated();
+  }
+
+  saveThing(item) {
+    this.thing = item;
+    console.log(item)
   }
 
   ngOnInit(): void {
@@ -29,19 +39,7 @@ export class OrderComponent {
         this.getList();
       }
     })
-  }
-
-  authenticated() {
-    new Promise((resolve, reject) => {
-      var user = this.afAuth.auth.currentUser
-      if (user == null) {
-        resolve(null);
-      } else {
-        reject(user);
-      }
-    }).then((user) => {console.log(user)}
-
-    )}    
+  }  
       
   findUser() {
     // this.user = this.afAuth.auth.currentUser;
