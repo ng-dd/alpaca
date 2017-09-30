@@ -39,7 +39,7 @@ Team Alpaca
 In the browser, navigate to localhost:4200. From home, login (or sign up) through to proceed to your user dashboard. Feel free to add an order, or view your most recent orders. 
 
 ### How to Get Started On Local Host
-1. Install [Node.js](https://nodejs.org)
+1. Install 
 2. Connect to your a Firebase account.
 2. Install Angular CLI: `npm i -g @angular/cli`
 3. From project root folder install all the dependencies: `npm i`
