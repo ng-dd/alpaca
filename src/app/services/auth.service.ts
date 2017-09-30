@@ -121,7 +121,7 @@ export class AuthService {
         firstname: nameArray[0],
         lastname: nameArray.length > 1 ? nameArray[nameArray.length - 1] : 'unspecified',
         imageUrl: res.additionalUserInfo.profile.profile_image_url,
-        orders: {},
+        orders: null,
         address: null,
       });
       if (order) {

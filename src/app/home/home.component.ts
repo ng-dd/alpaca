@@ -69,7 +69,6 @@ export class HomeComponent implements OnInit {
   signup(): void {
     console.log(this.email, this.password, this.firstname, this.lastname, this.upload, this.unsavedTrack)
     this.authService.signup(this.email, this.password, this.firstname, this.lastname, this.upload, this.unsavedTrack)
-    
   }
 
   detectFiles(event) {
