@@ -10,7 +10,6 @@ $dark-pink-gradient: #fed3f0;
 $light-yellow-gradient: #fff9d1;
 $dark-yellow-gradient: #f8eea8;
 $dark-text: #484848;
-$light-text: #a6a6a6;
 $button-attention-pink: #f74d62;
 
 
@@ -74,7 +73,7 @@ body {
 body, p, h2,{
   	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
-  color: $light-text;
+  color: #a6a6a6;
 }
 * {
       cursor: pointer !important;
@@ -89,7 +88,7 @@ a {
 
 h2{
   	font-family: 'Open Sans', sans-serif;
-  color: $light-text;
+  color: #a6a6a6 !important;
     padding-top: 1rem;
   padding-bottom: 2rem;
   font-family: 'Open Sans', sans-serif;
@@ -111,7 +110,7 @@ h2{
   }
 }
 h6 {
-	font-family: 'soleil', sans-serif;
+	font-family: "soleil", sans-serif;
 	font-weight: 800;
   color: $dark-text;
   text-transform: uppercase;
@@ -123,7 +122,7 @@ h6 {
 /* Alpaca Logo text and H1
 */
 h1 {
- font-family: "soleil", "Open Sans", sans-serif;
+ font-family: "soleil", sans-serif;
   font-weight: 800;
   font-size: 5rem;
   	animation: Gradient 15s ease infinite;
@@ -328,8 +327,6 @@ h1 {
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
-  font-family: 'Open Sans';
-  color: white;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -472,7 +469,7 @@ button, input {
 }
 .close {
   font-size: 40px;
-  color: $light-text;
+  color: #a6a6a6;
 }
 .btn-browse {
   color: $button-attention-pink !important;
@@ -558,7 +555,7 @@ button, input {
 .featurette-heading {
   font-weight: 800;
   line-height: 1;
-  color: $dark-text;
+  color: $dark-text !important;
   letter-spacing: -.05rem;
     font-family: 'soleil', sans-serif;
 }
