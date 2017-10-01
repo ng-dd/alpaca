@@ -161,7 +161,7 @@
   <!-- Jumbotron Hero Section 1 -->
   <div class="jumbotron">
     <div class="mary">
-      <h1>Alpaca</h1>
+      <h1 class="hero-heading">Alpaca</h1>
       <h2 class="fw300">Track all of your orders in one place.</h2>
       <div class="ordertrack">
 
@@ -170,21 +170,21 @@
             <form class="form">
               <div class="row">
                 <div class="form-group">
-                  <label for="exampleInputEmail3">Track your package</label>
+                  <label for="trackPackage">Track your package</label>
                   <div class="w-100"></div>
-                  <input [(ngModel)]="trackingNumber" [ngModelOptions]="{standalone: true}" type="text" class="form-control order" id="exampleInputEmail3"
+                  <input [(ngModel)]="trackingNumber" [ngModelOptions]="{standalone: true}" type="text" class="form-control order" id="trackPackage"
                     placeholder="Your tracking number...">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail3">What did you get?</label>
+                  <label for="trackPackage">What did you get?</label>
                   <div class="w-100"></div>
-                  <input [(ngModel)]="orderName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleInputEmail3"
+                  <input [(ngModel)]="orderName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="trackPackage"
                     placeholder="Your order nickname...">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail3">Where did you buy it?</label>
+                  <label for="trackPackage">Where did you buy it?</label>
                   <div class="w-100"></div>
-                  <input [(ngModel)]="store" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleInputEmail3"
+                  <input [(ngModel)]="store" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="trackPackage"
                     placeholder="The store...">
                 </div>
                 <button type="submit" class="btn btn-hero" (click)="uninitiatedTrack()" data-toggle="modal" data-target="#log-in-modal">Pac It!</button>
@@ -236,17 +236,17 @@
         </div>
       </div>
       <hr class="featurette-divider">
-      <!--   THIS IS BUGGING OUT - NG will fix
-        <div class="row featurette">
+
+      <div class="browsers">
           <h2 class="featurette-heading">Join the pac.</h2>
           <p class="lead">Alpaca is supported by major browsers.</p>
           <div class="row">
-            <div class="col-md-3"><img src="https://cdn.joinhoney.com/images/browser-icons/ch.png"></img></div>
-            <div class="col-md-3"><img src="https://cdn.joinhoney.com/images/browser-icons/sf.png"></img></div>
-            <div class="col-md-3"><img src="https://cdn.joinhoney.com/images/browser-icons/ff.png"></img></div>
-            <div class="col-md-3"><img src="https://cdn.joinhoney.com/images/browser-icons/op.png"></img></div>
-          </div>
-        </div> -->
+              <div class="col-md-3"><img class="featurette-image img-fluid mx-auto" src="../../assets/browser-icons/ch.png"></div>
+              <div class="col-md-3"><img class="featurette-image img-fluid mx-auto" src="../../assets/browser-icons/sf.png"></div>
+              <div class="col-md-3"><img class="featurette-image img-fluid mx-auto" src="../../assets/browser-icons/ff.png"></div>
+              <div class="col-md-3"><img class="featurette-image img-fluid mx-auto" src="../../assets/browser-icons/op.png"></div>
+            </div>
+        </div>
     </div>
   </div>
 </body>
