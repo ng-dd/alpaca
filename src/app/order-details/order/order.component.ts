@@ -15,10 +15,16 @@ export class OrderComponent {
   orders: Order[] = null;
   user: string = null;
   checked: boolean = false;
+  currentOrder: Object;
 
   constructor( public db: AngularFireDatabase, public orderService: OrderService, public afAuth: AngularFireAuth ) {
     // this.orders = db.list('/orders')
     afAuth = this.afAuth;
+  }
+
+  saveItem(item) {
+    this.currentOrder = item;
+    console.log(item)
   }
 
   ngOnInit() {
@@ -47,3 +53,4 @@ export class OrderComponent {
   }
 
 }
+

@@ -41,6 +41,7 @@ export class AddOrderDashboardComponent implements OnInit {
     let store = post.store;
     let carrier = guessCarrier(tracking)[0];
     this.orderService.getData(tracking, carrier, name, store);
+    this.rForm.reset();
    }
 
   ngOnInit() {
