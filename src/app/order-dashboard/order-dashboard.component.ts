@@ -28,7 +28,9 @@ export class OrderDashboardComponent implements OnInit {
   key: string;
   userInfo: User = new User();
 
-  constructor(private orderService: OrderService, private authService: AuthService, private afAuth: AngularFireAuth, private userService: UserService) { }
+  constructor(private orderService: OrderService, private authService: AuthService, private afAuth: AngularFireAuth, private userService: UserService) {
+
+  }
 
   ngOnInit() {
     this.afAuth.authState.subscribe(()=>{
