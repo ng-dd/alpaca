@@ -64,5 +64,35 @@ $button-attention-pink: #f74d62;
     position: absolute;
   }
   .card {
+    padding-top: 1rem;
+    padding-left: 2em;
+    padding-right: 2rem;
     margin-bottom: 1rem;
+    background: -webkit-linear-gradient(45deg, #b8f2f7 10%, #e2f9fb 90%);
+    background: -moz-linear-gradient(45deg, #b8f2f7 10%, #e2f9fb 90%);
+    background: -ms-linear-gradient(45deg, #b8f2f7 10%, #e2f9fb 90%);
+    background: -o-linear-gradient(45deg, #b8f2f7 10%, #e2f9fb 90%);
+    background: linear-gradient(45deg, #b8f2f7 10%, #e2f9fb 90%);
   }
+  .card-title {
+    margin-bottom: .75rem;
+    margin-top: .5rem;
+    margin-left: .5rem;
+    font-family: 'soleil', sans-serif;
+    font-weight: 600;
+    color: #3c3d41;
+  }
+  .text-muted {
+    color: #868e96!important;
+    padding: 0rem;
+    margin: 0rem;
+    margin-left: .5rem;
+    font-family: 'soleil', sans-serif;
+    font-weight: 600;
+    text-transform: none;
+}
+.btn-woah {
+  cursor: pointer !important;
+  text-decoration: none !important;
+  color: #06c8d9;
+}

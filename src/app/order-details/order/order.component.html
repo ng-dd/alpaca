@@ -1,23 +1,16 @@
-<!-- uncomment below to signup and add orders for testing -->
-<!-- 
-  <button (click)="findUser()">find user</button>
-          <h3>register</h3>
-          <app-register></app-register>
-           -->
-<!-- 
-  Order card  -->
+<!-- Order card  -->
 <div class="row card-deck">
  <div *ngFor="let item of orders" >
     <div class="col-xs-12">
   <div class="card" style="width: 15rem;">
     <div class="card-block">
       <div class="float-title-over-image">
-        <h4 class="card-title">Order: {{item.ordername}}</h4>
+        <h4 class="card-title">{{item.ordername}}</h4>
         <h6 class="text-muted">Store: {{item.store}}</h6>
         <h6 class="text-muted">ETA: {{item.deliveryDate || 'UNAVAILABLE'}}</h6>
         <h6 class="text-muted">Status: {{item.status}}</h6>
       </div>
-      <img class="order-detail-circle-crop" src="{{item.serviceImg}}" alt="ICON ARRAY BASED ON TIME VALUE HERE" />
+      <img class="order-detail-circle-crop" src="{{item.serviceImg}}" alt="No available image" />
     </div>
     <div class="card-block">
       <div class="btn-group hidden-sm-down hidden-md-down" role="group" aria-label="Card buttons">
@@ -26,8 +19,7 @@
     </div>
   </div>
 
-<!-- 
-  Order modal  -->
+<!--  Order modal  -->
   <div class="modal fade" id="order-detail" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -89,3 +81,10 @@
   </div>
 </div>
 </div> 
+
+<!-- uncomment below to signup and add orders for testing -->
+<!-- 
+  <button (click)="findUser()">find user</button>
+          <h3>register</h3>
+          <app-register></app-register>
+           -->
