@@ -1,0 +1,98 @@
+$hero-turquoise: #06c8d9;
+$light-blue-gradient: #e1f9fb;
+$dark-blue-gradient: #b9f2f7;
+$light-pink-gradient: #febeae;
+$dark-pink-gradient: #fed3f0;
+$light-yellow-gradient: #fff9d1;
+$dark-yellow-gradient: #f8eea8;
+$dark-text: #484848;
+$light-text: #a6a6a6;
+$button-attention-pink: #f74d62;
+
+/* Order Dashboard Cards */
+
+.order-detail-circle-crop {
+    width: 200px;
+    height: 200px;
+     background-size: cover;
+    border-radius: 50%;
+    float: right;
+    z-index: -1;
+  }
+  
+  // Box shadow helper
+  @mixin BoxShadowHelper($level: 1){
+    @if $level == 1 {
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    }
+    @if $level == 2 {
+      box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+    }
+  }
+  a {transition: .25s all;}
+  .card {
+    overflow: hidden;
+    @include BoxShadowHelper(1);
+    transition: .25s box-shadow;
+    &:focus,
+    &:hover {@include BoxShadowHelper(2);}
+  }
+  .card-inverse .card-blue-overlay {
+      background: linear-gradient($light-blue-gradient, $dark-blue-gradient);
+    border-color: rgba(#333,.85);
+  }
+  .card-inverse .card-pink-overlay {
+      background: linear-gradient($light-pink-gradient, $dark-pink-gradient);
+    border-color: rgba(#333,.85);
+  }
+  .card-inverse .card-yellow-overlay {
+      background: linear-gradient($light-yellow-gradient, $dark-yellow-gradient);
+    border-color: rgba(#333,.85);
+  }
+  .order-detail-circle-crop {
+    width: 200px;
+    height: 200px;
+     background-size: cover;
+    border-radius: 50%;
+    z-index: 1;
+    margin-top: 2rem;
+  
+  }
+  
+  .float-title-over-image {
+    z-index: 2;
+    position: absolute;
+  }
+  .card {
+    padding-top: 1rem;
+    padding-left: 2em;
+    padding-right: 2rem;
+    margin-bottom: 1rem;
+    background: -webkit-linear-gradient(45deg, #b8f2f7 10%, #e2f9fb 90%);
+    background: -moz-linear-gradient(45deg, #b8f2f7 10%, #e2f9fb 90%);
+    background: -ms-linear-gradient(45deg, #b8f2f7 10%, #e2f9fb 90%);
+    background: -o-linear-gradient(45deg, #b8f2f7 10%, #e2f9fb 90%);
+    background: linear-gradient(45deg, #b8f2f7 10%, #e2f9fb 90%);
+  }
+  .card-title {
+    margin-bottom: .75rem;
+    margin-top: .5rem;
+    margin-left: .5rem;
+    font-family: 'soleil', sans-serif;
+    font-weight: 600;
+    color: #3c3d41;
+  }
+  .text-muted {
+    color: #868e96!important;
+    padding: 0rem;
+    margin: 0rem;
+    margin-left: .5rem;
+    font-family: 'soleil', sans-serif;
+    font-weight: 600;
+    text-transform: none;
+}
+.btn-woah {
+  cursor: pointer !important;
+  text-decoration: none !important;
+  color: #06c8d9;
+}
