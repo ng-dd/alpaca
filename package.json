@@ -8,8 +8,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "dev": "concurrently  \"ng serve -pc proxy.conf.json --open\" \"tsc -w -p server\""
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -40,14 +39,10 @@
     "jquery": "^3.2.1",
     "mongoose": "^4.11.13",
     "morgan": "^1.8.2",
-    "node-sass": "^4.5.3",
     "popper": "^1.0.0",
     "popper.js": "^1.12.5",
     "promise-polyfill": "6.0.2",
-    "raw-loader": "^0.5.1",
     "rxjs": "^5.4.2",
-    "sass": "^1.0.0-beta.2",
-    "sass-loader": "^6.0.6",
     "tether": "^1.4.0",
     "tooltip.js": "^1.1.5",
     "zone.js": "^0.8.14"
