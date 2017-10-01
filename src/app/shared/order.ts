@@ -11,4 +11,5 @@ export class Order {
     timeStamp: Number;
     active: boolean = true;
     archived: boolean = false;
+    eta: String;
 }

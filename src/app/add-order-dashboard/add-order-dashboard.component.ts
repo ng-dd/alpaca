@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../services/order.service';
-import { Order } from '../order';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import * as guessCarrier from 'guess-carrier';
+import { Order } from '../shared/order';
 
 @Component({
   selector: 'app-add-order-dashboard',
   templateUrl: './add-order-dashboard.component.html',
-  styleUrls: ['./add-order-dashboard.component.css']
+  styleUrls: ['./add-order-dashboard.component.scss']
 })
  
 export class AddOrderDashboardComponent implements OnInit {
@@ -36,6 +36,7 @@ export class AddOrderDashboardComponent implements OnInit {
   }
 
   addPost(post) {
+    console.log(post, 'this is post')
     let tracking = post.trackingnumber;
     let name = post.name;
     let store = post.store;

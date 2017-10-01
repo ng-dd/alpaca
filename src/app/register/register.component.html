@@ -2,26 +2,41 @@
   <form [formGroup]='rForm' (ngSubmit)="signup()">
 
     <input placeholder="firstname" formControlName="firstname" [(ngModel)]="firstname"/>
-    <div *ngIf="!rForm.controls['firstname'].valid && rForm.controls['firstname'].touched">
+    <div *ngIf="!rForm.controls['firstname'].valid && rForm.controls['firstname'].dirty">
       This field is required
     </div>
 
     <input placeholder="lastname" formControlName="lastname" [(ngModel)]="lastname"/>
-    <div *ngIf="!rForm.controls['lastname'].valid && rForm.controls['lastname'].touched">
+    <div *ngIf="!rForm.controls['lastname'].valid && rForm.controls['lastname'].dirty">
         This field is required
     </div>
     
     <input placeholder="email" formControlName="email" [(ngModel)]="email"/>
-    <div *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
+    <div *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].dirty">
         A valid email address is required
     </div>
     
     <input placeholder="password" formControlName="password" [(ngModel)]="password" (keyup.enter)="signup()"/>
-    <div *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">
+    <div *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].dirty">
         Password must be at least 8 characters
     </div>
 
     <input type='submit' value='sign up' [disabled]='!rForm.valid'>    
     <button (click)="checkToken()">Check user token</button>
+
+    <div *ngIf="upload">
+      <div class="progress">
+        <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': upload?.progress + '%' }"></div>
+      </div>
+      Progress: {{upload?.name}} | {{upload?.progress}}% Complete
+    </div>
+        <label>
+          <input type="file" (change)="detectFiles($event)">
+        </label>
+        <button
+                [disabled]="!selectedFiles"
+                (click)="signup()">
+          Upload Single
+        </button>
   </form>
 </div>
