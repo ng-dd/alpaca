@@ -17,7 +17,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./order-dashboard.component.scss']
 })
 export class OrderDashboardComponent implements OnInit {  
-  orders: FirebaseListObservable<Order[]>;
+  orders: Order[];
   email: string;
   password: string;
   firstName: string;
@@ -33,6 +33,13 @@ export class OrderDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.afAuth.auth.onIdTokenChanged(user => {
+      if(user) {
+        this.getList()
+      }
+    })
+
     this.afAuth.authState.subscribe(()=>{
       this.userService.getUser(this.afAuth.auth.currentUser.uid)
       .subscribe((userData)=>{
@@ -68,8 +75,14 @@ export class OrderDashboardComponent implements OnInit {
     this.userService.updateUserAllProperties(this.key, this.userInfo, this.upload);
   }
 
-  // deleteEverything() {
-  //   this.orderService.deleteEverything();
-  // }
+  getList() {
+    this.orderService.getOrdersList()
+      .subscribe((data) => {
+        // console.log('LIST -->', data);
+        this.orders = data;
+        this.orderService.createTimestamp(this.orders);
+        this.orderService.populateImages(this.orders);
+      })
+  }
 
 }
