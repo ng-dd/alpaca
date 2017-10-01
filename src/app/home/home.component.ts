@@ -3,6 +3,8 @@ import { Order } from '../shared/order';
 import { Upload } from '../shared/upload';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
@@ -30,23 +32,43 @@ export class HomeComponent implements OnInit {
   email: string;
   password: string; 
   upload: Upload;
+  uid: string;
   rForm: FormGroup;
   
 
-  constructor(public authService: AuthService, private fb: FormBuilder) { 
+  constructor(public authService: AuthService, 
+    private fb: FormBuilder, 
+    private afAuth: AngularFireAuth,
+    private route: ActivatedRoute,
+    private router: Router) { 
     this.rForm = fb.group({
       'firstname': [null, Validators.required],
       'lastname': [null, Validators.required],
       'email': [null, Validators.compose([Validators.required, Validators.pattern("[^ @]*@[^ @]*")])],
       'password': [null, Validators.compose([Validators.required, Validators.minLength(8)])]
     })
+    afAuth.auth.onAuthStateChanged((res)=>{
+      if (res.uid){
+        document.getElementById('close').click()
+        this.router.navigate(['/dashboard'])
+      }
+    });
   }
 
   ngOnInit(): void {
+    this.afAuth.authState.subscribe((res)=>{
+      if (res.uid){
+        this.router.navigate(['/dashboard'])
+      }
+    })
   }
 
   uninitiatedTrack(): void {
-    // this.unsavedTrack = new Order(this.orderName, this.trackingNumber, this.store)
+    this.unsavedTrack = {
+      ordername: this.orderName, 
+      tracking: this.trackingNumber, 
+      store: this.store
+    }
   }
 
   login() {
@@ -74,6 +96,10 @@ export class HomeComponent implements OnInit {
   detectFiles(event) {
     this.selectedFiles = event.target.files;
     this.upload = new Upload(this.selectedFiles.item(0))
+  }
+
+  forgotPassword() {
+    this.afAuth.auth.sendPasswordResetEmail(this.loginEmail);
   }
 
 
