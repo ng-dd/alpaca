@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   firstname: string;
   lastname: string;
   imageUrl: string;
+  address: string;
   constructor(private userService: UserService, private afAuth: AngularFireAuth) { }
 
   ngOnInit() {
@@ -23,11 +24,12 @@ export class ProfileComponent implements OnInit {
         this.firstname= userData.firstname;
         this.lastname= userData.lastname;
         this.imageUrl= userData.imageUrl;
+        this.address= userData.address;
       })
   }
 
-  changeProfile(changeProperty): void {
-    this.userService.updateUser(this.key, changeProperty)
-  }
+  // changeProfile(changeProperty): void {
+  //   this.userService.updateUser(this.key, changeProperty)
+  // }
 
 }

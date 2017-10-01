@@ -1,4 +1,48 @@
-<div *ngIf='!name; else forminfo'>
+<div class="order-form">
+    <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+         <h2 class="featurette-heading">Add an Order</h2>
+    </div>
+      <div class="col-md-4">
+               <h2 class="featurette-heading"></h2>
+      </div>
+     </div>
+       <div class="ordertrack">
+      
+      <div class="row">
+        <div class="col-sm-12">
+          <form class="form" [formGroup]='rForm' (ngSubmit)="addPost(rForm.value)">
+            <div class="row">
+              <div class="form-group">
+                <label for="trackPackage">Track your package</label> <div class="w-100"></div>
+                <input formControlName='trackingnumber' type="text" class="form-control order" id="trackPackage" placeholder="Your tracking number...">
+                <div *ngIf="!rForm.controls['trackingnumber'].valid && rForm.controls['trackingnumber'].dirty">
+                        A valid tracking number is required
+                </div>
+              </div>
+              <div class="form-group">
+               <label for="trackPackage">What did you get?</label> <div class="w-100"></div>
+                <input formControlName='name' type="text" class="form-control" id="trackPackage" placeholder="Your order nickname...">
+                <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].dirty">
+                        This is required
+                    </div>
+              </div>
+              <div class="form-group">
+                <label for="trackPackage">Where did you buy it?</label> <div class="w-100"></div>
+                <input formControlName='store' type="text" class="form-control" id="trackPackage" placeholder="The store...">
+                <div *ngIf="!rForm.controls['store'].valid && rForm.controls['store'].dirty">
+                        You must specify a store
+                </div>
+              </div>
+                <input type="submit" class="btn btn-hero" [disabled]='!rForm.valid' value="Pac it!" href=""/>
+            </div> 
+          </form>
+        </div>
+      </div>
+    </div> 
+    </div>
+<!-- <div *ngIf='!name; else forminfo' class="ordertrack">
     <form [formGroup]='rForm' (ngSubmit)="addPost(rForm.value)">
         <div class="form-container">
             <div class="row columns">
@@ -29,4 +73,28 @@
             </div>
         </div>
     </form>
-</div>
+</div> -->
+<!-- <div class="ordertrack">
+        <div class="row">
+          <div class="col-sm-12">
+            <form class="form">
+              <div class="row">
+                <div class="form-group">
+                  <label for="exampleInputEmail3">Track your package</label> <div class="w-100"></div>
+                  <input type="text" class="form-control order" id="exampleInputEmail3" placeholder="Your tracking number...">
+                </div>
+                <div class="form-group">
+                <label for="exampleInputEmail3">What did you get?</label> <div class="w-100"></div>
+                  <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Your order nickname...">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail3">Where did you buy it?</label> <div class="w-100"></div>
+                  <input type="text" class="form-control" id="exampleInputEmail3" placeholder="The store...">
+                </div>
+                  <button type="submit" class="btn btn-hero">Pac It!</button>
+                </div>
+              </div> 
+            </form>
+          </div>
+        </div>
+</div> -->

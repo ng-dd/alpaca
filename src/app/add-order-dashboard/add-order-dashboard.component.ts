@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../services/order.service';
-import { Order } from '../order';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import * as guessCarrier from 'guess-carrier';
 
 @Component({
   selector: 'app-add-order-dashboard',
   templateUrl: './add-order-dashboard.component.html',
-  styleUrls: ['./add-order-dashboard.component.css']
+  styleUrls: ['./add-order-dashboard.component.scss']
 })
  
 export class AddOrderDashboardComponent implements OnInit {
@@ -17,6 +16,7 @@ export class AddOrderDashboardComponent implements OnInit {
   name: string = '';
   store: string = '';
   trackingNumber: string = '';
+
   
   constructor(private orderService: OrderService, private fb: FormBuilder) {
 
@@ -41,9 +41,12 @@ export class AddOrderDashboardComponent implements OnInit {
     let store = post.store;
     let carrier = guessCarrier(tracking)[0];
     this.orderService.getData(tracking, carrier, name, store);
+    this.rForm.reset();
    }
 
   ngOnInit() {
   }
+
+
 
 }

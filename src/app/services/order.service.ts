@@ -5,6 +5,7 @@ import { Order } from '../shared/order';
 import { Http, Response, Headers } from '@angular/http';
 import * as guessCarrier from 'guess-carrier'
 import { UserService } from './user.service';
+import { searchImages } from 'pixabay-api';
 
 @Injectable()
 export class OrderService {
@@ -38,6 +39,7 @@ export class OrderService {
     var headers = new Headers();
     this.createAuthorizationHeader(headers);
     var userid = this.afAuth.auth.currentUser.uid
+    console.log(userid);
     this.orders = this.db.list(`/users/${userid}/orders`)
 
     var content = JSON.stringify({
@@ -64,13 +66,40 @@ export class OrderService {
         service: carrier, // => fedex
         currentLocation: data.tracking_status.location.city, // => somewhere
         status: data.tracking_status.status, // => departed
-        deliveryDate: null, // => date, evening/afternoon/moring;
+        deliveryDate: this.printDate(data.eta), // => date, evening/afternoon/moring;
         timeStamp: null, //Date = new Date();
         active: null, //boolean = true;
         archived: false
       })
       
     })
+  }
+
+  printDate(timestamp) {
+
+    if(timestamp === null) {
+      return 'UNAVAILABLE';
+    }
+
+    var date = timestamp.slice(0, 10);
+    var year = timestamp.slice(0, 4);
+    var month = timestamp.slice(5, 7);
+    var day = timestamp.slice(8, 10);
+    
+    
+    let d = new Date();
+    
+    d.setFullYear(Number(year), Number(month) - 1, Number(day))
+    
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    
+    
+    var deliveryTime = days[d.getDay()] + ', ' + monthNames[d.getMonth()] + ' ' + Number(day) + ' ' + d.getFullYear()
+    return deliveryTime;
   }
 
    // Return an observable list with optional query
@@ -96,13 +125,7 @@ export class OrderService {
   }
 
   createTimestamp(list): void {
-    // this.orders = this.db.list(`/users/${this.afAuth.auth.currentUser.uid}/orders`, {
-    //   query: {
-    //     orderByChild: 'archived',
-    //     equalTo: true
-    //   }
-    // });
-    // let current = Number(new Date());
+
     let filteredList: Order[] = list.filter(listitem => {
       return listitem.status === "DELIVERED";
     })
@@ -113,8 +136,20 @@ export class OrderService {
         if ((Number(new Date()) - Number(listitem.timeStamp))/86400000 > 1) {
           this.updateOrder(listitem.key, {archived: true})
         }
-        console.log('difference -->', (Number(new Date()) - Number(listitem.timeStamp))/86400000);
       }
+    })
+  }
+
+  populateImages(list): void {
+    
+    list.forEach(listitem => {
+      if(!listitem.serviceImg) {
+        searchImages('6591922-584ff01f54cb7d5e3de145dd0', listitem.ordername, {per_page: 3})
+        .then(result => {
+          this.updateOrder(listitem.key, {serviceImg: result.hits[0].previewURL})
+        })
+        
+      }  
     })
   }
 

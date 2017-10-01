@@ -1,8 +1,9 @@
+/* END OF PROJECT NOTE: Commented out modules or components we should remove later */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RoutingModule } from './routing/routing.module';
 // Firebase - Require Firebase config, db, auth
 import { AngularFireModule } from 'angularfire2';
@@ -12,6 +13,7 @@ import { firebaseConfig } from '../environments/firebase.config';
 import { AuthService } from './services/auth.service';
 import { OrderService } from './services/order.service';
 import { UserService } from './services/user.service';
+import { UploadService } from './services/upload.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
@@ -26,7 +28,8 @@ import { OrderComponent } from './order-details/order/order.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -42,12 +45,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
     RegisterComponent,
     OrderComponent,
     UserComponent,
-    HomeComponent
+    HomeComponent,
+    ForgotPasswordComponent,
+    FooterComponent
   ],
   imports: [
     RoutingModule,
     BrowserModule,
-    NgbModule.forRoot(),
+    // NgbModule.forRoot(),
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig), // imports firebase/app needed for everything
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
@@ -56,9 +61,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
     ReactiveFormsModule,
   ],
   providers: [
-    AuthService, 
+    AuthService,
     OrderService,
     UserService,
+    UploadService,
     FormBuilder
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
