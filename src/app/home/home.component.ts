@@ -98,5 +98,9 @@ export class HomeComponent implements OnInit {
     this.upload = new Upload(this.selectedFiles.item(0))
   }
 
+  forgotPassword() {
+    this.afAuth.auth.sendPasswordResetEmail(this.loginEmail);
+  }
+
 
 }
