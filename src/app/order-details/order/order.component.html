@@ -1,23 +1,21 @@
 <!-- uncomment below to signup and add orders for testing -->
 
-  <!-- <button (click)="findUser()">find user</button>
+  <button (click)="findUser()">find user</button>
           <h3>register</h3>
           <app-register></app-register>
-          <h3>add order</h3>
-          <app-add-order-dashboard></app-add-order-dashboard> -->
           
-  <!-- <button (click)="findUser()">Check User</button> -->
 
  <div *ngFor="let item of orders" >
     
   <article class="card">
     <div class="card-block">
       <div class="float-title-over-image">
-        <h4 class="card-title">Order Name: {{item.ordername}}</h4>
+        <h4 class="card-title">Order: {{item.ordername}}</h4>
+        <h6 class="text-muted">Store: {{item.store}}</h6>
         <h6 class="text-muted">ETA: {{item.deliveryDate || 'UNAVAILABLE'}}</h6>
         <h6 class="text-muted">Status: {{item.status}}</h6>
       </div>
-      <img class="order-detail-circle-crop" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/shopping-icon.png" alt="ICON ARRAY BASED ON TIME VALUE HERE" />
+      <img class="order-detail-circle-crop" src="{{item.serviceImg}}" alt="ICON ARRAY BASED ON TIME VALUE HERE" />
     </div>
     <div class="card-block">
       <div class="btn-group hidden-sm-down hidden-md-down" role="group" aria-label="Card buttons">
@@ -25,6 +23,34 @@
       </div>
     </div>
   </article>
+
+  <div class="modal fade" id="order-detail" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         </div>
+        <div class="modal-body">
+           <div class="row">
+              <div class="col-md-6">
+                <div class="photo-container">
+                  <img src="" />
+                </div>
+              <div class="col-md-6">
+                <p> {{item.ordername}} </p>
+                <p> {{item.store}} </p>
+                <p> {{item.status}} </p>
+    
+              </div>
+            </div>        
+          </div>
+          <div class="modal-footer">
+    <p>Share on Facebook or Twitter</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
 
 </div>
 

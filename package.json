@@ -39,6 +39,7 @@
     "jquery": "^3.2.1",
     "mongoose": "^4.11.13",
     "morgan": "^1.8.2",
+    "pixabay-api": "^1.0.4",
     "popper": "^1.0.0",
     "popper.js": "^1.12.5",
     "promise-polyfill": "6.0.2",

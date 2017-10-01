@@ -177,13 +177,14 @@
           <h2 class="featurette-heading">Your Orders</h2>
         </div>
         <div class="col-md-4">
-          <h2 class="featurette-heading">9 Orders<button type="button" class="btn btn-woah">See All</button></h2>
+          <h2 class="featurette-heading">{{orders.length}} Orders<button type="button" class="btn btn-woah">See All</button></h2>
           <button (click)="logout()">logout</button>
         </div>
       </div>
       <div class="row">
         <!-- <app-login></app-login> -->
         <app-order></app-order>
+        <app-add-order-dashboard></app-add-order-dashboard> 
         <!-- Card -->
         <!-- <div class="col-xs-12 col-md-4">
         <article class="card">

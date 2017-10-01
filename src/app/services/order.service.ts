@@ -5,6 +5,7 @@ import { Order } from '../shared/order';
 import { Http, Response, Headers } from '@angular/http';
 import * as guessCarrier from 'guess-carrier'
 import { UserService } from './user.service';
+import { searchImages } from 'pixabay-api';
 
 @Injectable()
 export class OrderService {
@@ -136,6 +137,19 @@ export class OrderService {
           this.updateOrder(listitem.key, {archived: true})
         }
       }
+    })
+  }
+
+  populateImages(list): void {
+    
+    list.forEach(listitem => {
+      if(!listitem.serviceImg) {
+        searchImages('6591922-584ff01f54cb7d5e3de145dd0', listitem.ordername, {per_page: 3})
+        .then(result => {
+          this.updateOrder(listitem.key, {serviceImg: result.hits[0].previewURL})
+        })
+        
+      }  
     })
   }
 
