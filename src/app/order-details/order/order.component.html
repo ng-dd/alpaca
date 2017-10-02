@@ -6,20 +6,19 @@
     <div class="card-block">
       <div class="float-title-over-image">
         <h4 class="card-title">{{item.ordername}}</h4>
-        <h6 class="text-muted">Store: {{item.store}}</h6>
-        <h6 class="text-muted">ETA: {{item.deliveryDate || 'UNAVAILABLE'}}</h6>
-        <h6 class="text-muted">Status: {{item.status}}</h6>
+        <h6 class="text-muted">{{item.deliveryDate || 'UNAVAILABLE'}}</h6>
       </div>
       <img class="order-detail-circle-crop" src="../../../assets/shipping-icons/{{item.status}}.png" alt="No available image" />
     </div>
     <div class="card-block">
       <div class="btn-group hidden-sm-down hidden-md-down" role="group" aria-label="Card buttons">
-        <a href="" class="btn btn-woah" data-toggle="modal" data-target="#order-detail" (click)="saveItem(item)">View Details</a>
-        <a (click)="delete(item)">Delete order</a>
+        <a class="btn btn-delete" (click)="delete(item)">Delete Order</a>          
+        <a href="" class="btn btn-details" data-toggle="modal" data-target="#order-detail" (click)="saveItem(item)">View Details</a>
       </div>
     </div>
   </div>
 
+<!--  Order modal  -->
 
 <div class="modal fade" id="order-detail" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg">
@@ -30,9 +29,7 @@
     <div class="modal-body">
        <div class="row">
           <div class="col-md-6">
-            <div class="photo-container">
-              <img src="" />
-            </div>
+              <img class="order-detail-circle-crop" src="{{currentOrder.serviceImg}}" />
           <div *ngIf="currentOrder" class="col-md-6">
             <p> Info nickname: {{currentOrder.ordername}}</p>
             <p> Info Date for arrival: {{currentOrder.deliveryDate}} </p>
@@ -44,7 +41,7 @@
         </div>        
       </div>
       <div class="modal-footer">
-<p>Share on Facebook or Twitter</p>
+<p>return</p>
       </div>
     </div>
   </div>

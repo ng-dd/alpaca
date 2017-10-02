@@ -102,7 +102,7 @@
           <div class="container">
             <div class="carousel-caption">
               <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Sanders_Circle.png/480px-Sanders_Circle.png" style="width: 60px; height: 60px;" /></p>
-              <h1>Welcome back, {{firstName}}.</h1>
+              <span><h1>Welcome back,</h1><h1 class="carousel-caption-weight"> {{firstName}}</h1></span>
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@
         </div>
         <div class="col-md-4">
 
-          <h2 class="dash-light float-right">{{orders.length}} Orders<button type="button" class="btn btn-link">See All</button></h2>
+          <h2 class="dash-light float-right">{{orders.length}} Orders<button type="button" class="btn btn-all">See All</button></h2>
         </div>
       </div>
     </div>

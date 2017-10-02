@@ -100,7 +100,7 @@ export class OrderService {
     ];
     
     
-    var deliveryTime = days[d.getDay()] + ', ' + monthNames[d.getMonth()] + ' ' + Number(day) + ' ' + d.getFullYear()
+    var deliveryTime = days[d.getDay()] + ', ' + monthNames[d.getMonth()] + ' ' + Number(day) + ', ' + d.getFullYear()
     return deliveryTime;
   }
 
