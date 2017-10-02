@@ -100,8 +100,8 @@
           <div class="container">
             <div class="carousel-caption">
                 <img class="profile-image-circle-crop" src="{{imageUrl}}" alt="No available image" />
-              <h1>Welcome back, {{firstName}}.</h1>
-            </div>
+                <span><h1>Welcome back,</h1><h1 class="carousel-caption-weight"> {{firstName}}</h1></span>
+              </div>
           </div>
         </div>
       </div>
@@ -109,7 +109,7 @@
   <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <h2 class="dash-heading">Your Archive</h2>
+          <h2 class="dash-heading">Your Orders</h2>
         </div>
         <div class="col-md-4">
 
@@ -121,5 +121,8 @@
       <app-order></app-order>
       
   </div>
+  <div class="container">
+      <app-add-order-dashboard></app-add-order-dashboard> 
+</div>
 </div>
 </body>

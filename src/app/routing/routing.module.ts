@@ -9,8 +9,8 @@ import { ArchiveComponent } from '../archive/archive.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', component: HomeComponent },  
+  { path: 'dashboard', component: OrderDashboardComponent },  
   { path: 'archive', component:  ArchiveComponent },  
-  { path: 'dashboard', component: OrderDashboardComponent },
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound' },
 ];

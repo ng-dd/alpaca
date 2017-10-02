@@ -40,9 +40,7 @@ export class ArchiveComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.afAuth.auth.currentUser === null) {
-      this.router.navigate(['/']);
-    }
+
     if (document.getElementsByClassName('modal-backdrop').length >= 1){
       location.reload();
     }
@@ -92,9 +90,10 @@ export class ArchiveComponent implements OnInit {
   }
 
   getList() {
-    this.orderService.getOrdersList()
+    this.orderService.getArchivedList()
       .subscribe((data) => {
         this.orders = data;
+        console.log(this.orders)
         this.orderService.createTimestamp(this.orders);
         this.orderService.populateImages(this.orders);
       })
