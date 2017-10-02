@@ -6,7 +6,7 @@ import { UserService } from '../services/user.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-// import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-home',
@@ -35,6 +35,8 @@ export class HomeComponent implements OnInit {
   upload: Upload;
   uid: string;
   rForm: FormGroup;
+  reader: FileReader = new FileReader();
+  url: string;
 
   //variables for nav bar
   burger
@@ -42,7 +44,9 @@ export class HomeComponent implements OnInit {
   menuList
   brand
   menuItems
-  active:boolean = false;
+  active: boolean = false;
+
+  
 
   constructor(public authService: AuthService, 
     private fb: FormBuilder, 
@@ -59,6 +63,7 @@ export class HomeComponent implements OnInit {
     })
     afAuth.auth.onAuthStateChanged((res)=> {
       console.log('Auth state changed');
+      
       if (res.uid){
         console.log(document.getElementById('close'));
         document.getElementById('close').click()
@@ -113,6 +118,16 @@ export class HomeComponent implements OnInit {
   detectFiles(event) {
     this.selectedFiles = event.target.files;
     this.upload = new Upload(this.selectedFiles.item(0))
+  }
+
+  readUrl(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
   forgotPassword() {

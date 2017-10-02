@@ -8,6 +8,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
+          <img class="profile-image-circle-crop" src="{{url}}" alt="Image not found"/>
         <p>Hi {{firstName}}!</p>
         <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
           <span style="font-size: 12px; background-color: white; padding: 10px 10px;"> or</span>
@@ -56,7 +57,7 @@
           </div>
           <div class="form-group col-12">
             <label class="btn btn-browse">
-              Upload profile photo <input type="file" style="display: none;" class="form-control-file" (change)="detectFiles($event)">
+              Upload profile photo <input type="file" style="display: none;" class="form-control-file" (change)="detectFiles($event)" (change)="readUrl($event)">
           </label>
           </div>
           <button type="submit" class="btn btn-primary" (click)="updateAll()">Submit</button>
@@ -101,8 +102,8 @@
       <div class="carousel-item active">
           <div class="container">
             <div class="carousel-caption">
-              <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Sanders_Circle.png/480px-Sanders_Circle.png" style="width: 60px; height: 60px;" /></p>
-              <span><h1>Welcome back,</h1><h1 class="carousel-caption-weight"> {{firstName}}</h1></span>
+                <img class="profile-image-circle-crop" src="{{imageUrl}}" alt="No available image" />
+              <h1>Welcome back, {{firstName}}.</h1>
             </div>
           </div>
         </div>

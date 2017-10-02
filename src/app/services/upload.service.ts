@@ -30,6 +30,7 @@ export class UploadService {
         upload.url = uploadTask.snapshot.downloadURL
         upload.name = upload.file.name
         this.saveFileData(key, upload)
+        console.log('from upload, key: ', key, ' and url is ', upload.url)
         this.db.object(`/users/${key}/`).update({ imageUrl: upload.url })
       }
     )
