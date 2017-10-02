@@ -5,7 +5,8 @@ import { Order } from '../shared/order';
 import { Http, Response, Headers } from '@angular/http';
 import * as guessCarrier from 'guess-carrier'
 import { UserService } from './user.service';
-import { searchImages } from 'pixabay-api';
+// import { searchImages } from 'pixabay-api';
+import { NounProject } from 'the-noun-project';
 
 @Injectable()
 export class OrderService {
@@ -15,13 +16,16 @@ export class OrderService {
   order: FirebaseObjectObservable<Order> = null; // Single orders
   store: '' ;
   nickname: '';
+  // nounProject: NounProject;
+  
 
-  constructor(private db: AngularFireDatabase, private http: Http, private afAuth: AngularFireAuth, private userService: UserService) {
+  constructor(private db: AngularFireDatabase, private http: Http, private afAuth: AngularFireAuth, private userService: UserService){
     this.orders = db.list('/users', {
       query: {
         orderByChild: 'timestamp'
       }
     })
+    
   }
 
   //create authorization for headers
@@ -140,14 +144,43 @@ export class OrderService {
     })
   }
 
-  populateImages(list): void {
+  // populateImages(list): void {
+    
+  //   list.forEach(listitem => {
+  //     if(!listitem.serviceImg) {
+  //       searchImages('6591922-584ff01f54cb7d5e3de145dd0', listitem.ordername, {per_page: 3})
+  //       .then(result => {
+  //         this.updateOrder(listitem.key, {serviceImg: result.hits[0].previewURL})
+  //       })
+        
+  //     }  
+  //   })
+  // }
+
+  populateIcons(list): void {
+
+    // const nounProject = NounProject({
+    //   key: '8e7c31f725bd4bc4b5f60bd89b2e65e1',
+    //   secret: '2bf607c8fe8f4308804ad2aa1040b47a'
+    // });
+    
+
+    console.log('populating icons!!!!');
     
     list.forEach(listitem => {
       if(!listitem.serviceImg) {
-        searchImages('6591922-584ff01f54cb7d5e3de145dd0', listitem.ordername, {per_page: 3})
-        .then(result => {
-          this.updateOrder(listitem.key, {serviceImg: result.hits[0].previewURL})
+        NounProject.getIconsByTerm(listitem.ordername, {limit: 1}, function (err, data) {
+          if (!err) {
+              console.log('data>>', data);
+              console.log('icons>>', data.icons);
+          } else {
+            console.log('ERROR???')
+          }
         })
+
+        // .then(result => {
+        //   this.updateOrder(listitem.key, {serviceImg: result.hits[0].previewURL})
+        // })
         
       }  
     })

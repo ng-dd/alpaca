@@ -97,7 +97,9 @@ export class OrderDashboardComponent implements OnInit {
         // console.log('LIST -->', data);
         this.orders = data;
         this.orderService.createTimestamp(this.orders);
-        this.orderService.populateImages(this.orders);
+        // this.orderService.populateImages(this.orders);
+        this.orderService.populateIcons(this.orders);
+        console.log('working');
       })
   }
 
