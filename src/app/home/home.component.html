@@ -19,28 +19,31 @@
             <div class="form-group" id="snazzy-login">
               <label class="sr-only" for="inlineFormInputGroup">Email&hellip;</label>
               <div class="col-12 input-group">
-                <input class="form-control" type="email" placeholder="Email" id="modal" formControlName="email" [(ngModel)]="email"/>
+                <input class="form-control" type="email" placeholder="Email" id="modal" formControlName="email" [(ngModel)]="email" />
                 <div class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
               </div>
             </div>
             <div class="form-group">
               <label class="sr-only" for="inlineFormInputGroup">First name&hellip;</label>
               <div class="col-12 input-group">
-                <input class="form-control" type="email" placeholder="First name" id="example-email-input" formControlName="firstname" [(ngModel)]="firstname"/>
+                <input class="form-control" type="email" placeholder="First name" id="example-email-input" formControlName="firstname" [(ngModel)]="firstname"
+                />
                 <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
               </div>
             </div>
             <div class="form-group">
               <label class="sr-only" for="inlineFormInputGroup">Last name&hellip;</label>
               <div class="col-12 input-group">
-                <input class="form-control" type="email" placeholder="Last name" id="example-email-input" formControlName="lastname" [(ngModel)]="lastname"/>
+                <input class="form-control" type="email" placeholder="Last name" id="example-email-input" formControlName="lastname" [(ngModel)]="lastname"
+                />
                 <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
 
               </div>
             </div>
             <div class="form-group">
               <div class="col-12 input-group">
-                <input class="form-control" type="password" placeholder="Password" id="example-password-input" formControlName="password" [(ngModel)]="password" (keyup.enter)="signup()"/>
+                <input class="form-control" type="password" placeholder="Password" id="example-password-input" formControlName="password"
+                  [(ngModel)]="password" (keyup.enter)="signup()" />
                 <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
               </div>
             </div>
@@ -92,7 +95,7 @@
               <input class="form-control" type="password" placeholder="Password" id="example-password-input" [(ngModel)]="loginPassword">
               <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
             </div>
-            <small class="form-text text-muted"><a href="#" (click)="forgotPassword">Forgot password? Send an email reminder.</a></small>
+            <small class="form-text text-muted"><a href="#"  data-toggle="modal" data-target="#forgot-password-modal" data-dismiss="modal">Forgot password? Send an email reminder.</a></small>
           </div>
           <div class="form-group">
             <input type="submit" class="btn btn-primary" id="log-in" name="Log-in" value="Log in" (click)="login()" />
@@ -105,35 +108,62 @@
       </div>
     </div>
   </div>
-<!-- sign up modal-->
-<div class="modal" id="sign-up-modal" tabindex="-1">
-   <div class="modal-dialog">
-    <div class="modal-content">
-     <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
-      <div class="modal-header">
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-         <a href="#" class="btn btn-facebook" (click)="facebookAuth()"><i class="fa fa-facebook" aria-hidden="true"></i> Sign up with Facebook</a>
-         <div class="w-100"></div>
-         <a href="#" class="btn btn-google" (click)="googleAuth()"><img src="https://cdn1.iconfinder.com/data/icons/company-identity/100/new-google-favicon-128.png" style="width:22px;height:22px;"> Sign up with Google</a>
-         <div class="w-100"></div>
-         <a href="#" class="btn btn-twitter" (click)="twitterAuth()"><i class="fa fa-twitter" aria-hidden="true"></i>  Sign up with Twitter</a>
-         <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
+  <!-- sign up modal-->
+  <div class="modal" id="sign-up-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <a href="#" class="btn btn-facebook" (click)="facebookAuth()"><i class="fa fa-facebook" aria-hidden="true"></i> Sign up with Facebook</a>
+          <div class="w-100"></div>
+          <a href="#" class="btn btn-google" (click)="googleAuth()"><img src="https://cdn1.iconfinder.com/data/icons/company-identity/100/new-google-favicon-128.png" style="width:22px;height:22px;"> Sign up with Google</a>
+          <div class="w-100"></div>
+          <a href="#" class="btn btn-twitter" (click)="twitterAuth()"><i class="fa fa-twitter" aria-hidden="true"></i>  Sign up with Twitter</a>
+          <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
             <span style="font-size: 12px; background-color: white; padding: 10px 10px;"> or</span>
-         </div>
-         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register-with-email" data-dismiss="modal"><i class="fa fa-envelope-o" aria-hidden="true"></i>  Sign up with Email</button>
-         <hr>
-     </div>
-     <div class="modal-footer">
-       <p>Already have an Alpaca account? <a href="#log-in-modal" data-toggle="modal" data-target="#log-in-modal" data-dismiss="modal">Log in</a></p>
-     </div>
+          </div>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register-with-email" data-dismiss="modal"><i class="fa fa-envelope-o" aria-hidden="true"></i>  Sign up with Email</button>
+          <hr>
+        </div>
+        <div class="modal-footer">
+          <p>Already have an Alpaca account? <a href="#log-in-modal" data-toggle="modal" data-target="#log-in-modal" data-dismiss="modal">Log in</a></p>
+        </div>
+      </div>
     </div>
-   </div>
- </div>
+  </div>
+  <!-- Forgot Password modal-->
+  <div class="modal" id="forgot-password-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group" id="snazzy-login">
+            <label class="sr-only" for="inlineFormInputGroup">Email</label>
+            <div class="col-12 input-group">
+              <input class="form-control" type="email" placeholder="Email" id="example-email-input" [(ngModel)]="loginEmail">
+              <div class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+            </div>
+          </div>
+        </div>
+        <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
+          <span style="font-size: 12px; background-color: white; padding: 10px 10px;"></span>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#log-in-modal" data-dismiss="modal" (click)="forgotPassword()"><i class="fa fa-envelope-o" aria-hidden="true"></i> Send an Email to reset Password</button>
+          <hr>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Home Menu -->
   <header class="header">
-    <div class="burger">
+    <div class="burger" (click)="toggleMenu()">
       <div class="burger__patty"></div>
       <div class="burger__patty"></div>
       <div class="burger__patty"></div>
@@ -178,14 +208,12 @@
                 <div class="form-group">
                   <label for="trackPackage">What did you get?</label>
                   <div class="w-100"></div>
-                  <input [(ngModel)]="orderName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="trackPackage"
-                    placeholder="Your order nickname...">
+                  <input [(ngModel)]="orderName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="trackPackage" placeholder="Your order nickname...">
                 </div>
                 <div class="form-group">
                   <label for="trackPackage">Where did you buy it?</label>
                   <div class="w-100"></div>
-                  <input [(ngModel)]="store" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="trackPackage"
-                    placeholder="The store...">
+                  <input [(ngModel)]="store" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="trackPackage" placeholder="The store...">
                 </div>
                 <button type="submit" class="btn btn-hero" (click)="uninitiatedTrack()" data-toggle="modal" data-target="#log-in-modal">Pac It!</button>
               </div>
@@ -227,18 +255,18 @@
       <hr class="featurette-divider">
 
       <div class="browsers">
-          <h2 class="featurette-heading">Join the pac.</h2>
-          <p class="lead">Alpaca is supported by major browsers.</p>
-          <div class="row">
-              <div class="col-md-3 col-sm-3 col-xs-0"><img class="featurette-image img-fluid mx-auto" src="../../assets/browser-icons/ch.png"></div>
-              <div class="col-md-3 col-sm-3 col-xs-0"><img class="featurette-image img-fluid mx-auto" src="../../assets/browser-icons/sf.png"></div>
-              <div class="col-md-3 col-sm-3 col-xs-0"><img class="featurette-image img-fluid mx-auto" src="../../assets/browser-icons/ff.png"></div>
-              <div class="col-md-3 col-sm-3 col-xs-0"><img class="featurette-image img-fluid mx-auto" src="../../assets/browser-icons/op.png"></div>
-            </div>
-          <div class="row">
-              <div class='icon-scroll'></div>
-          </div>
+        <h2 class="featurette-heading">Join the pac.</h2>
+        <p class="lead">Alpaca is supported by major browsers.</p>
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-0"><img class="featurette-image img-fluid mx-auto" src="../../assets/browser-icons/ch.png"></div>
+          <div class="col-md-3 col-sm-3 col-xs-0"><img class="featurette-image img-fluid mx-auto" src="../../assets/browser-icons/sf.png"></div>
+          <div class="col-md-3 col-sm-3 col-xs-0"><img class="featurette-image img-fluid mx-auto" src="../../assets/browser-icons/ff.png"></div>
+          <div class="col-md-3 col-sm-3 col-xs-0"><img class="featurette-image img-fluid mx-auto" src="../../assets/browser-icons/op.png"></div>
         </div>
+        <div class="row">
+          <div class='icon-scroll'></div>
+        </div>
+      </div>
     </div>
   </div>
 </body>
