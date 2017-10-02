@@ -1,0 +1,69 @@
+/* PROFILE HEADER
+ -------------------------------------------------- */
+  
+  /* Profile base class */
+  .carousel {
+  margin-bottom: 4rem;
+  background: linear-gradient(-45deg, #fff9d1, #febeae, #b9f2f7,  #06c8d9);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+  line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,.075);
+}
+
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    top: 6rem;
+    z-index: 10;
+  }
+  
+  /* Declare height of profile welcome because of positioning of img element */
+  .carousel-item {
+    height: 20rem;
+}
+
+  /* Make our profile responsive */
+  
+  @media (min-width: 40em) {
+    /* Bump up size of profile content */
+    .carousel-caption p {
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+  
+  }
+
+  
+.bg-dark {
+    background-color: #3b3d40 !important;
+    color: #616161 !important;
+    text-decoration: none;
+    font-family: 'soleil', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+.navbar-dark .navbar-nav .active>.nav-link {
+  color: #fff;
+}
+.navbar-dark .navbar-nav .hover>.nav-link {
+  color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #616161;
+  text-decoration: none;
+  font-family: 'soleil', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+}
+a:hover, a:focus {
+    text-decoration: none;
+    color: white !important;
+}
+
