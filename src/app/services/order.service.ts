@@ -15,13 +15,15 @@ export class OrderService {
   order: FirebaseObjectObservable<Order> = null; // Single orders
   store: '' ;
   nickname: '';
+  
 
-  constructor(private db: AngularFireDatabase, private http: Http, private afAuth: AngularFireAuth, private userService: UserService) {
+  constructor(private db: AngularFireDatabase, private http: Http, private afAuth: AngularFireAuth, private userService: UserService){
     this.orders = db.list('/users', {
       query: {
         orderByChild: 'timestamp'
       }
     })
+    
   }
 
   //create authorization for headers

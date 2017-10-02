@@ -10,7 +10,7 @@
         <h6 class="text-muted">ETA: {{item.deliveryDate || 'UNAVAILABLE'}}</h6>
         <h6 class="text-muted">Status: {{item.status}}</h6>
       </div>
-      <img class="order-detail-circle-crop" src="{{item.serviceImg}}" alt="No available image" />
+      <img class="order-detail-circle-crop" src="../../../assets/shipping-icons/{{item.status}}.png" alt="No available image" />
     </div>
     <div class="card-block">
       <div class="btn-group hidden-sm-down hidden-md-down" role="group" aria-label="Card buttons">
@@ -20,38 +20,6 @@
     </div>
   </div>
 
-<!--  Order modal  -->
-  <div class="modal fade" id="order-detail" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-         </div>
-        <div class="modal-body">
-           <div class="row">
-              <div class="col-md-6">
-                <div class="photo-container">
-                  <img src="" />
-                </div>
-              <div class="col-md-6">
-                <p> {{item.ordername}} </p>
-                <p> {{item.store}} </p>
-                <p> {{item.status}} </p>
-    
-              </div>
-            </div>        
-          </div>
-          <div class="modal-footer">
-    <p>Share on Facebook or Twitter</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-
-</div>
-</div>
-</div>
 
 <div class="modal fade" id="order-detail" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg">
@@ -83,9 +51,4 @@
 </div>
 </div> 
 
-<!-- uncomment below to signup and add orders for testing -->
-<!-- 
-  <button (click)="findUser()">find user</button>
-          <h3>register</h3>
-          <app-register></app-register>
-           -->
+</div>
