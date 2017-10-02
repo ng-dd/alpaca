@@ -67,6 +67,7 @@ export class AuthService {
         this.confirmEmail();
         this.uploadService.pushUpload(value.uid, upload);
         if (order) {
+          console.log('adding order: ', order)
           this.addPost(order);
         }
       })
