@@ -37,9 +37,9 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
-          <p>Sign up with <a href="#sign-up-modal" data-toggle="modal" data-target="#sign-up-modal" data-dismiss="modal">Facebook</a>,
-            <a href="#sign-up-modal" data-toggle="modal" data-target="#sign-up-modal" data-dismiss="modal">Twitter</a>, or
-            <a href="#sign-up-modal" data-toggle="modal" data-target="#sign-up-modal" data-dismiss="modal">Google</a></p>
+          <p>Sign up with <a href="#" (click)="facebookAuth()">Facebook</a>,
+            <a href="#" (click)="twitterAuth()">Twitter</a>, or
+            <a href="#" (click)="googleAuth()">Google</a></p>
           <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
             <span style="font-size: 12px; background-color: white; padding: 10px 10px;"> or</span>
           </div>
@@ -146,58 +146,290 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div> -->
         <div class="modal-body">
-          <!-- <a href="#" class="btn btn-facebook" (click)="facebookAuth()"><i class="fa fa-facebook" aria-hidden="true"></i> Sign up with Facebook</a>
-          <div class="w-100"></div>
-          <a href="#" class="btn btn-google" (click)="googleAuth()"><img src="https://cdn1.iconfinder.com/data/icons/company-identity/100/new-google-favicon-128.png" style="width:22px;height:22px;"> Sign up with Google</a>
-          <div class="w-100"></div>
-          <a href="#" class="btn btn-twitter" (click)="twitterAuth()"><i class="fa fa-twitter" aria-hidden="true"></i>  Sign up with Twitter</a>
-          <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
-            <span style="font-size: 12px; background-color: white; padding: 10px 10px;"> or</span>
-          </div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register-with-email" data-dismiss="modal"><i class="fa fa-envelope-o" aria-hidden="true"></i>  Sign up with Email</button>
-          <p>Sign up with <a href="#sign-up-modal" data-toggle="modal" data-target="#log-in-modal" data-dismiss="modal">Facebook</a>,
-            <a href="#sign-up-modal" data-toggle="modal" data-target="#log-in-modal" data-dismiss="modal">Twitter</a>, or
-            <a href="#sign-up-modal" data-toggle="modal" data-target="#log-in-modal" data-dismiss="modal">Google</a></p>
-          <div style="width: 100%; height: 12px; border-bottom: 1px solid rgb(233, 236, 239); text-align: center">
-            <span style="font-size: 12px; background-color: white; padding: 10px 10px;"> or</span>
-          </div>
-          <form [formGroup]='rForm' (ngSubmit)="signup()">
-            <div class="form-group" id="snazzy-login">
-              <label class="sr-only" for="inlineFormInputGroup">Email&hellip;</label>
-              <div class="col-12 input-group">
-                <input class="form-control" type="email" placeholder="Email" id="modal" formControlName="email" [(ngModel)]="email"/>
-                <div class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="card">
+                  <div class="card-header" role="tab" id="headingOne">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        FAQ: What's the difference between a llama and an alpaca?
+                      </a>
+                    </h5>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="card-block">
+                      How rude. If you must know, llamas have long banana-shaped ears while alpacas have shorter spear-shaped ears. The llama is roughly twice the size of the alpaca.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" role="tab" id="headingTwo">
+                    <h5 class="mb-0">
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Terms and Conditions
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="card-block">
+                        THE FOLLOWING TERMS AND CONDITIONS GOVERN YOUR USE OF Alpaca.cf. YOUR VIEWING OR USE OF THIS SITE WILL CONSTITUTE YOUR AGREEMENT, ON BEHALF OF YOURSELF AND THE ENTITY YOU REPRESENT (HEREINAFTER COLLECTIVELY "YOU" OR "YOUR"), TO ALL OF THE TERMS AND CONDITIONS PROVIDED BELOW.
+                        Alpaca MAY MAKE FUTURE CHANGES OR MODIFICATIONS TO SUCH TERMS AND CONDITIONS AT ANY TIME WITHOUT NOTICE, AND YOUR SUBSEQUENT VIEWING OR USE OF Alpaca.cf WILL CONSTITUTE YOUR AGREEMENT TO THE CHANGES AND MODIFICATIONS. THERE MAY BE ADDITIONAL TERMS AND CONDITIONS PROVIDED THROUGHOUT Alpaca.cf GOVERNING YOUR USE OF PARTICULAR FUNCTIONS, FEATURES, INFORMATION AND APPLICATIONS AVAILABLE THROUGH Alpaca.cf.
+                        Section 1. Definitions.
+                         
+                        Content: information, graphics, products, features, functionality, services, and links on alpaca.cf.
+                         
+                        Alpaca: Alpaca Corporate Services, Incorporated, its parent and its parent's subsidiary companies
+                         
+                        You: Yourself and the entity that you represent
+                         
+                        
+                         
+                        Section 2. Use of alpaca.cf.
+                         
+                        alpaca.cf is provided solely for the use of current and potential Alpaca customers to interact with Alpaca and may not be used by any other person or entity, or for any other purpose. Specifically, all shipping, tracking, rating, receiving Alpaca invoices and remitting payment using electronic funds transfer ("EFT"), drop-off location, identifying and preparing international documents, estimating duties and taxes, and other information and services may only be used by current and potential Alpaca customers for their own shipments. Use of alpaca.cf to provide information to or prepare shipments by or for the benefit of third party shippers is expressly prohibited.
+                         
+                        The use of non-authorized scripting technologies to obtain information from alpaca.cf or submit information through alpaca.cf is strictly prohibited.
+                         
+                        Alpaca does not accept ideas, concepts, or techniques for new services or products through alpaca.cf. If such information is received, it will not be considered confidential and Alpaca will be deemed free to use, communicate and exploit such information in any manner it chooses.
+                         
+                        
+                         
+                        Section 3. alpaca.cf Login Registration.
+                         
+                        You may choose to register on alpaca.cf to access interactive features on alpaca.cf. alpaca.cf Login provides you with access to Alpaca and other online services. The availability of these services varies by country. In the future, Alpaca may add other features that may be accessed through alpaca.cf Login. In such event, previously registered users will not be required to re-register.
+                         
+                        By registering on alpaca.cf, You agree to provide accurate and current information about Yourself as prompted by the alpaca.cf Login Registration pages and maintain and promptly update Your online profile information to keep it accurate and current.
+                         
+                        Some alpaca.cf services are being made available to customers based in some countries and not others. You agree to register only for alpaca.cf services offered on the alpaca.cf website for the country in which your Alpaca account is based. For example, if your Alpaca account is based in Canada, you will register for services offered on alpaca.cf/ca and not for services offered on alpaca.cf/us.
+                         
+                        When you register using alpaca.cf Login Registration, you will select a user ID and password. You are responsible for maintaining the confidentiality of the password and user ID, and you are responsible for all activities that occur under Your password and user ID. You agree to (a) immediately notify Alpaca of any unauthorized use of Your user ID and password, and (b) ensure that You exit from Your alpaca.cf session at the end of each visit.
+                         
+                        You acknowledge and agree that it may be necessary from time to time for Alpaca to confirm the validity of the credit card information you provided to open your Alpaca account. When this occurs, Alpaca may request a temporary authorization hold for a nominal amount on your card. This authorization hold does not result in actual charges to your card. These authorizations will automatically expire based on guidelines established by your card issuer.
+                         
+                        
+                         
+                        Section 4. Changes to alpaca.cf.
+                         
+                        alpaca.cf and its Content, may be changed, deleted or updated at any time without notice.
+                         
+                        
+                         
+                        Section 5. Termination of Use.
+                         
+                        Alpaca may discontinue, suspend or modify alpaca.cf at any time without notice, and Alpaca may block, terminate or suspend Your and any user's access to alpaca.cf at any time for any reason in its sole discretion, even if access continues to be allowed to others.
+                         
+                        
+                         
+                        Section 6. Ownership.
+                         
+                        alpaca.cf and its Content are protected by United States and international copyright, trademark and other laws. © 1995-2008 Alpaca. All rights reserved. Specifically, Alpaca does not convey to anyone, through allowing access to alpaca.cf, any ownership rights in alpaca.cf or in any Content appearing on or made available through alpaca.cf. Customer may not copy, modify, translate, transmit, distribute, adapt, reproduce, decompile, reverse engineer or disassemble any part of alpaca.cf or its Content.
+                         
+                        
+                         
+                        Section 7. Disclaimer of Warranty.
+                         
+                        Alpaca.cf AND ITS CONTENT ARE PROVIDED "AS IS". Alpaca AND ITS LICENSORS DISCLAIM ANY AND ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT, REGARDING ANY SUCH CONTENT AND YOUR ABILIITY OR INABILITY TO USE Alpaca.cf AND ITS CONTENT.
+                         
+                        Alpaca EXPRESSLY DISCLAIMS AND EXCLUDES ALL WARRANTIES REGARDING Alpaca.cf, ALPACA AND THE FUNCTIONING OF THE INTERNET WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. Alpaca DOES NOT WARRANT THAT ALPACA WILL MEET ALL OF CUSTOMER'S REQUIREMENTS OR THAT ITS OPERATIONS WILL BE UNINTERRUPTED OR ERROR FREE, OR THAT ANY DEFECT WITHIN ALPACA WILL BE CORRECTED. FURTHERMORE, Alpaca DOES NOT WARRANT NOR MAKE ANY REPRESENTATION REGARDING THE RESULTS OF CUSTOMER'S USE OF ALPACA OR GLOBAL TRADE MANAGER IN TERMS OF CAPABILITY, CORRECTNESS, ACCURACY, RELIABILITY OR OTHERWISE. NO ORAL OR WRITTEN INFORMATION, REPRESENTATION OR ADVICE GIVEN BY Alpaca OR AN AUTHORIZED REPRESENTATIVE OF Alpaca SHALL CREATE A WARRANTY.
+                         
+                        
+                         
+                        Section 8. Limitation of Liability.
+                         
+                        USE OF Alpaca.cf AND ITS CONTENT IS AT YOUR SOLE RISK. Alpaca WILL IN NO EVENT BE LIABLE TO YOU OR ANY PERSON OR ENTITY CLAIMING THROUGH YOU FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, INCIDENTAL OR OTHER DAMAGES UNDER ANY THEORY OF LAW FOR ANY ERRORS IN OR THE USE OF OR INABILITY TO USE Alpaca.cf AND ITS CONTENT INCLUDING WITHOUT LIMITATION, DAMAGES FOR LOST PROFITS, BUSINESS, DATA, OR DAMAGE TO ANY COMPUTER SYSTEMS, EVEN IF YOU HAVE ADVISED Alpaca OF THE POSSIBILITY OF SUCH DAMAGES.
+                         
+                        
+                         
+                        Section 9. Indemnity.
+                         
+                        You agree to defend, indemnify and hold harmless Alpaca, its parent and affiliate companies and their respective officers, directors, employees, agents and representatives from any and all claims (i) arising out of Your breach of any of these terms and conditions, and any of Your activities conducted in connection with this site.
+                         
+                        
+                         
+                        Section 10. Alpaca Service Guide.
+                         
+                        The terms and conditions for using Alpaca delivery and related services are contained in the most current version of the Alpaca Service Guide, which is available by request. The most current version of the Alpaca Service Guide will control in the event of any conflict between any Alpaca delivery or related service information on alpaca.cf and the delivery or related service information contained in the most current version of the Alpaca Service Guide.
+                         
+                        
+                         
+                        Section 11. Links to other web sites.
+                         
+                        There are links on the alpaca.cf site that allow You to visit the sites of third parties. Neither these sites nor the companies to whom they belong are controlled by Alpaca. Alpaca makes no representations concerning the information provided or made available on such sites nor the quality or acceptability of the products or services offered by any persons or entities referenced in any such sites.
+                         
+                        Alpaca has not tested and makes no representations regarding the correctness, performance or quality of any software found at any such sites. You should research and assess the risks which may be involved in accessing and using any software on the Internet before using it.
+                         
+                        
+                         
+                        Section 12. Privacy Policy.
+                         
+                        The Alpaca Privacy Policy governs the use of information acquired from You through alpaca.cf.
+                         
+                        
+                         
+                        Section 13. Export.
+                         
+                        You assume all responsibility for compliance with all laws and regulations of the United States and any other country from which You may access alpaca.cf regarding access, use, export, re-export and import of any Content appearing on or available through alpaca.cf.
+                         
+                        You acknowledge and agree that you will not export or import any Content to any country to which export or import is restricted under United States law, that You are not a national of any such country, you are not a Denied Party listed on the U.S. Denied Persons List, you are not a Special Designated National on the U.S. Treasury Department's list of Specially Designated Nationals, and that the Content will not be used in the design, development or production of nuclear, chemical or biological weapons.
+                         
+                        
+                         
+                        Section 14. Controlling Law and Severability.
+                         
+                        This Agreement and Your use of alpaca.cf is governed by and construed in accordance with the laws of the United States and the State of Tennessee, excluding its conflict of laws provisions. If for any reason a court of competent jurisdiction finds any provision of this Agreement, or a portion thereof, to be unenforceable, that provision shall be enforced to the maximum extent permissible.
+                         
+                        Any cause of action with respect to alpaca.cf or this Agreement must be instituted within one year after the claim or cause of action has risen or be barred and must be brought in a court of competent jurisdiction within Shelby County, Tennessee. This Agreement may not be changed or modified without the written consent of Alpaca.
+                         
+                        
+                         
+                        Section 15. Terms of Carriage.
+                         
+                        (i) Customer agrees that domestic and international carriage by Alpaca of any shipments tendered to Alpaca using ALPACA shall be in accordance with the terms, conditions and limitations of liability set out on the NONNEGOTIABLE Air Waybill, Label, Manifest, or Pick-Up Record (collectively "Shipping Documentation") and as appropriate any transportation agreement between Customer and Alpaca covering such shipment and in any applicable tariff, Service Guide or Standard Conditions of Carriage, copies of which are available upon request, and which are incorporated into this Agreement by reference. If there is a conflict between the Shipping Documentation and any such document then in effect or this Agreement, the transportation agreement, tariff, Service Guide, Standard Conditions of Carriage, or this Agreement will control, in that order of priority. If a shipment originates outside the United States, the contract of carriage is with the Alpaca subsidiary, branch, or independent contractor who originally accepts the shipment. Your use of Global Trade Manager shall not alter Your responsibility for the preparation and accuracy of shipping documentation including import/export forms.
+                         
+                        (ii) In the event Customer uses ALPACA to process shipments tendered to Alpaca for delivery to locations outside the United States or country of shipment origin, Customer will, at Customer's sole expense, assure that the terms and conditions of international carriage supplied by Alpaca from time to time (and which may be amended or modified from time to time at Alpaca's sole discretion) are placed on the Shipping Documentation as may be instructed by Alpaca, for all such international shipments. Customer will defend, indemnify and hold harmless Alpaca, its officers, directors, employees and agents from and against any and all losses, damages, claims and other items of cost and expense arising out of Customer's failure to apply the international carriage terms to the Shipping Documentation for such international shipments, including without limitation claims from the recipient of any shipment, and Customer's failure to follow Alpaca's instructions in regard to the placement of the terms on the Shipping Documentation for such international shipments.
+                         
+                        (iii) Printed Signature. Customer acknowledges that if ALPACA is used to process shipments to locations outside the United States or country of shipment origin, Customer must enter the name of the person completing the Shipping Documentation to print in lieu of its manual signature on the Shipping Documentation, as applicable, for all shipments tendered by Customer to Alpaca using ALPACA. Customer further acknowledges that such printed name shall be sufficient to constitute the Customer's signature, and Customer's acceptance of Alpaca's terms and conditions of carriage contained in the applicable transportation agreement, tariff, Service Guide, Standard Conditions, or Shipping Documentation, under which the shipment is accepted by Alpaca, or its independent contractor.
+                         
+                        (iv) Unless otherwise indicated, the shipper's address indicated on the face of any Shipping Documentation is the place of execution and the place of departure and the recipient's address listed on the face of the Shipping Documentation is the place of destination. Unless otherwise indicated on the face of the Shipping Documentation the first carrier of all shipments is Alpaca Express, P.O. Box 727, Memphis, TN 38194. The address for Alpaca Ground is P.O. Box 108, Coraopolis, PA 15230.
+                         
+                        
+                         
+                        Section 16. Alpaca ShipAlert®.
+                         
+                        Alpaca provides You with the opportunity, via ALPACA, to use Alpaca ShipAlert to send a message to the recipient informing him/her of Your shipment. This feature is provided free of charge. Alpaca may modify or terminate the use of Alpaca ShipAlert at any time.
+                         
+                        Alpaca does not commit to keeping Your message private or confidential. By using Alpaca ShipAlert You acknowledge that Alpaca is providing the technical functionality only, and that You are solely responsible for the content of Your messages. Alpaca undertakes no duty to monitor any messages sent by You. However, Alpaca, in its sole discretion, may elect, but is not obligated, to look at Your messages to protect itself.
+                         
+                        Do not use Alpaca ShipAlert for anything other than to communicate information about Your shipment. You may not use Alpaca ShipAlert to disseminate inflammatory, infringing, obscene, or other unlawful information, or to threaten, harass, abuse or otherwise violate the legal rights of others or perform any act contrary to law. If Alpaca sees or hears about messages sent via Alpaca ShipAlert that violate these provisions, or that may damage Alpaca, it may take all actions necessary to protect itself, including disclosing any messages to the authorities.
+                         
+                        It is not necessary to use Alpaca ShipAlert to ship a package via ALPACA. Alpaca will not be liable for any failure or delay, for any reason, in the transmission, receipt, or acknowledgment of any messages sent by or to You.
+                         
+                        
+                         
+                        Section 17. Address Book.
+                         
+                        Subject to the terms listed here, addresses will remain in Your Address Book as long as You use ALPACA. If You do not use ALPACA for a period of 6 months, Alpaca will delete Your addresses.
+                         
+                        However, Alpaca will not delete Your ALPACA account. If You have any concerns, please email Alpaca at webmaster@alpaca.cf. The Address Book is a feature provided free of charge by Alpaca. You should maintain a back-up copy of Your addresses as Alpaca will not be responsible for the loss of addresses contained in the Address Book. Alpaca may modify or terminate this feature at any time for any reason.
+                         
+                        
+                         
+                        Section 18. Courtesy Rate Quote.
+                         
+                        The courtesy rate reflected by the Courtesy Rate Quote on Alpaca ALPACA, if shown, may be different than the actual charges for Your shipment. Differences may occur based on actual weight, dimensions, and other factors. Consult the applicable Alpaca Service Guide or the Alpaca Rate Sheets for details on how shipping charges are calculated.
+                         
+                        
+                         
+                        Section 19. H.M. Customs and Excise Forms.
+                         
+                        H.M. Customs and Excise forms. H.M. Customs and Excise Forms are subject to Crown copyright and are reproduced on Global Trade Manager under license from the Controller of Her Majesty's Stationery Office. Visitors to this site may reproduce and use these forms, but have no right to authorize third parties to use them.
+                         
+                        
+                         
+                        Section 20. Alpaca Tracking Signature Proof of Delivery.
+                         
+                        In addition to the alpaca.cf Terms of Use, the following terms and conditions govern your access and use of Signature Proof of Delivery. By accessing and using Signature Proof of Delivery, you acknowledge and agree that you are the shipper, the recipient, or third party payor, or are authorized to act on behalf of the shipper, recipient, or third party payor to retrieve the signature image for the shipment you are attempting to track. You warrant and agree, on behalf of yourself and all persons on whose behalf you are acting in accessing and using Signature Proof of Delivery, that you will not use the signature image for any purpose other than to confirm the delivery of such shipment. You further acknowledge and agree, on behalf of yourself and all persons on whose behalf you are acting in accessing and using Signature Proof of Delivery, (i) to defend (at Alpaca option), indemnify, and hold harmless Alpaca, its parent and its parent company's subsidiary companies (collectively "Alpaca" for purposes of this paragraph) from and against any and all claims of whatever nature arising from your access and use of Signature Proof of Delivery, and the receipt, use and emailing of any signature retrieved; (ii) that Signature Proof of Delivery is provided "AS IS" and you assume all risk of accessing and using Signature Proof of Delivery; (iii) that Alpaca DISCLAIMS ANY AND ALL WARRANTIES OR CONDITIONS OF WHATEVER NATURE, INCLUDING THE IMPLIED WARRANTIES OR CONDITIONS OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE IN RESPECT TO SIGNATURE PROOF OF DELIVERY; (iv) you will only email Signature Proof of Delivery to the shipper, recipient or third party payor of the shipment you are attempting to retrieve; (v) that under no circumstances shall Alpaca be liable for any money or other damages resulting from the access and use of Signature Proof of Delivery and that Alpaca hereby disclaims liability for any such damage; and, (vi) that your actions and shipments are further governed by, and you will comply with, the terms and conditions in the applicable Alpaca Service Guide or transportation agreement.
+                         
+                        
+                         
+                        Section 21. Alpaca Tracking Updates.
+                         
+                        In addition to the alpaca.cf Terms of Use, the following additional terms and conditions govern the access and use of this tracking update subscription application to request tracking information updates ("Tracking Updates"). Alpaca authorizes You to request Tracking Updates for a shipment for which You are the shipper, recipient or third-party payor and You agree to only request Tracking Updates for a shipment for which You are the shipper, recipient, or third-party payor subject to these Terms and Conditions. You acknowledge and agree that Tracking Updates are the private property of Alpaca, are provided to You free of charge and that any use of Tracking Updates information is at Your sole risk. Tracking Updates are provided "AS IS" and Alpaca disclaims all Warranties or conditions, Express or Implied.
+                         
+                        
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" role="tab" id="headingThree">
+                    <h5 class="mb-0">
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Privacy
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="card-block">
+                        THE FOLLOWING PRIVACY POLICY APPLIES TO ALL USERS OF WWW.Alpaca.cf AND ITS ASSOCIATED WEBSITES, FEATURES, CONTENT, MATERIALS, APPS, PRODUCTS AND/OR SERVICES (COLLECTIVELY, THE “WEBSITE”), WHICH IS OWNED AND/OR OPERATED BY NGDD (“NGDD,” “US” OR “WE”). PLEASE READ IT CAREFULLY SINCE IT DESCRIBES THE TYPES OF INFORMATION WE COLLECT, HOW WE COLLECT AND USE INFORMATION, THE CIRCUMSTANCES IN WHICH WE DISCLOSE OR SHARE INFORMATION AND HOW YOU CAN ACCESS, UPDATE OR DELETE CERTAIN INFORMATION WE HAVE COLLECTED ABOUT YOU.
+                         
+                        IF YOU DO NOT ACCEPT THIS PRIVACY POLICY, DO NOT USE THE WEBSITE. WHEN YOU USE THE WEBSITE, YOU UNDERSTAND THAT WE MAY COLLECT, USE AND DISCLOSE DATA AND RELATED INFORMATION ABOUT YOU IN VARIOUS WAYS AS OUTLINED IN THE PRIVACY POLICY.
+                         
+                        WHAT INFORMATION DO WE COLLECT?
+                         
+                        We and any third party we engage for the purpose of administering, operating, hosting, configuring, designing, maintaining and providing internal support for our Website (collectively, the “operational service providers”) collect certain non-personally identifiable information from you when you visit our Website (see Do you use cookies? below).
+                         
+                        We only collect Personal Information (defined below) from you when you submit it to us or provide it to us, such as when you email us, sign up to our newsletter or when you make a purchase on our online store located on or through the Website (the “Store”). We use the term “Personal Information” to refer to any information you provide in connection with your use of our Website by which you can be personally identified. When you use our Website, we may collect your name, street address, telephone number, e-mail address, and billing information.
+                         
+                        Unless you voluntarily provide or send us Personal Information, we will always ask you to submit or provide it to us before collecting your Personal Information. If you provide or submit your Personal Information to us we will provide you with the ability to review, update and/or delete your Personal Information, subject to our obligations to comply with legal, regulatory, internal audit and record-keeping requirements.
+                         
+                        HOW DO WE USE YOUR INFORMATION?
+                         
+                        Any of the information we collect from you may be used to:
+                         
+                        – Respond to your request and/or to complete your purchase;
+                        – Personalize your experience (your information helps us to better respond to your individual needs);
+                        – Improve, diagnose, and support our Website (we continually strive to improve our Website offerings based on the information and feedback we receive from you), including by monitoring which features of the Website are used most to allow us to determine which features we need to focus on improving;
+                        – Improve customer service (your information helps us to more effectively respond to your customer service requests and support needs);
+                        – Allow you to evaluate your eligibility for products or services on the Website;
+                        – Administer a contest, promotion, survey or other Website features; and/or
+                        – Send periodic communications (such as to respond to inquiries, requests or to provide you with newsletters or other updates).
+                         
+                        Note: If at any time you would like to unsubscribe from receiving future promotional email communications, we include detailed unsubscribe instructions at the bottom of each promotional email.
+                         
+                        We may also send you strictly service-related communications on rare occasions when it is necessary to do so. For instance, if our service is temporarily suspended for maintenance or if you make a purchase on our Website, we might send you an email. Generally, you may unsubscribe out of these service-related communications, which are not promotional in nature.
+                         
+                        HOW DO WE PROTECT YOUR INFORMATION?
+                         
+                        We maintain commercially reasonable standards of security and confidentiality. We also try to limit information access to individuals who need to have such access to perform their responsibilities associated with our Website and the content on our Website. However, the Internet and communications cannot be guaranteed to be secure and it is possible that others may unlawfully intercept or access information, transmissions or communications to, from or within our Website. As such, we cannot guarantee the security of our online database, nor can we guarantee that information you supply won’t be intercepted while being transmitted to us over the Internet, and any information you transmit to NGDD you do at your own risk. If you share your password or Personal Information with others, you are responsible for all actions taken in the name of your account.
+                         
+                        DO WE USE COOKIES AND RELATED TECHNOLOGIES?DO WE DISCLOSE ANY INFORMATION TO THIRD PARTIES?
+                         
+                        We do not sell, rent, lease, provide or otherwise disclose your Personal Information to unaffiliated entities. We will always let you know if we intend to provide any of your Personal Information to an unaffiliated third party or a party not helping us provide the services offered through the Website, and we will ask you to consent (“opt-in”) whenever we intend to do so.
+                         
+                        We may employ operational service providers to facilitate our provision of the Website, to provide the Website on our behalf, provide customer support, perform Website -related services (e.g., maintenance services, database management, web analytics and improvement of the Website’s features) or to assist us in analyzing how our Website are used. We always have the right to disclose your Personal Information to our operational service providers. Our policy is to request that our operational service providers protect your privacy and not disclose your Personal Information to third party marketers that are not associated with our Website, nor are they permitted to use your Personal Information for their own marketing or promotional purposes. If you choose to purchase merchandise, products and/or services, on or through features on the Website including through the Store, we may forward your information to third parties (e.g., Merch Direct) for services such as credit card or other payment processing, order fulfillment, credit pre-authorization, and address verification. There are also times when you provide information about yourself to us in areas of the Website that may be managed or participated in by third parties. In such cases, the information may be used by us and by such third parties, each pursuant to its own policies.
+                         
+                        You agree that we may also make your Personal Information available:
+                         
+                        – When we are compelled by a governmental agency, law, regulation, a court or other legal process;
+                        – If we believe you are, have or may violate any law, regulation, our Terms and Conditions;
+                        – If we believe you are or may be a threat to safety, property, interests or rights of us or others;
+                        – In order to investigate, respond to or resolve problems or inquiries or defend our interests; and/or
+                        – In a merger, acquisition, sale of all or a substantial portion of our assets, change of control, joint venture, bankruptcy, liquidation, or other business combination.
+                         
+                        We reserve the right to disclose your non-personally identifiable visitor information (including in an aggregated format) to third parties for marketing, advertising, or other uses.
+                         
+                        THIRD PARTY LINKS
+                         
+                        Our Website may contain or display information from advertisers, operational service providers or other third parties that offer to make information, goods or services available, provide opportunities to participate in promotions or engage in activities or that link or redirect your browser to other websites, materials or organizations. We may also use third parties to display or serve advertising on our Website, as well as for distributing our online, email, messages or web-based newsletters and other information. Third parties often also employ cookies to measure advertising effectiveness. You should be aware that even if you encounter an advertisement, link or reference to a Third Party Website on our Website and even if we have a relationship with them, we do not control them, their websites or their policies and practices regarding use of their websites, transaction policies or any rules they have regarding the use of cookies or collection, use or disclosure of your information (including Personal Information). These are within their control and not ours and the terms and conditions, as well as the privacy policies that apply to these third parties and their websites are their responsibility. We have no responsibility or liability for the content and activities of Third Party Websites.
+                         
+                        CHILDREN’S PRIVACY AND PARENTAL CONTROLS
+                         
+                        We do not knowingly collect or solicit any Personal Information from children under the age of 13. If you are under 18, you are not authorized to use our Website without express permission from your parent or legal guardian. Parents and legal guardians should be aware that there are parental control tools available online that you can use to prevent your children from submitting information online without parental permission or from accessing material that is harmful to minors.
+                         
+                        ONLINE PRIVACY POLICY ONLY
+                         
+                        This online Privacy Policy applies only to information collected through our Website and not to information collected offline.
+                         
+                        TERMS AND CONDITIONS
+                         
+                        Please also visit our Terms and Conditions establishing the use, disclaimers, and limitations of liability governing the use of our Website.
+                         
+                        YOUR CALIFORNIA PRIVACY RIGHTS
+                         
+                        California Civil Code Section 1798.83, allows individuals who are California residents that have provided their personal information to us to request certain information about our disclosures of certain categories of Personal Information (if any) to third parties for their direct marketing purposes during the immediately preceding year. We do not currently share any Personal Information with third parties for their direct marketing purposes. To make a request about our disclosures of certain categories of Personal Information (if any) to third parties for their direct marketing purposes, please contact us at info@NGDD-ent.cf or the other contact information provided below.
+                         
+                        USERS OUTSIDE THE UNITED STATES
+                         
+                        This Privacy Policy is intended to cover collection of information from residents of the United States. The Website and the services upon which the Website is hosted are located in the United States. Personal Information you submit using the Website will be transferred to and stored in the United States. By visiting the Website and submitting Personal Information, you authorize this transfer.
+                         
+                        CHANGES TO OUR PRIVACY POLICY
+                         
+                        If we decide to change our Privacy Policy, we will post those changes on this page, send an email notifying you of any changes (if you have provided us with your email), and/or update the Privacy Policy modification “Last Update” date listed at the top of this page. We encourage you to periodically review this page for the latest information on our privacy practices.
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="inlineFormInputGroup">First name&hellip;</label>
-              <div class="col-12 input-group">
-                <input class="form-control" type="email" placeholder="First name" id="example-email-input" formControlName="firstname" [(ngModel)]="firstname"/>
-                <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="inlineFormInputGroup">Last name&hellip;</label>
-              <div class="col-12 input-group">
-                <input class="form-control" type="email" placeholder="Last name" id="example-email-input" formControlName="lastname" [(ngModel)]="lastname"/>
-                <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
-
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-12 input-group">
-                <input class="form-control" type="password" placeholder="Password" id="example-password-input" formControlName="password" [(ngModel)]="password" (keyup.enter)="signup()"/>
-                <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
-              </div>
-            </div>
-            <div class="form-group col-12">
-              <label class="btn btn-browse">
-              Upload profile photo <input type="file" style="display: none;" class="form-control-file" (change)="detectFiles($event)">
-          </label>
-            </div>
-            <button type="submit" class="btn btn-primary" (click)="signup()">Submit</button>
-          </form>
-          <hr> -->
+              <hr>
         </div>
         <div class="modal-footer">
           <p>Already have an Alpaca account? <a href="#log-in-modal" data-toggle="modal" data-target="#log-in-modal" data-dismiss="modal">Log in</a></p>
