@@ -8,52 +8,17 @@ footer {
     margin-top: 4rem !important;
   }
   
-  footer p {
-    margin-bottom: .25rem;
-  }
-  
-  #pacafooter {
+#pacafooter {
     background-color: #3b3d40;
     color: #616161 !important;
     padding-top: 30px;
 }
 
-#pacafooter .footer-copyright {
-    text-align: center;
-}
-
-#pacafooter .row {
-    margin-bottom: 60px;
-}
-
-#pacafooter .navbar-brand {
-    margin-top: 45px;
-    height: 65px;
-}
-
-#pacafooter .footer-copyright p {
-    margin: 10px;
-    color: #616161 !important;
-}
-
 #pacafooter ul {
     list-style-type: none;
     display: inline;    
-    padding-left: 0;
-    line-height: 4;
-}
-
-#pacafooter h5 {
-    font-size: 18px;
-    color: #616161 !important;
-    font-weight: bold;
-    margin-top: 30px;
-}
-
-#pacafooter h2 a{
-    font-size: 50px;
-    text-align: center;
-    color: #fff;
+    overflow: hidden;
+    align-content: center;
 }
 
 #pacafooter a {
@@ -68,48 +33,12 @@ footer {
 #pacafooter a:hover,
 #pacafooter a:focus {
     text-decoration: none;
-    color: white !important;
+    color: #a6a6a6 !important;
 }
-
-#pacafooter .social-networks {
-    text-align: center;
-    padding-top: 30px;
-    padding-bottom: 16px;
-}
-
-#pacafooter .social-networks a {
-    font-size: 20px;
-    color: #616161 !important;
-    padding: 10px;
-    transition: 0.2s;
-}
-
-#pacafooter .social-networks a:hover {
-    text-decoration: none;
-}
-
-
-@media screen and (max-width: 767px) {
-    #pacafooter {
-        text-align: center;
-    }
-}
-#pacafooter ul {
-  list-style-type: none;
-  display: inline;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  align-content: center;
-}
-
 #pacafooter li {
-  float: left;
-}
+    padding-top: 1.25rem;
+    float: right;
+    padding-left: 1rem;
+  }
+  
 
-#pacafooter li a {
-  display: block;
-  text-align: center;
-  padding: 10px;
-  text-decoration: none;
-}
