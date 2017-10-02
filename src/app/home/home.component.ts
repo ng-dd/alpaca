@@ -6,6 +6,7 @@ import { UserService } from '../services/user.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+// import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -40,15 +41,19 @@ export class HomeComponent implements OnInit {
     private fb: FormBuilder, 
     private afAuth: AngularFireAuth,
     private route: ActivatedRoute,
-    private router: Router) { 
+    private router: Router,
+    // public mr: NgbModalRef
+  ) { 
     this.rForm = fb.group({
       'firstname': [null, Validators.required],
       'lastname': [null, Validators.required],
       'email': [null, Validators.compose([Validators.required, Validators.pattern("[^ @]*@[^ @]*")])],
       'password': [null, Validators.compose([Validators.required, Validators.minLength(8)])]
     })
-    afAuth.auth.onAuthStateChanged((res)=>{
+    afAuth.auth.onAuthStateChanged((res)=> {
+      console.log('Auth state changed');
       if (res.uid){
+        console.log(document.getElementById('close'));
         document.getElementById('close').click()
         this.router.navigate(['/dashboard'])
       }
@@ -91,6 +96,7 @@ export class HomeComponent implements OnInit {
   signup(): void {
     console.log(this.email, this.password, this.firstname, this.lastname, this.upload, this.unsavedTrack)
     this.authService.signup(this.email, this.password, this.firstname, this.lastname, this.upload, this.unsavedTrack)
+    // this.mr.close()
   }
 
   detectFiles(event) {

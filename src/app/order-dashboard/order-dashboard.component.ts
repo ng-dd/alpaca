@@ -7,6 +7,7 @@ import { Upload } from '../shared/upload';
 import { FirebaseListObservable } from 'angularfire2/database'; 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { UserService } from '../services/user.service';
+// import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 // => Do we need to import every time or just once in app component?
 // => answer: Everytime you want to use it in a specific component, yes, and overall in app package. -N
@@ -28,12 +29,17 @@ export class OrderDashboardComponent implements OnInit {
   key: string;
   userInfo: User = new User();
 
-  constructor(private orderService: OrderService, private authService: AuthService, private afAuth: AngularFireAuth, private userService: UserService) {
+  constructor(
+    private orderService: OrderService, 
+    private authService: AuthService, 
+    private afAuth: AngularFireAuth, 
+    private userService: UserService,
+  ) {
 
   }
 
   ngOnInit() {
-
+    // document.getElementById('close').click()
     this.afAuth.auth.onIdTokenChanged(user => {
       if(user) {
         this.getList()
@@ -65,12 +71,13 @@ export class OrderDashboardComponent implements OnInit {
   }
 
   updateAll() {
-    this.userInfo.address = this.address;
+    this.userInfo.address = this.address ? this.address : null;
     this.userInfo.firstname = this.firstName;
-    this.userInfo.lastname = this.lastName;
+    this.userInfo.lastname = this.lastName ? this.lastName : null;
     this.userInfo.email = this.email;
 
-    this.afAuth.auth.currentUser.updatePassword(this.password); //need another login prior to updating password
+    console.log('User info being updated to: ', this.userInfo);
+    // this.afAuth.auth.currentUser.updatePassword(this.password); //need another login prior to updating password
   
     this.userService.updateUserAllProperties(this.key, this.userInfo, this.upload);
   }
