@@ -18,6 +18,12 @@
   .carousel-caption {
     top: 6rem;
     z-index: 10;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .carousel-caption-weight {
+    font-family: 'soleil', sans-serif;
+    font-weight: 800 !important;
+    padding-bottom: 2rem;
   }
   
   /* Declare height of profile welcome because of positioning of img element */
@@ -83,12 +89,35 @@ a:hover, a:focus {
   font-weight: 100;
   line-height: 1;
   letter-spacing: -.05rem;
+  padding-right:10px;
+  font-size: 20px;
     font-family: 'Open Sans', sans-serif;
 }
 @media (min-width: 40em) {
   .dash-light {
-    font-size: 40px;
+    font-size: 20px;
+    padding-right:10px;
+    
   }
 }
 
 
+.btn-all {
+  color: #f74d62 !important;
+    margin-left:20px;
+    cursor: pointer !important;
+    -webkit-transition: background 0.3s, border-color 0.3s !important;
+    -moz-transition: background 0.3s, border-color 0.3s !important;
+    transition: background 0.3s, border-color 0.3s !important;
+    position: relative !important;
+    display: inline-block !important;
+    text-align: center !important;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border: 3px solid #f74d62 !important;
+    border-radius: 4px !important;
+    font-family: 'soleil',Helvetica Neue,sans-serif !important;
+    letter-spacing: undefined !important;
+    font-weight: 700 !important;
+    background: white !important;
+}
