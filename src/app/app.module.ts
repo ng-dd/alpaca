@@ -30,6 +30,7 @@ import { HomeComponent } from './home/home.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { FooterComponent } from './footer/footer.component';
+import { ArchiveComponent } from './archive/archive.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { FooterComponent } from './footer/footer.component';
     UserComponent,
     HomeComponent,
     ForgotPasswordComponent,
-    FooterComponent
+    FooterComponent,
+    ArchiveComponent
   ],
   imports: [
     RoutingModule,
