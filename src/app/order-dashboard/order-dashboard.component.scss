@@ -1,12 +1,7 @@
-/* CUTE PROFILE TOP
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
-  
-  
-/* CUSTOMIZE THE CAROUSEL
+/* PROFILE HEADER
  -------------------------------------------------- */
   
-  /* Carousel base class */
+  /* Profile base class */
   .carousel {
   margin-bottom: 4rem;
   background: linear-gradient(-45deg, #fff9d1, #febeae, #b9f2f7,  #06c8d9);
@@ -29,13 +24,11 @@
   .carousel-item {
     height: 20rem;
 }
-  
-  
-/* RESPONSIVE CSS
--------------------------------------------------- */
+
+  /* Make our profile responsive */
   
   @media (min-width: 40em) {
-    /* Bump up size of carousel content */
+    /* Bump up size of profile content */
     .carousel-caption p {
       margin-bottom: 1.25rem;
       font-size: 1.25rem;
@@ -45,3 +38,32 @@
   }
 
   
+.bg-dark {
+    background-color: #3b3d40 !important;
+    color: #616161 !important;
+    text-decoration: none;
+    font-family: 'soleil', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+.navbar-dark .navbar-nav .active>.nav-link {
+  color: #fff;
+}
+.navbar-dark .navbar-nav .hover>.nav-link {
+  color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #616161;
+  text-decoration: none;
+  font-family: 'soleil', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+}
+a:hover, a:focus {
+    text-decoration: none;
+    color: white !important;
+}
+
