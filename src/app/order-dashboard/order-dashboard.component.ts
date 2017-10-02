@@ -48,7 +48,7 @@ export class OrderDashboardComponent implements OnInit {
     if (document.getElementsByClassName('modal-backdrop').length >= 1){
       setTimeout(function() {
         location.reload();
-      }, 2000);
+      }, 1000);
     }
 
     this.afAuth.auth.onIdTokenChanged(user => {
