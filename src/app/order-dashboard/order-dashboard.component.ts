@@ -28,6 +28,9 @@ export class OrderDashboardComponent implements OnInit {
   upload: Upload;
   key: string;
   userInfo: User = new User();
+  imageUrl: string;
+  reader: FileReader = new FileReader();
+  url: string;
 
   constructor(
     private orderService: OrderService, 
@@ -36,7 +39,6 @@ export class OrderDashboardComponent implements OnInit {
     private userService: UserService,
     private router: Router,
   ) {
-
   }
 
   ngOnInit() {
@@ -44,7 +46,9 @@ export class OrderDashboardComponent implements OnInit {
       this.router.navigate(['/']);
     }
     if (document.getElementsByClassName('modal-backdrop').length >= 1){
-      location.reload();
+      setTimeout(function() {
+        location.reload();
+      }, 2000);
     }
 
     this.afAuth.auth.onIdTokenChanged(user => {
@@ -61,7 +65,9 @@ export class OrderDashboardComponent implements OnInit {
         this.lastName = userData.lastname;
         this.email = userData.email;
         this.address = userData.address;
-        this.key = userData.key
+        this.key = userData.key;
+        this.imageUrl = userData.imageUrl;
+        this.url = this.imageUrl;
       })
     })
     // may need to define some static thing to order
@@ -76,7 +82,18 @@ export class OrderDashboardComponent implements OnInit {
 
   detectFiles(event) {
     this.selectedFiles = event.target.files;
+
     this.upload = new Upload(this.selectedFiles.item(0))
+  }
+
+  readUrl(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
   updateAll() {

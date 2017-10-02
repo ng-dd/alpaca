@@ -121,3 +121,13 @@ a:hover, a:focus {
     font-weight: 700 !important;
     background: white !important;
 }
+
+.profile-image-circle-crop {
+  width: 60px;
+  height: 60px;
+   background-size: cover;
+  border-radius: 50%;
+  z-index: 1;
+  margin-top: 2rem;
+
+}

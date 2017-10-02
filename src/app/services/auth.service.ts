@@ -65,6 +65,7 @@ export class AuthService {
           address: null,
         })
         this.confirmEmail();
+        console.log('from inside signup service, key: ', value.uid)
         this.uploadService.pushUpload(value.uid, upload);
         if (order) {
           console.log('adding order: ', order)
