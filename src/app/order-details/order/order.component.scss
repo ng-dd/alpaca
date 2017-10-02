@@ -102,3 +102,31 @@ $button-attention-pink: #f74d62;
   align-items: center;
   justify-content: center;
 }
+
+/* Button Styling */
+.btn-details {
+  color: white !important;
+  margin-top: 20px;
+    margin-bottom: 10px;
+    cursor: pointer !important;
+    -webkit-transition: background 0.3s, border-color 0.3s !important;
+    -moz-transition: background 0.3s, border-color 0.3s !important;
+    transition: background 0.3s, border-color 0.3s !important;
+    position: relative !important;
+    display: inline-block !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    border: 2px solid transparent !important;
+    border-radius: 4px !important;
+    width: 20px !important;
+    font-family: 'soleil',Helvetica Neue,sans-serif !important;
+    font-size: 19px !important;
+    line-height: 22px !important;
+    letter-spacing: undefined !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    font-weight: 700 !important;
+    padding-right: 24px !important;
+    padding-left: 24px !important;
+    background: #f74d62 !important;
+}
