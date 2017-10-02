@@ -96,29 +96,33 @@
 <!-- Order Dashboard -->
 <div class="dashboard">
   
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img class="second-slide" alt="Second slide">
-              <div class="container">
-                <div class="carousel-caption">
-                  <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Sanders_Circle.png/480px-Sanders_Circle.png" style="width: 60px; height: 60px;" /></p>
-                  <h1>Welcome back, {{firstName}}.</h1>
-                </div>
-              </div>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+          <div class="container">
+            <div class="carousel-caption">
+              <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Sanders_Circle.png/480px-Sanders_Circle.png" style="width: 60px; height: 60px;" /></p>
+              <h1>Welcome back, {{firstName}}.</h1>
             </div>
           </div>
-  </div>
-  <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-8">
-          <h2 class="featurette-heading">Your Orders</h2>
         </div>
-        <div class="col-md-4">
-          <h2 class="featurette-heading">{{orders.length}} Orders<button type="button" class="btn btn-woah">See All</button></h2>
-        </div>
-        <app-order></app-order>
-        <app-add-order-dashboard></app-add-order-dashboard> 
       </div>
     </div>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Your Orders</h2>
+        </div>
+        <div class="col-md-4">
+          <h2>{{orders.length}} Orders<button type="button" class="btn btn-woah">See All</button></h2>
+        </div>
+      </div>
+    </div>
+  <div class="container-fluid">
+      <app-order></app-order>
+      
+  </div>
+  <div class="container">
+        <app-add-order-dashboard></app-add-order-dashboard> 
+  </div>
 </div>
