@@ -47,11 +47,8 @@
     text-transform: uppercase;
     letter-spacing: .1rem;
 }
-.navbar-dark .navbar-nav .active>.nav-link {
-  color: #fff;
-}
 .navbar-dark .navbar-nav .hover>.nav-link {
-  color: #fff;
+  color: #a6a6a6;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -64,6 +61,34 @@
 }
 a:hover, a:focus {
     text-decoration: none;
-    color: white !important;
+    color: #a6a6a6 !important;
 }
+
+
+/* Dash Titles
+------------------------- */
+.dash-heading {
+  font-weight: 800;
+  line-height: 1;
+  color: #484848 !important;
+  letter-spacing: -.05rem;
+    font-family: 'soleil', sans-serif;
+}
+@media (min-width: 40em) {
+  .dash-heading {
+    font-size: 40px;
+  }
+}
+.dash-light {
+  font-weight: 100;
+  line-height: 1;
+  letter-spacing: -.05rem;
+    font-family: 'Open Sans', sans-serif;
+}
+@media (min-width: 40em) {
+  .dash-light {
+    font-size: 40px;
+  }
+}
+
 
