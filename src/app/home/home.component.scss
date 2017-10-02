@@ -20,7 +20,10 @@
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
   line-height: 1.5;
-	-webkit-font-smoothing: antialiased;
-  box-shadow: 0 2px 3px 0 rgba(0,0,0,.075);
+  -webkit-font-smoothing: antialiased;
+  border-radius: 0;
 }
 
+.col-xs-12 {
+  display: none;
+}

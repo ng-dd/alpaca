@@ -26,6 +26,9 @@ export class OrderComponent {
     this.currentOrder = item;
     console.log(item)
   }
+  delete(item) {
+    this.orderService.deleteOrder(item);
+  }
 
   ngOnInit() {
 
