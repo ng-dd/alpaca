@@ -1,0 +1,133 @@
+/* PROFILE HEADER
+ -------------------------------------------------- */
+  
+  /* Profile base class */
+  .carousel {
+    margin-bottom: 4rem;
+    background: linear-gradient(-45deg, #fff9d1, #febeae, #b9f2f7,  #06c8d9);
+      background-size: 400% 400%;
+      -webkit-animation: Gradient 15s ease infinite;
+      -moz-animation: Gradient 15s ease infinite;
+      animation: Gradient 15s ease infinite;
+    line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.075);
+  }
+  
+    /* Since positioning the image, we need to help out the caption */
+    .carousel-caption {
+      top: 6rem;
+      z-index: 10;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .carousel-caption-weight {
+      font-family: 'soleil', sans-serif;
+      font-weight: 800 !important;
+      padding-bottom: 2rem;
+    }
+    
+    /* Declare height of profile welcome because of positioning of img element */
+    .carousel-item {
+      height: 20rem;
+  }
+  
+    /* Make our profile responsive */
+    
+    @media (min-width: 40em) {
+      /* Bump up size of profile content */
+      .carousel-caption p {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+        line-height: 1.4;
+      }
+    
+    }
+  
+    
+  .bg-dark {
+      background-color: #3b3d40 !important;
+      color: #616161 !important;
+      text-decoration: none;
+      font-family: 'soleil', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1rem;
+  }
+  .navbar-dark .navbar-nav .hover>.nav-link {
+    color: #a6a6a6;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    color: #616161;
+    text-decoration: none;
+    font-family: 'soleil', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+  }
+  a:hover, a:focus {
+      text-decoration: none;
+      color: #a6a6a6 !important;
+  }
+  
+  
+  /* Dash Titles
+  ------------------------- */
+  .dash-heading {
+    font-weight: 800;
+    line-height: 1;
+    color: #484848 !important;
+    letter-spacing: -.05rem;
+      font-family: 'soleil', sans-serif;
+  }
+  @media (min-width: 40em) {
+    .dash-heading {
+      font-size: 40px;
+    }
+  }
+  .dash-light {
+    font-weight: 100;
+    line-height: 1;
+    letter-spacing: -.05rem;
+    padding-right:10px;
+    font-size: 20px;
+      font-family: 'Open Sans', sans-serif;
+  }
+  @media (min-width: 40em) {
+    .dash-light {
+      font-size: 20px;
+      padding-right:10px;
+      
+    }
+  }
+  
+  
+  .btn-all {
+    color: #f74d62 !important;
+      margin-left:20px;
+      cursor: pointer !important;
+      -webkit-transition: background 0.3s, border-color 0.3s !important;
+      -moz-transition: background 0.3s, border-color 0.3s !important;
+      transition: background 0.3s, border-color 0.3s !important;
+      position: relative !important;
+      display: inline-block !important;
+      text-align: center !important;
+      text-transform: uppercase;
+      text-decoration: none !important;
+      border: 3px solid #f74d62 !important;
+      border-radius: 4px !important;
+      font-family: 'soleil',Helvetica Neue,sans-serif !important;
+      letter-spacing: undefined !important;
+      font-weight: 700 !important;
+      background: white !important;
+  }
+  #user-settings {
+    background: linear-gradient(-45deg, #fff9d1, #febeae, #b9f2f7,  #06c8d9);
+      background-size: 400% 400%;
+      -webkit-animation: Gradient 15s ease infinite;
+      -moz-animation: Gradient 15s ease infinite;
+      animation: Gradient 15s ease infinite;
+    line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.075);
+  }

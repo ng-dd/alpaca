@@ -28,20 +28,20 @@
      </div>
     <div class="modal-body">
        <div class="row">
-          <div class="col-md-6">
-              <img class="order-detail-circle-crop" src="{{currentOrder.serviceImg}}" />
-          <div *ngIf="currentOrder" class="col-md-6">
-            <p> Info nickname: {{currentOrder.ordername}}</p>
-            <p> Info Date for arrival: {{currentOrder.deliveryDate}} </p>
-            <p> Current Status: {{currentOrder.status}} </p>
-            <p> Current Location: {{currentOrder.currentLocation}} </p>
-            <p> Carrier: {{currentOrder.service}} </p>
-            <p> Store: {{currentOrder.store}} </p>   
+          <div class="col-md-12 col-sm-6 col-xs-6">
+          <img class="view-detail-circle-crop" src="{{currentOrder.serviceImg}}" />
+          </div>
+          <div *ngIf="currentOrder" class="col-md-12 col-sm-6 col-xs-6">
+            <h4 class="details-title">{{currentOrder.ordername}}</h4>
+            <h6 class="text-muted-details">ETA: {{currentOrder.deliveryDate}} </h6>
+            <h6 class="text-muted-details">Order Status: {{currentOrder.status}} </h6>
+            <h6 class="text-muted-details">Current Location: {{currentOrder.currentLocation}} </h6>
+            <h6 class="text-muted-details">Carrier: {{currentOrder.service}} </h6>
+            <h6 class="text-muted-details">Store: {{currentOrder.store}} </h6>   
           </div>
         </div>        
       </div>
       <div class="modal-footer">
-<p>return</p>
       </div>
     </div>
   </div>

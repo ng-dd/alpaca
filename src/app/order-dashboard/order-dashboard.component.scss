@@ -121,7 +121,16 @@ a:hover, a:focus {
     font-weight: 700 !important;
     background: white !important;
 }
-
+#user-settings {
+  background: linear-gradient(-45deg, #fff9d1, #febeae, #b9f2f7,  #06c8d9);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+  line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,.075);
+}
 .profile-image-circle-crop {
   width: 60px;
   height: 60px;
